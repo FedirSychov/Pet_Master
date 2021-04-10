@@ -34,6 +34,7 @@ class Disease {
         return "Болезнь: \(self.name), дата: \(self.data_of_disease))"
     }
 }
+
 //класс прививок
 class Vaccination {
     var name: String
@@ -64,6 +65,7 @@ class Vaccination {
         }
     }
 }
+
 //класс события в жизни питомца
 class Event {
     var name: String
@@ -82,6 +84,7 @@ class Event {
         self.description = descr
     }
 }
+
 //класс домашнего животного
 class Animal {
     var name: String
