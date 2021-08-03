@@ -20,6 +20,8 @@
 		7E6E034E2605EDD60015571B /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E034D2605EDD60015571B /* Animals.swift */; };
 		7E724DE626B95F640002AD4A /* VaccinationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DE526B95F640002AD4A /* VaccinationsTableViewController.swift */; };
 		7E724DE826B964960002AD4A /* AddVaccinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DE726B964960002AD4A /* AddVaccinationViewController.swift */; };
+		7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DE926B9DE710002AD4A /* DiseasesTableViewController.swift */; };
+		7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DEB26B9DE900002AD4A /* AddDiseaseViewController.swift */; };
 		7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */; };
 		7EC5555726B3FC300054F314 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555626B3FC300054F314 /* SettingsViewController.swift */; };
 		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
@@ -65,6 +67,8 @@
 		7E6E034D2605EDD60015571B /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		7E724DE526B95F640002AD4A /* VaccinationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsTableViewController.swift; sourceTree = "<group>"; };
 		7E724DE726B964960002AD4A /* AddVaccinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationViewController.swift; sourceTree = "<group>"; };
+		7E724DE926B9DE710002AD4A /* DiseasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesTableViewController.swift; sourceTree = "<group>"; };
+		7E724DEB26B9DE900002AD4A /* AddDiseaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiseaseViewController.swift; sourceTree = "<group>"; };
 		7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTableViewController.swift; sourceTree = "<group>"; };
 		7EC5555626B3FC300054F314 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
@@ -137,10 +141,10 @@
 		7E6E03192605EDB40015571B /* PetMaster */ = {
 			isa = PBXGroup;
 			children = (
+				7E6E03202605EDB40015571B /* Main.storyboard */,
 				7E6E034D2605EDD60015571B /* Animals.swift */,
 				7E6E031C2605EDB40015571B /* SceneDelegate.swift */,
 				7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */,
-				7E6E03202605EDB40015571B /* Main.storyboard */,
 				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
 				7E6E03282605EDB50015571B /* Info.plist */,
 				7E6E03232605EDB50015571B /* Assets.xcassets */,
@@ -172,6 +176,8 @@
 			children = (
 				7E724DE526B95F640002AD4A /* VaccinationsTableViewController.swift */,
 				7E724DE726B964960002AD4A /* AddVaccinationViewController.swift */,
+				7E724DE926B9DE710002AD4A /* DiseasesTableViewController.swift */,
+				7E724DEB26B9DE900002AD4A /* AddDiseaseViewController.swift */,
 			);
 			path = OtherAnimalInfoVCs;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 			files = (
 				7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */,
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
+				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
+				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,
 				7E10536D269E327600C5AA7A /* animalImage.swift in Sources */,
 				7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */,
 				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,

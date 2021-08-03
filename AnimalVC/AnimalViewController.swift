@@ -42,6 +42,10 @@ class AnimalViewController: UIViewController {
                 vaccVC.currentAnimal = self.currentAnimal
             }
             //TODO: - segue for others
+        case "goToDiseasesVC":
+            if let vaccVC = segue.destination as? DiseasesTableViewController{
+                vaccVC.currentAnimal = self.currentAnimal
+            }
         default:
             break
         }

@@ -28,6 +28,8 @@ class AddVaccinationViewController: UIViewController {
         }
     }
     @IBAction func SaveVaccination(_ sender: Any) {
+        if (VaccName.text != ""){
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
         var dateTxt = ""
@@ -49,6 +51,7 @@ class AddVaccinationViewController: UIViewController {
                 }
                 num += 1
             }
-        
+        }
+        navigationController?.popViewController(animated: true)
     }
 }

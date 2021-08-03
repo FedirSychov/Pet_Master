@@ -25,6 +25,7 @@ class AddAnimalViewController: UIViewController {
     }
     
     @IBAction func AddAnimalButton(_ sender: Any) {
+        //TODO: - Add checking for alredy existed animals
         if (NameTextField.text != "" && TypeTextField.text != "" && breedTextField.text != "") {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
