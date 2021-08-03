@@ -8,9 +8,6 @@
 import UIKit
 
 class AnimalViewController: UIViewController {
-
-    var name: String = ""
-    var breed: String = ""
     
     var currentAnimal: Animal?
     
@@ -25,7 +22,7 @@ class AnimalViewController: UIViewController {
         super.viewDidLoad()
         
         for animal in Saved.shared.currentSaves.animals{
-            if self.name == animal.name
+            if self.currentAnimal?.showInfo() == animal.showInfo()
                 //&& self.breed == animal.animal_breed
             {
                 currentAnimal = animal

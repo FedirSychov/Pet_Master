@@ -14,12 +14,22 @@ class VaccinationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         data = currentAnimal!.vaccinations_list
         self.tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToAddVacc":
+            if let addVaccVC = segue.destination as? AddVaccinationViewController{
+                addVaccVC.currentAnimal = self.currentAnimal!
+            }
+        default:
+            break
+        }
     }
 }
 

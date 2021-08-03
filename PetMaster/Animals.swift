@@ -45,13 +45,11 @@ class Vaccination: Codable {
         let data_f = DateFormatter()
         data_f.dateFormat = "dd-MM-yyyy"
         data_f.timeZone = TimeZone(abbreviation: "GMT+0:00")
-        guard let my_date = data_f.date(from: date!) else {
-            fatalError()
-        }
+        let my_date = data_f.date(from: date!)
         if date == nil {
             self.date = Date()
         } else {
-            self.date = my_date
+            self.date = my_date!
         }
         self.name = name
         self.description = descrpit
@@ -130,10 +128,10 @@ class Animal: Codable {
     func showInfo() -> String {
         var all_info: String
         if self.animal_breed == nil {
-            all_info = "\(self.name), \(self.animal_age) years old, \(self.animal_type), status: "
+            all_info = "\(self.name), \(self.animal_type)"
         }
         else {
-        all_info = "\(self.name), \(self.animal_age) years old, \(self.animal_breed!), \(self.animal_type), status: "
+        all_info = "\(self.name), \(self.animal_breed!), \(self.animal_type)"
         }
 //        Перевод на человеческие годы, если это собака
         if self.animal_type == "dog" {

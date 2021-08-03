@@ -696,7 +696,7 @@
                     <navigationItem key="navigationItem" id="sXE-M2-CPe">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="ALX-X3-Zdw">
                             <connections>
-                                <segue destination="o8n-ul-piT" kind="show" id="Tpd-ms-F2s"/>
+                                <segue destination="o8n-ul-piT" kind="show" identifier="goToAddVacc" id="Tpd-ms-F2s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

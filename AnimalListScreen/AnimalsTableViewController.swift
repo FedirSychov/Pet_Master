@@ -10,8 +10,7 @@ import UIKit
 class AnimalsTableViewController: UITableViewController {
 
     var data:[Animal] = []
-    
-    var chosenName: String = ""
+    var currentAnimal: Animal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ class AnimalsTableViewController: UITableViewController {
         case "goToAnimalInfo":
             
             if let vc = segue.destination as? AnimalViewController{
-                vc.name = chosenName
+                vc.currentAnimal = self.currentAnimal
             }
         case "addNewAnimal":
             if let navVC = segue.destination as? UINavigationController, let newVC = navVC.topViewController as? AddAnimalViewController{
@@ -58,7 +57,7 @@ extension AnimalsTableViewController{
 
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        chosenName = data[indexPath.row].name
+        currentAnimal = data[indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
         return indexPath

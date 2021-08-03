@@ -14,10 +14,10 @@ class AddVaccinationViewController: UIViewController {
     @IBOutlet weak var VaccDate: UIDatePicker!
     @IBOutlet weak var DateSwitcher: UISwitch!
     
+    var currentAnimal: Animal?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func SwitchedDate(_ sender: UISwitch) {
@@ -28,13 +28,27 @@ class AddVaccinationViewController: UIViewController {
         }
     }
     @IBAction func SaveVaccination(_ sender: Any) {
-        if DateSwitcher.isOn {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
-            let dateTxt = dateFormatter.string(from: VaccDate.date)
-            let newVacc = Vaccination(name: VaccName.text!, descrpit: VaccDescription.text, date: dateTxt)
-            
-            //TODO: - saving vaccination
+        var dateTxt = ""
+        if DateSwitcher.isOn {
+            dateTxt = dateFormatter.string(from: Date())
+        } else{
+            dateTxt = dateFormatter.string(from: VaccDate.date)
         }
+
+            var num: Int = 0
+            for animal in Saved.shared.currentSaves.animals{
+                if animal.showInfo() == currentAnimal!.showInfo(){
+                    
+                    currentAnimal?.add_vaccination(vacc_name: VaccName.text!, vac_date: dateTxt, description: VaccDescription.text)
+                    
+                    Saved.shared.currentSaves.animals[num] = currentAnimal!
+                    print("AllIsOK")
+                    print(Saved.shared.currentSaves.animals[num].vaccinations_list.count)
+                }
+                num += 1
+            }
+        
     }
 }
