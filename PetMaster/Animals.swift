@@ -8,7 +8,7 @@
 import Foundation
 
 //класс болезни
-class Disease {
+class Disease: Codable {
     var name: String
     var description: String?
     var data_of_disease: Date
@@ -36,7 +36,7 @@ class Disease {
 }
 
 //класс прививок
-class Vaccination {
+class Vaccination: Codable {
     var name: String
     var description: String?
     var date: Date
@@ -67,7 +67,7 @@ class Vaccination {
 }
 
 //класс события в жизни питомца
-class Event {
+class Event: Codable {
     var name: String
     var date: Date
     var description: String?
@@ -86,7 +86,7 @@ class Event {
 }
 
 //класс домашнего животного
-class Animal {
+class Animal: Codable {
     var name: String
     var date_of_birth: Date
     var animal_age: Int

@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E10536D269E327600C5AA7A /* animalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10536C269E327600C5AA7A /* animalImage.swift */; };
+		7E105370269E346800C5AA7A /* AnimalImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E10536F269E346800C5AA7A /* AnimalImages.xcassets */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E031A2605EDB40015571B /* AppDelegate.swift */; };
 		7E6E031D2605EDB40015571B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E031C2605EDB40015571B /* SceneDelegate.swift */; };
-		7E6E031F2605EDB40015571B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E031E2605EDB40015571B /* ViewController.swift */; };
 		7E6E03222605EDB40015571B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E03202605EDB40015571B /* Main.storyboard */; };
 		7E6E03242605EDB50015571B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E03232605EDB50015571B /* Assets.xcassets */; };
 		7E6E03272605EDB50015571B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E03252605EDB50015571B /* LaunchScreen.storyboard */; };
 		7E6E03322605EDB50015571B /* PetMasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E03312605EDB50015571B /* PetMasterTests.swift */; };
 		7E6E033D2605EDB50015571B /* PetMasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E033C2605EDB50015571B /* PetMasterUITests.swift */; };
 		7E6E034E2605EDD60015571B /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E034D2605EDD60015571B /* Animals.swift */; };
+		7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */; };
+		7EC5555726B3FC300054F314 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555626B3FC300054F314 /* SettingsViewController.swift */; };
+		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
+		7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555B26B434CC0054F314 /* SavedAnimals.swift */; };
+		7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555E26B4746B0054F314 /* AnimalViewController.swift */; };
+		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E10536C269E327600C5AA7A /* animalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalImage.swift; sourceTree = "<group>"; };
+		7E10536F269E346800C5AA7A /* AnimalImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AnimalImages.xcassets; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E6E03172605EDB40015571B /* PetMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6E031A2605EDB40015571B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6E031C2605EDB40015571B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7E6E031E2605EDB40015571B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7E6E03212605EDB40015571B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E6E03232605EDB50015571B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E6E03262605EDB50015571B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +61,12 @@
 		7E6E033C2605EDB50015571B /* PetMasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetMasterUITests.swift; sourceTree = "<group>"; };
 		7E6E033E2605EDB50015571B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E6E034D2605EDD60015571B /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
+		7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTableViewController.swift; sourceTree = "<group>"; };
+		7EC5555626B3FC300054F314 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
+		7EC5555B26B434CC0054F314 /* SavedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAnimals.swift; sourceTree = "<group>"; };
+		7EC5555E26B4746B0054F314 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +94,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E10536E269E339100C5AA7A /* AnimalListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
+				7E10536C269E327600C5AA7A /* animalImage.swift */,
+				7E10536F269E346800C5AA7A /* AnimalImages.xcassets */,
+				7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */,
+			);
+			path = AnimalListScreen;
+			sourceTree = "<group>";
+		};
 		7E6E030E2605EDB40015571B = {
 			isa = PBXGroup;
 			children = (
+				7EC5555D26B4745F0054F314 /* AnimalVC */,
+				7EC5555826B3FF910054F314 /* AddAnimalVC */,
+				7EC5555326B3FBC20054F314 /* SettingsVC */,
+				7E10536E269E339100C5AA7A /* AnimalListScreen */,
 				7E6E03192605EDB40015571B /* PetMaster */,
 				7E6E03302605EDB50015571B /* PetMasterTests */,
 				7E6E033B2605EDB50015571B /* PetMasterUITests */,
@@ -104,14 +133,13 @@
 			isa = PBXGroup;
 			children = (
 				7E6E034D2605EDD60015571B /* Animals.swift */,
-				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
 				7E6E031C2605EDB40015571B /* SceneDelegate.swift */,
-				7E6E031E2605EDB40015571B /* ViewController.swift */,
 				7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */,
 				7E6E03202605EDB40015571B /* Main.storyboard */,
 				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
 				7E6E03282605EDB50015571B /* Info.plist */,
 				7E6E03232605EDB50015571B /* Assets.xcassets */,
+				7EC5555B26B434CC0054F314 /* SavedAnimals.swift */,
 			);
 			path = PetMaster;
 			sourceTree = "<group>";
@@ -132,6 +160,31 @@
 				7E6E033E2605EDB50015571B /* Info.plist */,
 			);
 			path = PetMasterUITests;
+			sourceTree = "<group>";
+		};
+		7EC5555326B3FBC20054F314 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				7EC5555626B3FC300054F314 /* SettingsViewController.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		7EC5555826B3FF910054F314 /* AddAnimalVC */ = {
+			isa = PBXGroup;
+			children = (
+				7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */,
+			);
+			path = AddAnimalVC;
+			sourceTree = "<group>";
+		};
+		7EC5555D26B4745F0054F314 /* AnimalVC */ = {
+			isa = PBXGroup;
+			children = (
+				7EC5555E26B4746B0054F314 /* AnimalViewController.swift */,
+				7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */,
+			);
+			path = AnimalVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6E03272605EDB50015571B /* LaunchScreen.storyboard in Resources */,
+				7E105370269E346800C5AA7A /* AnimalImages.xcassets in Resources */,
 				7E6E03242605EDB50015571B /* Assets.xcassets in Resources */,
 				7E6E03222605EDB40015571B /* Main.storyboard in Resources */,
 			);
@@ -264,11 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */,
+				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
+				7E10536D269E327600C5AA7A /* animalImage.swift in Sources */,
 				7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */,
-				7E6E031F2605EDB40015571B /* ViewController.swift in Sources */,
+				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,
+				7EC5555726B3FC300054F314 /* SettingsViewController.swift in Sources */,
+				7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */,
 				7E6E034E2605EDD60015571B /* Animals.swift in Sources */,
 				7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */,
 				7E6E031D2605EDB40015571B /* SceneDelegate.swift in Sources */,
+				7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
