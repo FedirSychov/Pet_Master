@@ -55,11 +55,7 @@ extension AnimalsTableViewController{
         cell.textLabel?.text = data[indexPath.row].name
         return cell
     }
-    
-    //override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    //    //navigationController?.popViewController(animated: true)
-    //}
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         chosenName = data[indexPath.row].name

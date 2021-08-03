@@ -12,6 +12,8 @@ class AnimalViewController: UIViewController {
     var name: String = ""
     var breed: String = ""
     
+    var currentAnimal: Animal?
+    
     @IBOutlet weak var AnimalImage: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var AgeLabel: UILabel!
@@ -26,12 +28,25 @@ class AnimalViewController: UIViewController {
             if self.name == animal.name
                 //&& self.breed == animal.animal_breed
             {
+                currentAnimal = animal
                 NameLabel.text = "Name: \(animal.name)"
                 AgeLabel.text = "Age: \(animal.animal_age)"
                 TypeLabel.text = "Type: \(animal.animal_type)"
                 BreedLabel.text = "Breed: \(animal.animal_breed!)"
                 
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToVaccinations":
+            if let vaccVC = segue.destination as? VaccinationsTableViewController{
+                vaccVC.currentAnimal = self.currentAnimal
+            }
+            //TODO: - segue for others
+        default:
+            break
         }
     }
     
