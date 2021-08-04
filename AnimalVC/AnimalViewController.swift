@@ -17,6 +17,7 @@ class AnimalViewController: UIViewController {
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var BreedLabel: UILabel!
     @IBOutlet weak var Container_table: UIView!
+    @IBOutlet weak var Options: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +36,31 @@ class AnimalViewController: UIViewController {
         }
     }
     
+    @IBAction func OptionsButton(_ sender: Any) {
+        self.ShowAlertActionSheet()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goToVaccinations":
             if let vaccVC = segue.destination as? VaccinationsTableViewController{
                 vaccVC.currentAnimal = self.currentAnimal
             }
-            //TODO: - segue for others
         case "goToDiseasesVC":
             if let vaccVC = segue.destination as? DiseasesTableViewController{
                 vaccVC.currentAnimal = self.currentAnimal
+            }
+        case "goToEventsVC":
+            if let eventVC = segue.destination as? EventsTableViewController{
+                eventVC.currentAnimal = self.currentAnimal
+            }
+        case "goToFoodVC":
+            if let foodVC = segue.destination as? FoodTableViewController{
+                foodVC.currentAnimal = self.currentAnimal
+            }
+        case "EditAnimal":
+            if let navVC = segue.destination as? UINavigationController, let editVC = navVC.topViewController as? AddAnimalViewController{
+                editVC.currentAnimal = self.currentAnimal
             }
         default:
             break
@@ -56,4 +72,45 @@ class AnimalViewController: UIViewController {
         
     }
 
+    private func ShowAlertActionSheet(){
+        let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self](_) in
+            self?.performSegue(withIdentifier: "EditAnimal", sender: nil)
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self](_) in
+            self?.showAlert()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAlert(){
+        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
+        
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { [weak self](_) in
+            var num = 0
+            for animal in Saved.shared.currentSaves.animals{
+                if animal.showInfo() == self!.currentAnimal!.showInfo(){
+                    Saved.shared.currentSaves.animals.remove(at: num)
+                }
+                num += 1
+            }
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
