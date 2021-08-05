@@ -31,9 +31,15 @@ class AnimalViewController: UIViewController {
                 AgeLabel.text = "Age: \(animal.animal_age)"
                 TypeLabel.text = "Type: \(animal.animal_type)"
                 BreedLabel.text = "Breed: \(animal.animal_breed!)"
-                
             }
         }
+    }
+    
+    func reloadData(){
+        NameLabel.text = "Name: \(currentAnimal!.name)"
+        AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
+        TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
+        BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
     }
     
     @IBAction func OptionsButton(_ sender: Any) {
@@ -61,6 +67,7 @@ class AnimalViewController: UIViewController {
         case "EditAnimal":
             if let navVC = segue.destination as? UINavigationController, let editVC = navVC.topViewController as? AddAnimalViewController{
                 editVC.currentAnimal = self.currentAnimal
+                editVC.editdelegate = self
             }
         default:
             break

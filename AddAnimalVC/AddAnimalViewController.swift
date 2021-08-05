@@ -11,12 +11,17 @@ protocol  AnimalsDelegate: NSObject {
     func AddNew(_ animal: Animal)
 }
 
+protocol UpdateDelegate: NSObject{
+    func UpdateAnimal(_ animal: Animal)
+}
+
 class AddAnimalViewController: UIViewController {
     
     var currentAnimal: Animal?
     var num: Int = -1
     
     weak var delegate: AnimalsDelegate?
+    weak var editdelegate: UpdateDelegate?
 
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var TypeTextField: UITextField!
@@ -62,6 +67,8 @@ class AddAnimalViewController: UIViewController {
             Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
             
             //delegate?.AddNew(currentAnimal!)
+            print("1 is OK")
+            editdelegate?.UpdateAnimal(currentAnimal!)
             //TODO: - go back and reload animal info
         } else {
             if (NameTextField.text != "" && TypeTextField.text != "" && breedTextField.text != "") {
@@ -82,6 +89,16 @@ extension AnimalsTableViewController: AnimalsDelegate{
         dismiss(animated: true) { [weak self] in
             self?.data.append(animal)
             self?.tableView.reloadData()
+        }
+    }
+}
+
+extension AnimalViewController: UpdateDelegate{
+    func UpdateAnimal(_ animal: Animal) {
+        dismiss(animated: true) { [weak self] in
+            self?.currentAnimal = animal
+            self?.reloadData()
+            print("2 is OK")
         }
     }
 }

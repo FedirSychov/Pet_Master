@@ -434,7 +434,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCy-KW-aSk">
                                         <rect key="frame" x="0.0" y="559.33333333333337" width="408" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Add Animal"/>
+                                        <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="AddAnimalButton:" destination="15d-cl-vYD" eventType="touchUpInside" id="qsx-8T-gK1"/>
                                         </connections>
@@ -476,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdt-Az-k5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4382" y="921"/>
+            <point key="canvasLocation" x="4349" y="788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PsL-cv-f5M">
@@ -606,7 +606,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kP6-z9-NVe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3487.8504672897193" y="495.68034557235427"/>
+            <point key="canvasLocation" x="3488" y="788"/>
         </scene>
         <!--Events Table View Controller-->
         <scene sceneID="2g4-mq-bjN">
@@ -802,6 +802,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="agc-pa-H3Z" kind="show" identifier="goToVaccinationInfo" id="3Ub-Bv-o7k"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -901,6 +904,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9s-Bs-2tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6274.7663551401865" y="-1519.4384449244062"/>
+        </scene>
+        <!--Vacc Info View Controller-->
+        <scene sceneID="xmc-CO-XA6">
+            <objects>
+                <viewController id="agc-pa-H3Z" customClass="VaccInfoViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vrg-vL-pEs">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb7-7c-9HA">
+                                <rect key="frame" x="20" y="176" width="388" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-ml-NFe">
+                                <rect key="frame" x="20" y="229" width="388" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE5-h6-hLZ">
+                                <rect key="frame" x="20" y="280" width="388" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ga5-WY-mte"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LO6-Wc-X1p">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="Op5-Aa-nB0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="DateLabel" destination="NN4-ml-NFe" id="HYo-1t-I0y"/>
+                        <outlet property="DescriptionLabel" destination="yE5-h6-hLZ" id="b3z-Sc-IMf"/>
+                        <outlet property="NameLabel" destination="Kb7-7c-9HA" id="uYQ-uT-rT8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOe-nE-wGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7286.9158878504668" y="-1519.4384449244062"/>
         </scene>
         <!--Add Disease View Controller-->
         <scene sceneID="jnQ-ZR-ym6">

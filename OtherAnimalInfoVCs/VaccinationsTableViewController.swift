@@ -10,6 +10,7 @@ import UIKit
 class VaccinationsTableViewController: UITableViewController {
 
     var currentAnimal: Animal?
+    var currentVaccination: Vaccination?
     var data: [Vaccination] = []
     
     override func viewDidLoad() {
@@ -26,6 +27,10 @@ class VaccinationsTableViewController: UITableViewController {
         case "goToAddVacc":
             if let addVaccVC = segue.destination as? AddVaccinationViewController{
                 addVaccVC.currentAnimal = self.currentAnimal!
+            }
+        case "goToVaccinationInfo":
+            if let vaccInfoVC = segue.destination as? VaccInfoViewController{
+                vaccInfoVC.currentVaccination = self.currentVaccination!
             }
         default:
             break
@@ -47,6 +52,8 @@ extension VaccinationsTableViewController{
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         tableView.deselectRow(at: indexPath, animated: true)
+        let num: Int = indexPath.row
+        self.currentVaccination = data[num]
         return indexPath
     }
 }

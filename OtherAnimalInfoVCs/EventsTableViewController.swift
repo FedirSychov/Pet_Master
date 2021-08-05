@@ -42,8 +42,9 @@ extension EventsTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         
         
-        //TODO: - make date without time
-        cell.textLabel?.text = "\(data[indexPath.row].name), \(data[indexPath.row].date)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        cell.textLabel?.text = "\(data[indexPath.row].name), \(dateFormatter.string(from: data[indexPath.row].date))"
         return cell
     }
 

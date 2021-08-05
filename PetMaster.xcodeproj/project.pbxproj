@@ -10,6 +10,7 @@
 		7E10536D269E327600C5AA7A /* animalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10536C269E327600C5AA7A /* animalImage.swift */; };
 		7E105370269E346800C5AA7A /* AnimalImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E10536F269E346800C5AA7A /* AnimalImages.xcassets */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
+		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
 		7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E031A2605EDB40015571B /* AppDelegate.swift */; };
 		7E6E031D2605EDB40015571B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6E031C2605EDB40015571B /* SceneDelegate.swift */; };
 		7E6E03222605EDB40015571B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E6E03202605EDB40015571B /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		7E10536C269E327600C5AA7A /* animalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalImage.swift; sourceTree = "<group>"; };
 		7E10536F269E346800C5AA7A /* AnimalImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AnimalImages.xcassets; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
 		7E6E03172605EDB40015571B /* PetMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6E031A2605EDB40015571B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6E031C2605EDB40015571B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				7E80C70826BB2AC100365A8B /* AddEventViewController.swift */,
 				7E80C70A26BB330500365A8B /* FoodTableViewController.swift */,
 				7E80C70C26BB331400365A8B /* AddFoodViewController.swift */,
+				7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */,
 			);
 			path = OtherAnimalInfoVCs;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */,
 				7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */,
 				7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */,
+				7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */,
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
