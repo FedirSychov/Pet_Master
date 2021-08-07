@@ -53,7 +53,6 @@ class AddVaccinationViewController: UIViewController {
                             
                             let temp: Animal = self.currentAnimal!
                             temp.vaccinations_list[num_vacc] = self.currentVaccination!
-                            print("That's OK")
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                             
@@ -64,7 +63,6 @@ class AddVaccinationViewController: UIViewController {
                 }
                 num_animal += 1
             }
-            print("\(num_animal), \(num_vacc)")
         } else {
             if (VaccName.text != ""){
                 

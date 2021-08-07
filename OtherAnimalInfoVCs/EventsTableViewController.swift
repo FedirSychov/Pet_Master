@@ -10,7 +10,10 @@ import UIKit
 class EventsTableViewController: UITableViewController {
 
     var currentAnimal: Animal?
+    var currentEvent: Event?
     var data: [Event] = []
+    
+    var lastVC: UITableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +27,19 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAddEvent"{
+        switch segue.identifier {
+        case "goToAddEvent":
             if let addEventVC = segue.destination as? AddEventViewController{
                 addEventVC.currentAnimal = self.currentAnimal
             }
+        case "goToEventnfo":
+            if let infoE = segue.destination as? EventInfoViewController{
+                infoE.currentAnimal = self.currentAnimal!
+                infoE.currentEvent = self.currentEvent!
+                infoE.lastVC = self.lastVC!
+            }
+        default:
+            break
         }
     }
 }
@@ -50,6 +62,8 @@ extension EventsTableViewController{
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         tableView.deselectRow(at: indexPath, animated: true)
+        let num: Int = indexPath.row
+        self.currentEvent = data[num]
         return indexPath
     }
 }

@@ -56,12 +56,14 @@ class AnimalViewController: UIViewController {
                 vaccVC.lastVC = self.lastVC!
             }
         case "goToDiseasesVC":
-            if let vaccVC = segue.destination as? DiseasesTableViewController{
-                vaccVC.currentAnimal = self.currentAnimal
+            if let diseaseVC = segue.destination as? DiseasesTableViewController{
+                diseaseVC.currentAnimal = self.currentAnimal
+                diseaseVC.lastVC = self.lastVC!
             }
         case "goToEventsVC":
             if let eventVC = segue.destination as? EventsTableViewController{
                 eventVC.currentAnimal = self.currentAnimal
+                eventVC.lastVC = self.lastVC!
             }
         case "goToFoodVC":
             if let foodVC = segue.destination as? FoodTableViewController{

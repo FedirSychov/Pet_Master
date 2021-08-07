@@ -10,6 +10,8 @@ import UIKit
 class DiseasesTableViewController: UITableViewController {
 
     var currentAnimal: Animal?
+    var curreentDisease: Disease?
+    var lastVC: UITableViewController?
     var data: [Disease] = []
     
     override func viewDidLoad() {
@@ -26,6 +28,12 @@ class DiseasesTableViewController: UITableViewController {
         case "goToAddDisease":
             if let AddDiseaseVC = segue.destination as? AddDiseaseViewController{
                 AddDiseaseVC.currentAnimal = self.currentAnimal!
+            }
+        case "goToDiseaseInfo":
+            if let infoD = segue.destination as? DiseaseInfoViewController{
+                infoD.currentAnimal = self.currentAnimal!
+                infoD.currentDisease = self.curreentDisease!
+                infoD.lastVC = self.lastVC!
             }
         default:
             break
@@ -47,6 +55,8 @@ extension DiseasesTableViewController{
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         tableView.deselectRow(at: indexPath, animated: true)
+        let num: Int = indexPath.row
+        self.curreentDisease = data[num]
         return indexPath
     }
 }

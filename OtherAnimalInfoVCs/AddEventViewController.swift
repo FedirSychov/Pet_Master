@@ -10,6 +10,8 @@ import UIKit
 class AddEventViewController: UIViewController {
 
     var currentAnimal: Animal?
+    var currentEvent: Event?
+    var lastVC: UITableViewController?
     
     @IBOutlet weak var EventName: UITextField!
     @IBOutlet weak var DatePicker: UIDatePicker!
@@ -31,33 +33,65 @@ class AddEventViewController: UIViewController {
         } else {
             DatePicker.isEnabled = true
         }
-        
+        if self.currentEvent != nil{
+            self.EventName.text = currentEvent!.name
+            self.DatePicker.date = currentEvent!.date
+            self.DatePicker.isEnabled = true
+            self.DateSwitch.isOn = false
+            self.EventDescription.text = currentEvent!.description
+        }
     }
     @IBAction func SaveEvent(_ sender: Any) {
-        if (EventName.text != ""){
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-        var dateTxt = ""
-        if DateSwitch.isOn {
-            dateTxt = dateFormatter.string(from: Date())
-        } else{
-            dateTxt = dateFormatter.string(from: DatePicker.date)
-        }
-
-            var num: Int = 0
+        if currentEvent != nil{
+            var num_animal: Int = 0
+            var num_event: Int = 0
             for animal in Saved.shared.currentSaves.animals{
-                if animal.showInfo() == currentAnimal!.showInfo(){
-                    
-                    currentAnimal!.add_event(event_name: EventName.text!, event_date: dateTxt, event_descrtiption: EventDescription.text)
-                    
-                    Saved.shared.currentSaves.animals[num] = currentAnimal!
-                    print("AllIsOK")
-                    print(Saved.shared.currentSaves.animals[num].events_list.count)
+                if animal.showInfo() == self.currentAnimal!.showInfo(){
+                    for event in animal.events_list{
+                        if event == self.currentEvent!{
+                            
+                            self.currentEvent!.name = self.EventName.text!
+                            self.currentEvent!.date = self.DatePicker.date
+                            self.currentEvent!.description = self.EventDescription.text!
+                            
+                            let temp: Animal = self.currentAnimal!
+                            temp.events_list[num_event] = self.currentEvent!
+                            Saved.shared.currentSaves.animals.remove(at: num_animal)
+                            Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                            
+                            self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                        }
+                        num_event += 1
+                    }
                 }
-                num += 1
+                num_animal += 1
             }
+        } else {
+            if (EventName.text != ""){
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+            var dateTxt = ""
+            if DateSwitch.isOn {
+                dateTxt = dateFormatter.string(from: Date())
+            } else{
+                dateTxt = dateFormatter.string(from: DatePicker.date)
+            }
+
+                var num: Int = 0
+                for animal in Saved.shared.currentSaves.animals{
+                    if animal.showInfo() == currentAnimal!.showInfo(){
+                        
+                        currentAnimal!.add_event(event_name: EventName.text!, event_date: dateTxt, event_descrtiption: EventDescription.text)
+                        
+                        Saved.shared.currentSaves.animals[num] = currentAnimal!
+                        print("AllIsOK")
+                        print(Saved.shared.currentSaves.animals[num].events_list.count)
+                    }
+                    num += 1
+                }
+            }
+            navigationController?.popViewController(animated: true)
         }
-        navigationController?.popViewController(animated: true)
     }
 }

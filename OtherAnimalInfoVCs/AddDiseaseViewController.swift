@@ -9,6 +9,7 @@ import UIKit
 
 class AddDiseaseViewController: UIViewController {
     
+    var lastVC: UITableViewController?
 
     @IBOutlet weak var DiseaseName: UITextField!
     @IBOutlet weak var StartDateSwitch: UISwitch!
@@ -19,12 +20,26 @@ class AddDiseaseViewController: UIViewController {
     @IBOutlet weak var DiseaseMedicines: UITextField!
     
     var currentAnimal: Animal?
+    var curreentDisease: Disease?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if StartDateSwitch.isOn{
             EndDateSwitch.isOn = false
             StartDatePicker.isEnabled = false
+            EndDatePicker.isEnabled = false
+        }
+        
+        if curreentDisease != nil{
+            self.StartDateSwitch.isOn = false
+            self.StartDatePicker.isEnabled = true
+            self.EndDateSwitch.isOn = false
+            self.EndDatePicker.isEnabled = true
+            self.DiseaseName.text = self.curreentDisease!.name
+            self.StartDatePicker.date = self.curreentDisease!.data_of_disease
+            self.EndDatePicker.date = self.curreentDisease!.date_of_end!
+            self.DiseaseDescription.text = self.curreentDisease!.description
+            self.DiseaseMedicines.text = self.curreentDisease!.medicines
         }
 
     }
@@ -33,9 +48,13 @@ class AddDiseaseViewController: UIViewController {
         if StartDateSwitch.isOn{
             StartDatePicker.isEnabled = false
             EndDateSwitch.isOn = false
-            EndDatePicker.isEnabled = true
+            EndDatePicker.isEnabled = false
         } else {
             StartDatePicker.isEnabled = true
+            if EndDateSwitch.isOn{
+            } else {
+                EndDatePicker.isEnabled = true
+            }
         }
     }
     
@@ -50,42 +69,71 @@ class AddDiseaseViewController: UIViewController {
     }
     
     @IBAction func SaveDisease(_ sender: Any) {
-        if DiseaseName.text != ""{
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            
-            var dateOfStart: String = ""
-            var dateOfEnd: String = ""
-            
-            if StartDateSwitch.isOn{
-                dateOfStart = dateFormatter.string(from: Date())
-            } else {
-                dateOfStart = dateFormatter.string(from: StartDatePicker.date)
-            }
-            
-            if EndDateSwitch.isOn{
-                dateOfEnd = dateFormatter.string(from: Date())
-            } else {
-                dateOfEnd = dateFormatter.string(from: EndDatePicker.date)
-            }
-            
-            var num: Int = 0
+        if self.curreentDisease != nil{
+            var num_animal: Int = 0
+            var num_vacc: Int = 0
             for animal in Saved.shared.currentSaves.animals{
-                if animal.showInfo() == currentAnimal!.showInfo(){
-                    
-                    if StartDateSwitch.isOn{
-                        currentAnimal?.add_disease_no_end(disease_name: DiseaseName.text!, disease_date: dateOfStart, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
-                    } else {
-                    currentAnimal?.add_disease(disease_name: DiseaseName.text!, disease_date: dateOfStart, disease_end: dateOfEnd, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                if animal.showInfo() == self.currentAnimal!.showInfo(){
+                    for disease in animal.disease_list{
+                        if disease == self.curreentDisease!{
+                            
+                            self.curreentDisease!.name = self.DiseaseName.text!
+                            self.curreentDisease!.data_of_disease = self.StartDatePicker.date
+                            self.curreentDisease!.date_of_end = self.EndDatePicker.date
+                            self.curreentDisease!.description = self.DiseaseDescription.text!
+                            self.curreentDisease!.reloadDays()
+                            
+                            let temp: Animal = self.currentAnimal!
+                            temp.disease_list[num_vacc] = self.curreentDisease!
+                            print("That's OK")
+                            Saved.shared.currentSaves.animals.remove(at: num_animal)
+                            Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                            
+                            self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                        }
+                        num_vacc += 1
                     }
-                    Saved.shared.currentSaves.animals[num] = currentAnimal!
-                    print("AllIsOK")
-                    print(Saved.shared.currentSaves.animals[num].disease_list.count)
                 }
-                num += 1
+                num_animal += 1
             }
-            navigationController?.popViewController(animated: true)
+        } else {
+            if DiseaseName.text != ""{
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy"
+                
+                var dateOfStart: String = ""
+                var dateOfEnd: String = ""
+                
+                if StartDateSwitch.isOn{
+                    dateOfStart = dateFormatter.string(from: Date())
+                } else {
+                    dateOfStart = dateFormatter.string(from: StartDatePicker.date)
+                }
+                
+                if EndDateSwitch.isOn{
+                    dateOfEnd = dateFormatter.string(from: Date())
+                } else {
+                    dateOfEnd = dateFormatter.string(from: EndDatePicker.date)
+                }
+                
+                var num: Int = 0
+                for animal in Saved.shared.currentSaves.animals{
+                    if animal.showInfo() == currentAnimal!.showInfo(){
+                        
+                        if StartDateSwitch.isOn{
+                            currentAnimal?.add_disease_no_end(disease_name: DiseaseName.text!, disease_date: dateOfStart, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                        } else {
+                        currentAnimal?.add_disease(disease_name: DiseaseName.text!, disease_date: dateOfStart, disease_end: dateOfEnd, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                        }
+                        Saved.shared.currentSaves.animals[num] = currentAnimal!
+                        print("AllIsOK")
+                        print(Saved.shared.currentSaves.animals[num].disease_list.count)
+                    }
+                    num += 1
+                }
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

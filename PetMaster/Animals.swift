@@ -6,9 +6,13 @@
 //
 
 import Foundation
-
+//TODO: - make all objects comparable and sort them by date
 //класс болезни
-class Disease: Codable {
+class Disease: Codable, Equatable {
+    static func == (lhs: Disease, rhs: Disease) -> Bool {
+        return lhs.name == rhs.name && lhs.description == rhs.description && lhs.data_of_disease == rhs.data_of_disease
+    }
+    
     var name: String
     var description: String
     var data_of_disease: Date
@@ -44,6 +48,16 @@ class Disease: Codable {
         self.medicines = meds
         self.days_of_disease = 0
     }
+    func reloadDays(){
+        let data_f = DateFormatter()
+        data_f.dateFormat = "dd-MM-yyyy"
+        data_f.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        let my_date = self.data_of_disease
+        let my_end_date = self.date_of_end
+        let calendar = NSCalendar.current
+        let components = calendar.dateComponents([.day], from: calendar.startOfDay(for: my_date), to: calendar.startOfDay(for: my_end_date!))
+        self.days_of_disease = components.day!
+    }
 //    вывод информации о болезни
     func showDiseaseInfo () -> String {
         return "Болезнь: \(self.name), дата: \(self.data_of_disease))"
@@ -51,7 +65,11 @@ class Disease: Codable {
 }
 
 //класс прививок
-class Vaccination: Codable {
+class Vaccination: Codable, Equatable {
+    static func == (lhs: Vaccination, rhs: Vaccination) -> Bool {
+        return lhs.name == rhs.name && lhs.description == rhs.description && lhs.date == rhs.date
+    }
+    
     var name: String
     var description: String?
     var date: Date
@@ -80,7 +98,11 @@ class Vaccination: Codable {
 }
 
 //класс события в жизни питомца
-class Event: Codable {
+class Event: Codable, Equatable {
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        lhs.name == rhs.name && lhs.description == rhs.description && lhs.date == rhs.date
+    }
+    
     var name: String
     var date: Date
     var description: String?

@@ -1,42 +1,42 @@
 //
-//  VaccInfoViewController.swift
+//  DiseaseInfoViewController.swift
 //  PetMaster
 //
-//  Created by Fedor Sychev on 05.08.2021.
+//  Created by Fedor Sychev on 07.08.2021.
 //
 
 import UIKit
 
-class VaccInfoViewController: UIViewController {
+class DiseaseInfoViewController: UIViewController {
 
-    var currentVaccination: Vaccination?
+    var currentDisease: Disease?
     var currentAnimal: Animal?
     
     var lastVC: UITableViewController?
     
-    var num_animal: Int = 0
-    var num_vacc: Int = 0
-    
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var DaysLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
     
-    @IBAction func OptionButton(_ sender: Any) {
-        ShowAlertActionSheet()
-    }
+    var num_animal: Int = 0
+    var num_disease: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadInfo()
     }
     
+    @IBAction func OptionsButton(_ sender: Any) {
+        ShowAlertActionSheet()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToEditVacc"{
-            if let editVaccVC = segue.destination as? AddVaccinationViewController{
-                editVaccVC.currentVaccination = self.currentVaccination!
-                print(self.currentAnimal!.showInfo())
-                editVaccVC.currentAnimal = self.currentAnimal!
-                editVaccVC.lastVC = self.lastVC!
+        if segue.identifier == "goToEditDisease"{
+            if let editDiseaseVC = segue.destination as? AddDiseaseViewController{
+                editDiseaseVC.curreentDisease = self.currentDisease!
+                editDiseaseVC.currentAnimal = self.currentAnimal!
+                editDiseaseVC.lastVC = self.lastVC!
             }
         }
     }
@@ -44,9 +44,10 @@ class VaccInfoViewController: UIViewController {
     func reloadInfo(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
-        self.NameLabel.text = "Name: \(currentVaccination!.name)"
-        self.DateLabel.text = "Date: \(dateFormatter.string(from: currentVaccination!.date))"
-        self.DescriptionLabel.text = "Description: \(currentVaccination!.description!)"
+        self.NameLabel.text = "Name: \(currentDisease!.name)"
+        self.DateLabel.text = "Date: \(dateFormatter.string(from: currentDisease!.data_of_disease))"
+        self.DescriptionLabel.text = "Description: \(currentDisease!.description)"
+        self.DaysLabel.text = "Days last: \(currentDisease!.days_of_disease)"
     }
     
     private func ShowAlertActionSheet(){
@@ -54,7 +55,7 @@ class VaccInfoViewController: UIViewController {
         
         let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self](_) in
             
-            self?.performSegue(withIdentifier: "goToEditVacc", sender: nil)
+            self?.performSegue(withIdentifier: "goToEditDisease", sender: nil)
         }
         
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self](_) in
@@ -79,18 +80,18 @@ class VaccInfoViewController: UIViewController {
             
             for animal in Saved.shared.currentSaves.animals{
                 if animal.showInfo() == self!.currentAnimal!.showInfo(){
-                    for vacc in animal.vaccinations_list{
-                        if vacc == self!.currentVaccination{
+                    for disease in animal.disease_list{
+                        if disease == self!.currentDisease{
                             
                             let temp1: Animal = Saved.shared.currentSaves.animals[self!.num_animal]
-                            temp1.vaccinations_list.remove(at: self!.num_vacc)
+                            temp1.disease_list.remove(at: self!.num_disease)
                             
                             Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
                             self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
                         }
-                        self!.num_vacc += 1
+                        self!.num_disease += 1
                     }
                 }
                 self!.num_animal += 1
@@ -101,11 +102,5 @@ class VaccInfoViewController: UIViewController {
         alert.addAction(yesAction)
         
         present(alert, animated: true, completion: nil)
-    }
-}
-
-extension String {
-    subscript(i: Int) -> String {
-        return String(self[index(startIndex, offsetBy: i)])
     }
 }
