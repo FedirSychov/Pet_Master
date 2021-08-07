@@ -13,6 +13,8 @@ class VaccinationsTableViewController: UITableViewController {
     var currentVaccination: Vaccination?
     var data: [Vaccination] = []
     
+    var lastVC: UITableViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,14 +29,23 @@ class VaccinationsTableViewController: UITableViewController {
         case "goToAddVacc":
             if let addVaccVC = segue.destination as? AddVaccinationViewController{
                 addVaccVC.currentAnimal = self.currentAnimal!
+                addVaccVC.lastVC = self.lastVC!
             }
         case "goToVaccinationInfo":
             if let vaccInfoVC = segue.destination as? VaccInfoViewController{
                 vaccInfoVC.currentVaccination = self.currentVaccination!
+                print(currentAnimal!.showInfo())
+                vaccInfoVC.currentAnimal = self.currentAnimal!
+                vaccInfoVC.lastVC = self.lastVC!
             }
         default:
             break
         }
+    }
+    
+    func deleteCell(cellNum: Int){
+        let indexPath = IndexPath(row: cellNum, section: 0)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
 

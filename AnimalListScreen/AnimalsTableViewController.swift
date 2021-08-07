@@ -30,6 +30,7 @@ class AnimalsTableViewController: UITableViewController {
             
             if let vc = segue.destination as? AnimalViewController{
                 vc.currentAnimal = self.currentAnimal
+                vc.lastVC = self
             }
         case "addNewAnimal":
             if let navVC = segue.destination as? UINavigationController, let newVC = navVC.topViewController as? AddAnimalViewController{

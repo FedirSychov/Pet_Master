@@ -66,8 +66,6 @@ class AddAnimalViewController: UIViewController {
             
             Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
             
-            //delegate?.AddNew(currentAnimal!)
-            print("1 is OK")
             editdelegate?.UpdateAnimal(currentAnimal!)
             //TODO: - go back and reload animal info
         } else {

@@ -939,12 +939,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LO6-Wc-X1p">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="Op5-Aa-nB0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="Op5-Aa-nB0">
+                            <connections>
+                                <action selector="OptionButton:" destination="agc-pa-H3Z" id="l3M-FZ-JNx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="DateLabel" destination="NN4-ml-NFe" id="HYo-1t-I0y"/>
                         <outlet property="DescriptionLabel" destination="yE5-h6-hLZ" id="b3z-Sc-IMf"/>
                         <outlet property="NameLabel" destination="Kb7-7c-9HA" id="uYQ-uT-rT8"/>
+                        <segue destination="o8n-ul-piT" kind="show" identifier="goToEditVacc" id="UPL-G6-Dek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOe-nE-wGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1075,6 +1080,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="UPL-G6-Dek"/>
         <segue reference="YeG-af-J6N"/>
     </inferredMetricsTieBreakers>
     <resources>

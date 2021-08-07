@@ -11,6 +11,8 @@ class AnimalViewController: UIViewController {
     
     var currentAnimal: Animal?
     
+    var lastVC: UITableViewController?
+    
     @IBOutlet weak var AnimalImage: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var AgeLabel: UILabel!
@@ -51,6 +53,7 @@ class AnimalViewController: UIViewController {
         case "goToVaccinations":
             if let vaccVC = segue.destination as? VaccinationsTableViewController{
                 vaccVC.currentAnimal = self.currentAnimal
+                vaccVC.lastVC = self.lastVC!
             }
         case "goToDiseasesVC":
             if let vaccVC = segue.destination as? DiseasesTableViewController{

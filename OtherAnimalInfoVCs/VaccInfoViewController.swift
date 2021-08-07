@@ -10,10 +10,20 @@ import UIKit
 class VaccInfoViewController: UIViewController {
 
     var currentVaccination: Vaccination?
+    var currentAnimal: Animal?
+    
+    var lastVC: UITableViewController?
+    
+    var num_animal: Int = 0
+    var num_vacc: Int = 0
     
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
+    
+    @IBAction func OptionButton(_ sender: Any) {
+        ShowAlertActionSheet()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +33,80 @@ class VaccInfoViewController: UIViewController {
         self.DateLabel.text = "Date: \(dateFormatter.string(from: currentVaccination!.date))"
         //self.DateLabel.text = "Date: \(currentVaccination!.date)"
         self.DescriptionLabel.text = "Description: \(currentVaccination!.description!)"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEditVacc"{
+            if let editVaccVC = segue.destination as? AddVaccinationViewController{
+                editVaccVC.currentVaccination = self.currentVaccination!
+                print(self.currentAnimal!.showInfo())
+                editVaccVC.currentAnimal = self.currentAnimal!
+                editVaccVC.lastVC = self.lastVC!
+            }
+        }
+    }
+    
+    func reloadInfo(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YYYY"
+        self.NameLabel.text = "Name: \(currentVaccination!.name)"
+        self.DateLabel.text = "Date: \(dateFormatter.string(from: currentVaccination!.date))"
+        //self.DateLabel.text = "Date: \(currentVaccination!.date)"
+        self.DescriptionLabel.text = "Description: \(currentVaccination!.description!)"
+    }
+    
+    private func ShowAlertActionSheet(){
+        let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self](_) in
+            
+            self?.performSegue(withIdentifier: "goToEditVacc", sender: nil)
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self](_) in
+            self?.showAlert()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAlert(){
+        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
+        
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { [weak self](_) in
+            
+            for animal in Saved.shared.currentSaves.animals{
+                if animal.showInfo() == self!.currentAnimal!.showInfo(){
+                    for vacc in animal.vaccinations_list{
+                        if vacc.name == self!.currentVaccination!.name && vacc.date == self!.currentVaccination!.date{
+                            
+                            let temp1: Animal = Saved.shared.currentSaves.animals[self!.num_animal]
+                            temp1.vaccinations_list.remove(at: self!.num_vacc)
+                            
+                            Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
+                            Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
+                            
+                            self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
+                        }
+                        self!.num_vacc += 1
+                    }
+                }
+                self!.num_animal += 1
+            }
+        }
+        
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
