@@ -23,6 +23,7 @@ class EventsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         data = currentAnimal!.events_list
+        //data.sort(by: {$0.date < $1.date})
         self.tableView.reloadData()
     }
     

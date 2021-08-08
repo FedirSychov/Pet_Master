@@ -20,16 +20,16 @@ class Disease: Codable, Equatable {
     var medicines: String
     var days_of_disease: Int
 //    Базовый конструктор
-    init(name: String, data_d: String, date_end: String, description: String, meds: String) {
+    init(name: String, data_d: String, date_end: String?, description: String, meds: String) {
         let data_f = DateFormatter()
         data_f.dateFormat = "dd-MM-yyyy"
         data_f.timeZone = TimeZone(abbreviation: "GMT+0:00")
         let my_date = data_f.date(from: data_d)
-        let my_end_date = data_f.date(from: date_end)
+        let my_end_date: Date? = data_f.date(from: date_end!)
         self.name = name
         self.description = description
         self.data_of_disease = my_date!
-        self.date_of_end = my_end_date!
+        self.date_of_end = my_end_date ?? nil
         self.medicines = meds
         
         let calendar = NSCalendar.current
@@ -55,8 +55,12 @@ class Disease: Codable, Equatable {
         let my_date = self.data_of_disease
         let my_end_date = self.date_of_end
         let calendar = NSCalendar.current
-        let components = calendar.dateComponents([.day], from: calendar.startOfDay(for: my_date), to: calendar.startOfDay(for: my_end_date!))
-        self.days_of_disease = components.day!
+        if self.date_of_end != nil{
+            let components = calendar.dateComponents([.day], from: calendar.startOfDay(for: my_date), to: calendar.startOfDay(for: my_end_date!))
+            self.days_of_disease = components.day!
+        } else {
+            self.days_of_disease = 0
+        }
     }
 //    вывод информации о болезни
     func showDiseaseInfo () -> String {
@@ -177,8 +181,8 @@ class Animal: Codable {
         return all_info
     }
 //    метод добавления болезни в список болезней
-    func add_disease(disease_name: String, disease_date: String, disease_end: String, description: String, meds: String) {
-        let new_disease = Disease(name: disease_name, data_d: disease_date, date_end: disease_end, description: description, meds: meds)
+    func add_disease(disease_name: String, disease_date: String, disease_end: String?, description: String, meds: String) {
+        let new_disease = Disease(name: disease_name, data_d: disease_date, date_end: disease_end ?? nil, description: description, meds: meds)
         self.disease_list.insert(new_disease, at: 0)
     }
     func add_disease_no_end(disease_name: String, disease_date: String, description: String, meds: String) {

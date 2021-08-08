@@ -12,6 +12,7 @@ class DiseasesTableViewController: UITableViewController {
     var currentAnimal: Animal?
     var curreentDisease: Disease?
     var lastVC: UITableViewController?
+    //var animalVC: UIViewController?
     var data: [Disease] = []
     
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class DiseasesTableViewController: UITableViewController {
         case "goToAddDisease":
             if let AddDiseaseVC = segue.destination as? AddDiseaseViewController{
                 AddDiseaseVC.currentAnimal = self.currentAnimal!
+                AddDiseaseVC.lastVC = self.lastVC!
             }
         case "goToDiseaseInfo":
             if let infoD = segue.destination as? DiseaseInfoViewController{

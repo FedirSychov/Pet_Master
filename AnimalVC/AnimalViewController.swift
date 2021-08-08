@@ -8,33 +8,87 @@
 import UIKit
 
 class AnimalViewController: UIViewController {
-    
+    //TODO: - make updating of disease days
+    //TODO: - make list of current diseases
     var currentAnimal: Animal?
+    var currentDiseaseLasts: Disease?
+    var currDiseaseNum: Int = -1
     
     var lastVC: UITableViewController?
     
     @IBOutlet weak var AnimalImage: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var StatusLabel: UILabel!
     @IBOutlet weak var AgeLabel: UILabel!
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var BreedLabel: UILabel!
     @IBOutlet weak var Container_table: UIView!
     @IBOutlet weak var Options: UIBarButtonItem!
+    @IBOutlet weak var MakeHealthy: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateStatus()
+    }
+    
+    func ReloadStatus() {
+        var temp1: Int = 0
         for animal in Saved.shared.currentSaves.animals{
-            if self.currentAnimal?.showInfo() == animal.showInfo()
-                //&& self.breed == animal.animal_breed
-            {
-                currentAnimal = animal
-                NameLabel.text = "Name: \(animal.name)"
-                AgeLabel.text = "Age: \(animal.animal_age)"
-                TypeLabel.text = "Type: \(animal.animal_type)"
-                BreedLabel.text = "Breed: \(animal.animal_breed!)"
+            if animal.showInfo() == self.currentAnimal?.showInfo(){
+                self.currentAnimal = animal
+                StatusLabel.text = "Sick"
+                MakeHealthy.isHidden = false
             }
+            temp1 += 1
         }
+    }
+    
+    func updateStatus(){
+        if currentAnimal!.disease_list.count > 0{
+            var temp: Int = 0
+            for disease in currentAnimal!.disease_list{
+                if disease.date_of_end == nil{
+                    currDiseaseNum = temp
+                    break
+                }
+                temp += 1
+            }
+            if currDiseaseNum != -1{
+                StatusLabel.text = "Sick: \(currentAnimal!.disease_list[currDiseaseNum].name)"
+                MakeHealthy.isHidden = false
+            } else {
+                StatusLabel.text = "Healthy"
+                MakeHealthy.isHidden = true
+            }
+            NameLabel.text = "Name: \(currentAnimal!.name)"
+            AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
+            TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
+            BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+        }
+        else {
+            StatusLabel.text = "Healthy"
+            MakeHealthy.isHidden = true
+            NameLabel.text = "Name: \(currentAnimal!.name)"
+            AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
+            TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
+            BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+        }
+    }
+    
+    @IBAction func MakeHealthyButton(_ sender: Any) {
+        currentAnimal!.disease_list[currDiseaseNum].date_of_end = Date()
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal.showInfo() == currentAnimal!.showInfo(){
+                Saved.shared.currentSaves.animals.remove(at: num)
+                Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
+            }
+            num += 1
+        }
+        self.MakeHealthy.isHidden = true
+        self.StatusLabel.text = "Healthy"
+        currDiseaseNum = -1
+        updateStatus()
     }
     
     func reloadData(){
@@ -59,6 +113,7 @@ class AnimalViewController: UIViewController {
             if let diseaseVC = segue.destination as? DiseasesTableViewController{
                 diseaseVC.currentAnimal = self.currentAnimal
                 diseaseVC.lastVC = self.lastVC!
+                //diseaseVC.animalVC = self
             }
         case "goToEventsVC":
             if let eventVC = segue.destination as? EventsTableViewController{

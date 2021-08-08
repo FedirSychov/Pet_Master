@@ -13,6 +13,9 @@ class AddEventViewController: UIViewController {
     var currentEvent: Event?
     var lastVC: UITableViewController?
     
+    var num_animal: Int = 0
+    var num_event: Int = 0
+    
     @IBOutlet weak var EventName: UITextField!
     @IBOutlet weak var DatePicker: UIDatePicker!
     @IBOutlet weak var DateSwitch: UISwitch!
@@ -41,10 +44,9 @@ class AddEventViewController: UIViewController {
             self.EventDescription.text = currentEvent!.description
         }
     }
+    
     @IBAction func SaveEvent(_ sender: Any) {
         if currentEvent != nil{
-            var num_animal: Int = 0
-            var num_event: Int = 0
             for animal in Saved.shared.currentSaves.animals{
                 if animal.showInfo() == self.currentAnimal!.showInfo(){
                     for event in animal.events_list{
@@ -56,9 +58,10 @@ class AddEventViewController: UIViewController {
                             
                             let temp: Animal = self.currentAnimal!
                             temp.events_list[num_event] = self.currentEvent!
+                            temp.events_list.sort(by: {$0.date > $1.date})
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                            
+            
                             self.navigationController?.popToViewController(self.lastVC!, animated: true)
                         }
                         num_event += 1
@@ -83,7 +86,7 @@ class AddEventViewController: UIViewController {
                     if animal.showInfo() == currentAnimal!.showInfo(){
                         
                         currentAnimal!.add_event(event_name: EventName.text!, event_date: dateTxt, event_descrtiption: EventDescription.text)
-                        
+                        currentAnimal!.events_list.sort(by: {$0.date > $1.date})
                         Saved.shared.currentSaves.animals[num] = currentAnimal!
                         print("AllIsOK")
                         print(Saved.shared.currentSaves.animals[num].events_list.count)

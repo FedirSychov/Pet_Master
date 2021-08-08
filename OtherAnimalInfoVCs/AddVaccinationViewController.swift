@@ -53,6 +53,7 @@ class AddVaccinationViewController: UIViewController {
                             
                             let temp: Animal = self.currentAnimal!
                             temp.vaccinations_list[num_vacc] = self.currentVaccination!
+                            temp.vaccinations_list.sort(by: {$0.date > $1.date})
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                             
@@ -80,10 +81,8 @@ class AddVaccinationViewController: UIViewController {
                     if animal.showInfo() == currentAnimal!.showInfo(){
                         
                         currentAnimal?.add_vaccination(vacc_name: VaccName.text!, vac_date: dateTxt, description: VaccDescription.text)
-                        
+                        currentAnimal!.vaccinations_list.sort(by: {$0.date > $1.date})
                         Saved.shared.currentSaves.animals[num] = currentAnimal!
-                        print("AllIsOK")
-                        print(Saved.shared.currentSaves.animals[num].vaccinations_list.count)
                     }
                     num += 1
                 }

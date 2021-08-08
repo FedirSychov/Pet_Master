@@ -67,10 +67,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wnE-l4-srR">
-                                <rect key="frame" x="0.0" y="88" width="428" height="622"/>
+                                <rect key="frame" x="0.0" y="88" width="428" height="671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Myc-9X-nRg">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="622"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="671"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qwT-b6-gRq">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="164.66666666666666"/>
@@ -114,8 +114,19 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Go-Kz-cfg">
+                                                <rect key="frame" x="0.0" y="436.66666666666663" width="428" height="39"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Make Healthy">
+                                                    <color key="titleColor" red="0.053147610489999997" green="0.053260241639999997" blue="0.05332623106" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="MakeHealthyButton:" destination="8p4-ro-gad" eventType="touchUpInside" id="7aN-t5-PbN"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-k1-eLG">
-                                                <rect key="frame" x="0.0" y="436.66666666666663" width="428" height="38.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="485.66666666666663" width="428" height="38.333333333333371"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Vaccinations">
@@ -131,7 +142,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-eQ-NN5">
-                                                <rect key="frame" x="0.0" y="485" width="428" height="39"/>
+                                                <rect key="frame" x="0.0" y="534" width="428" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Diseases"/>
                                                 <connections>
@@ -139,7 +150,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6C-2f-oR3">
-                                                <rect key="frame" x="0.0" y="534" width="428" height="39"/>
+                                                <rect key="frame" x="0.0" y="583" width="428" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Events"/>
                                                 <connections>
@@ -147,7 +158,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygf-b8-vdG">
-                                                <rect key="frame" x="0.0" y="583" width="428" height="39"/>
+                                                <rect key="frame" x="0.0" y="632" width="428" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="Food"/>
                                                 <connections>
@@ -162,6 +173,7 @@
                                             <constraint firstItem="0dF-k1-eLG" firstAttribute="leading" secondItem="Myc-9X-nRg" secondAttribute="leading" id="Ee9-tR-1oT"/>
                                             <constraint firstAttribute="trailing" secondItem="u01-im-g57" secondAttribute="trailing" constant="10" id="IOR-iP-8T4"/>
                                             <constraint firstItem="gxu-eQ-NN5" firstAttribute="leading" secondItem="Myc-9X-nRg" secondAttribute="leading" id="Skf-8g-Usf"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Go-Kz-cfg" secondAttribute="trailing" id="Swr-XN-EH1"/>
                                             <constraint firstAttribute="trailing" secondItem="Ygf-b8-vdG" secondAttribute="trailing" id="TAC-AG-Afc"/>
                                             <constraint firstItem="qwT-b6-gRq" firstAttribute="trailing" secondItem="Myc-9X-nRg" secondAttribute="trailingMargin" id="Zcx-n2-Key"/>
                                             <constraint firstAttribute="trailing" secondItem="Jve-VM-ujF" secondAttribute="trailing" constant="10" id="eRb-F5-j08"/>
@@ -203,8 +215,10 @@
                         <outlet property="AgeLabel" destination="Jve-VM-ujF" id="EhR-lP-zVz"/>
                         <outlet property="AnimalImage" destination="qwT-b6-gRq" id="1qM-dg-lbo"/>
                         <outlet property="BreedLabel" destination="p0T-Y5-aJ2" id="R7M-ng-dZu"/>
+                        <outlet property="MakeHealthy" destination="3Go-Kz-cfg" id="EDa-f1-MWf"/>
                         <outlet property="NameLabel" destination="xZ7-w4-Or1" id="LOn-nC-UqR"/>
                         <outlet property="Options" destination="xvM-ch-aBC" id="slH-hR-QwZ"/>
+                        <outlet property="StatusLabel" destination="u01-im-g57" id="1L4-Lp-3hH"/>
                         <outlet property="TypeLabel" destination="pCp-2U-3CX" id="BPC-xV-ym6"/>
                         <segue destination="sfu-eb-Afd" kind="presentation" identifier="EditAnimal" id="YeG-af-J6N"/>
                     </connections>
@@ -938,13 +952,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-TB-5wR">
-                                <rect key="frame" x="94" y="526" width="40" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date of end" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dT-m3-3Qz">
                                 <rect key="frame" x="20" y="486" width="111" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -980,7 +987,7 @@
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIt-ce-c8P">
-                                <rect key="frame" x="25" y="523" width="49" height="31"/>
+                                <rect key="frame" x="191" y="523" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="EndSwitched:" destination="NIv-Jr-Poq" eventType="valueChanged" id="iaP-9B-bYK"/>
@@ -1006,6 +1013,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XxV-5B-iP2">
+                                <rect key="frame" x="20" y="523" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="LastssSwitch:" destination="NIv-Jr-Poq" eventType="valueChanged" id="J0R-b6-IXl"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It lasts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRM-Bo-uIV">
+                                <rect key="frame" x="89" y="528" width="111" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-TB-5wR">
+                                <rect key="frame" x="260" y="526" width="40" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="335-J0-J8X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1023,6 +1051,8 @@
                         <outlet property="DiseaseName" destination="eOm-7i-qCm" id="zpA-Fw-RBW"/>
                         <outlet property="EndDatePicker" destination="X0T-ps-vLQ" id="5tx-zn-iHL"/>
                         <outlet property="EndDateSwitch" destination="NIt-ce-c8P" id="H3K-v2-r9x"/>
+                        <outlet property="EndNowlabel" destination="Nb9-TB-5wR" id="eWw-sI-Kdv"/>
+                        <outlet property="LastsSwitch" destination="XxV-5B-iP2" id="6QK-Xu-DH6"/>
                         <outlet property="StartDatePicker" destination="eWn-07-7dw" id="8D6-as-Ema"/>
                         <outlet property="StartDateSwitch" destination="Geq-OD-cMD" id="uNT-Kl-S4w"/>
                     </connections>
@@ -1102,6 +1132,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
