@@ -15,7 +15,6 @@ enum DefaultKeys{
 enum StatusSort: String, Decodable, Encodable{
     case up = "up"
     case down = "down"
-    case nilsort = "nilsort"
 }
 
 struct SavedAnimals: Codable{
@@ -80,7 +79,7 @@ class Saved{
         Saved.shared.currentSaves = baseSave
     }
     
-    private func reserSettings(){
-        
+    func reserSettings(){
+        Saved.shared.currentSettings = baseSettings
     }
 }

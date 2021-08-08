@@ -30,10 +30,11 @@
 		7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70A26BB330500365A8B /* FoodTableViewController.swift */; };
 		7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70C26BB331400365A8B /* AddFoodViewController.swift */; };
 		7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */; };
-		7EC5555726B3FC300054F314 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555626B3FC300054F314 /* SettingsViewController.swift */; };
 		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
 		7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555B26B434CC0054F314 /* SavedAnimals.swift */; };
 		7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555E26B4746B0054F314 /* AnimalViewController.swift */; };
+		7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */; };
+		7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489D26C0125C003B99CF /* SortTableViewController.swift */; };
 		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +85,11 @@
 		7E80C70A26BB330500365A8B /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		7E80C70C26BB331400365A8B /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
 		7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTableViewController.swift; sourceTree = "<group>"; };
-		7EC5555626B3FC300054F314 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		7EC5555B26B434CC0054F314 /* SavedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAnimals.swift; sourceTree = "<group>"; };
 		7EC5555E26B4746B0054F314 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7ECB489D26C0125C003B99CF /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
 		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,7 +208,8 @@
 		7EC5555326B3FBC20054F314 /* SettingsVC */ = {
 			isa = PBXGroup;
 			children = (
-				7EC5555626B3FC300054F314 /* SettingsViewController.swift */,
+				7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */,
+				7ECB489D26C0125C003B99CF /* SortTableViewController.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -368,13 +371,14 @@
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
 				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,
+				7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */,
 				7E46214826BEA625005D7E68 /* EventInfoViewController.swift in Sources */,
 				7E10536D269E327600C5AA7A /* animalImage.swift in Sources */,
 				7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */,
 				7E80C70726BB2AB000365A8B /* EventsTableViewController.swift in Sources */,
 				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,
+				7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */,
 				7E724DE626B95F640002AD4A /* VaccinationsTableViewController.swift in Sources */,
-				7EC5555726B3FC300054F314 /* SettingsViewController.swift in Sources */,
 				7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */,
 				7E6E034E2605EDD60015571B /* Animals.swift in Sources */,
 				7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */,

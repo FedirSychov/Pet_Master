@@ -28,6 +28,8 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AnimalImage.image = UIImage(named: "28060589")
+        
         updateStatus()
     }
     

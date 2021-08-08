@@ -126,7 +126,11 @@ class AddDiseaseViewController: UIViewController {
                             
                             let temp: Animal = self.currentAnimal!
                             temp.disease_list[num_vacc] = self.curreentDisease!
-                            temp.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                            if Saved.shared.currentSettings.sort == .down{
+                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                            } else {
+                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                            }
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                             self.navigationController?.popToViewController(self.lastVC!, animated: true)
@@ -169,7 +173,11 @@ class AddDiseaseViewController: UIViewController {
                         } else {
                         currentAnimal?.add_disease(disease_name: DiseaseName.text!, disease_date: dateOfStart, disease_end: dateOfEnd!, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
                         }
-                        currentAnimal?.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                        if Saved.shared.currentSettings.sort == .down{
+                            currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                        } else {
+                            currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                        }
                         Saved.shared.currentSaves.animals[num] = currentAnimal!
                     }
                     num += 1
