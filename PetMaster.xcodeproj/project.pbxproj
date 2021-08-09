@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7E10536D269E327600C5AA7A /* animalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10536C269E327600C5AA7A /* animalImage.swift */; };
-		7E105370269E346800C5AA7A /* AnimalImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E10536F269E346800C5AA7A /* AnimalImages.xcassets */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
 		7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */; };
@@ -57,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		7E10536C269E327600C5AA7A /* animalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalImage.swift; sourceTree = "<group>"; };
-		7E10536F269E346800C5AA7A /* AnimalImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AnimalImages.xcassets; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
 		7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseInfoViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */,
 				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
 				7E10536C269E327600C5AA7A /* animalImage.swift */,
-				7E10536F269E346800C5AA7A /* AnimalImages.xcassets */,
 			);
 			path = AnimalListScreen;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6E03272605EDB50015571B /* LaunchScreen.storyboard in Resources */,
-				7E105370269E346800C5AA7A /* AnimalImages.xcassets in Resources */,
 				7E6E03242605EDB50015571B /* Assets.xcassets in Resources */,
 				7E6E03222605EDB40015571B /* Main.storyboard in Resources */,
 			);

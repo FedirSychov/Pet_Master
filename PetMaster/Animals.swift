@@ -6,7 +6,14 @@
 //
 
 import Foundation
-//TODO: - make all objects comparable and sort them by date
+
+//другие нужные функции
+class OtherFunctions{
+    static func getRandomString(length: Int) -> String{
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+}
 //класс болезни
 class Disease: Codable, Equatable {
     static func == (lhs: Disease, rhs: Disease) -> Bool {
@@ -136,6 +143,7 @@ class Animal: Codable {
     var vaccinations_list = [Vaccination]()
     var disease_list = [Disease]()
     var events_list = [Event]()
+    var animal_image: String?
 //    конструктор для 3 элементов
     init(name: String, birthday: String, type: String) {
         let data_f = DateFormatter()

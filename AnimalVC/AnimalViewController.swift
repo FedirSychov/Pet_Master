@@ -13,6 +13,7 @@ class AnimalViewController: UIViewController {
     var currentAnimal: Animal?
     var currentDiseaseLasts: Disease?
     var currDiseaseNum: Int = -1
+    var currentImage: String?
     
     var lastVC: UITableViewController?
     
@@ -28,7 +29,11 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AnimalImage.image = UIImage(named: "28060589")
+        if self.currentAnimal?.animal_image != nil{
+            AnimalImage.image = getImageFromDocs(name: currentAnimal!.animal_image!)
+        } else {
+            AnimalImage.image = #imageLiteral(resourceName: "NoImage")
+        }
         
         updateStatus()
     }
@@ -39,7 +44,8 @@ class AnimalViewController: UIViewController {
             if animal.showInfo() == self.currentAnimal?.showInfo(){
                 self.currentAnimal = animal
                 StatusLabel.text = "Sick"
-                MakeHealthy.isHidden = false
+                MakeHealthy.alpha = 1
+                MakeHealthy.isEnabled = true
             }
             temp1 += 1
         }
@@ -57,10 +63,12 @@ class AnimalViewController: UIViewController {
             }
             if currDiseaseNum != -1{
                 StatusLabel.text = "Sick: \(currentAnimal!.disease_list[currDiseaseNum].name)"
-                MakeHealthy.isHidden = false
+                MakeHealthy.alpha = 1
+                MakeHealthy.isEnabled = true
             } else {
                 StatusLabel.text = "Healthy"
-                MakeHealthy.isHidden = true
+                MakeHealthy.alpha = 0
+                MakeHealthy.isEnabled = false
             }
             NameLabel.text = "Name: \(currentAnimal!.name)"
             AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
@@ -69,7 +77,8 @@ class AnimalViewController: UIViewController {
         }
         else {
             StatusLabel.text = "Healthy"
-            MakeHealthy.isHidden = true
+            MakeHealthy.alpha = 0
+            MakeHealthy.isEnabled = false
             NameLabel.text = "Name: \(currentAnimal!.name)"
             AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
             TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
@@ -87,7 +96,8 @@ class AnimalViewController: UIViewController {
             }
             num += 1
         }
-        self.MakeHealthy.isHidden = true
+        MakeHealthy.alpha = 0
+        MakeHealthy.isEnabled = false
         self.StatusLabel.text = "Healthy"
         currDiseaseNum = -1
         updateStatus()
@@ -115,7 +125,6 @@ class AnimalViewController: UIViewController {
             if let diseaseVC = segue.destination as? DiseasesTableViewController{
                 diseaseVC.currentAnimal = self.currentAnimal
                 diseaseVC.lastVC = self.lastVC!
-                //diseaseVC.animalVC = self
             }
         case "goToEventsVC":
             if let eventVC = segue.destination as? EventsTableViewController{
@@ -144,6 +153,15 @@ class AnimalViewController: UIViewController {
     private func ShowAlertActionSheet(){
         let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
         
+        let imageAction = UIAlertAction(title: "Set photo as avatar", style: .default) { [weak self](_) in
+            let vc = UIImagePickerController()
+            vc.sourceType = .photoLibrary
+            vc.delegate = self
+            vc.allowsEditing = true
+            self?.present(vc, animated: true, completion: nil)
+            
+        }
+        
         let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self](_) in
             self?.performSegue(withIdentifier: "EditAnimal", sender: nil)
         }
@@ -154,6 +172,7 @@ class AnimalViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
+        alert.addAction(imageAction)
         alert.addAction(editAction)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
@@ -181,5 +200,78 @@ class AnimalViewController: UIViewController {
         alert.addAction(yesAction)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension AnimalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage{
+            AnimalImage.image = image
+            if self.currentAnimal!.animal_image != nil{
+                deleteImageFromDocs(name: self.currentAnimal!.animal_image!)
+            }
+            currentImage = "\(self.currentAnimal!.name)-\(self.currentAnimal!.animal_type)-\(self.currentAnimal!.date_of_birth)"
+            let succsess = saveImage(image: image, name: currentImage!)
+            if succsess{
+                currentAnimal!.animal_image = self.currentImage
+                var num: Int = 0
+                for animal in Saved.shared.currentSaves.animals{
+                    if animal.showInfo() == currentAnimal!.showInfo(){
+                        Saved.shared.currentSaves.animals.remove(at: num)
+                        Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
+                    }
+                    num += 1
+                }
+            }
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func saveImage(image: UIImage, name: String) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent(name)!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    func getImageFromDocs(name: String) -> UIImage?{
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+           let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(name)
+            let image    = UIImage(contentsOfFile: imageURL.path)
+            print("That's OK")
+           return image
+        }
+        return nil
+    }
+    
+    func deleteImageFromDocs(name: String){
+        let fileManager = FileManager.default
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            do{
+                try? fileManager.removeItem(at: URL(fileURLWithPath: dirPath).appendingPathComponent(name))
+            }
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
