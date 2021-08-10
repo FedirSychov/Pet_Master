@@ -17,6 +17,7 @@ class EventInfoViewController: UIViewController {
     var num_animal: Int = 0
     var num_event: Int = 0
     
+    @IBOutlet weak var optionButton: UIBarButtonItem!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var Descriptionlabel: UILabel!
@@ -26,9 +27,11 @@ class EventInfoViewController: UIViewController {
         ShowAlertActionSheet()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentAnimal!.date_of_death != nil{
+            self.optionButton.isEnabled = false
+        }
         reloadInfo()
     }
     
@@ -38,6 +41,7 @@ class EventInfoViewController: UIViewController {
                 editEventVC.currentEvent = self.currentEvent!
                 editEventVC.currentAnimal = self.currentAnimal!
                 editEventVC.lastVC = self.lastVC!
+                editEventVC.thisVC = self
             }
         }
     }

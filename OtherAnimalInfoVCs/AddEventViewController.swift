@@ -12,6 +12,7 @@ class AddEventViewController: UIViewController {
     var currentAnimal: Animal?
     var currentEvent: Event?
     var lastVC: UITableViewController?
+    var thisVC: UIViewController?
     
     var num_animal: Int = 0
     var num_event: Int = 0
@@ -31,6 +32,7 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DatePicker.maximumDate = Date()
         if DateSwitch.isOn {
             DatePicker.isEnabled = false
         } else {
@@ -66,7 +68,8 @@ class AddEventViewController: UIViewController {
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
             
-                            self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                            self.navigationController?.popViewController(animated: true)
+                            self.thisVC!.viewDidLoad()
                         }
                         num_event += 1
                     }

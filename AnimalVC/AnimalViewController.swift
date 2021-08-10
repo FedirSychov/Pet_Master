@@ -34,21 +34,8 @@ class AnimalViewController: UIViewController {
         } else {
             AnimalImage.image = #imageLiteral(resourceName: "NoImage")
         }
-        
+        self.title = self.currentAnimal!.name
         updateStatus()
-    }
-    
-    func ReloadStatus() {
-        var temp1: Int = 0
-        for animal in Saved.shared.currentSaves.animals{
-            if animal.showInfo() == self.currentAnimal?.showInfo(){
-                self.currentAnimal = animal
-                StatusLabel.text = "Sick"
-                MakeHealthy.alpha = 1
-                MakeHealthy.isEnabled = true
-            }
-            temp1 += 1
-        }
     }
     
     func updateStatus(){
@@ -83,6 +70,11 @@ class AnimalViewController: UIViewController {
             AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
             TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
             BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+        }
+        if currentAnimal!.date_of_death != nil{
+            self.StatusLabel.text = "Dead"
+            MakeHealthy.alpha = 0
+            MakeHealthy.isEnabled = false
         }
     }
     
@@ -140,6 +132,11 @@ class AnimalViewController: UIViewController {
                 editVC.currentAnimal = self.currentAnimal
                 editVC.editdelegate = self
             }
+        case "goToDeadVC":
+            if let deadVC = segue.destination as? DeathViewController{
+                deadVC.currentAnimal = self.currentAnimal!
+                deadVC.lastVC = self.lastVC!
+            }
         default:
             break
         }
@@ -170,12 +167,39 @@ class AnimalViewController: UIViewController {
             self?.showAlert()
         }
         
+        let deathAction = UIAlertAction(title: "Mark as dead", style: .destructive) { [weak self](_) in
+            self?.performSegue(withIdentifier: "goToDeadVC", sender: nil)
+        }
+        
+        let isStillAliveAction = UIAlertAction(title: "Is alive!", style: .default) { [weak self](_) in
+            self!.currentAnimal!.date_of_death = nil
+            self!.currentAnimal!.deathComment = nil
+            var num: Int = 0
+            for animal in Saved.shared.currentSaves.animals{
+                if animal.showInfo() == self!.currentAnimal!.showInfo(){
+                    Saved.shared.currentSaves.animals.remove(at: num)
+                    Saved.shared.currentSaves.animals.insert(self!.currentAnimal!, at: num)
+                    //self!.navigationController?.popViewController(animated: true)
+                    self!.viewDidLoad()
+                }
+                num += 1
+            }
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(imageAction)
-        alert.addAction(editAction)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
+        if currentAnimal!.date_of_death == nil{
+            alert.addAction(imageAction)
+            alert.addAction(editAction)
+            alert.addAction(deleteAction)
+            alert.addAction(deathAction)
+            alert.addAction(cancelAction)
+        } else {
+            alert.addAction(imageAction)
+            alert.addAction(isStillAliveAction)
+            alert.addAction(deleteAction)
+            alert.addAction(cancelAction)
+        }
         
         present(alert, animated: true, completion: nil)
     }

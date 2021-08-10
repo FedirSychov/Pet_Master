@@ -17,6 +17,7 @@ class VaccInfoViewController: UIViewController {
     var num_animal: Int = 0
     var num_vacc: Int = 0
     
+    @IBOutlet weak var optionButton: UIBarButtonItem!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
@@ -27,6 +28,9 @@ class VaccInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentAnimal!.date_of_death != nil{
+            self.optionButton.isEnabled = false
+        }
         reloadInfo()
     }
     
@@ -34,9 +38,9 @@ class VaccInfoViewController: UIViewController {
         if segue.identifier == "goToEditVacc"{
             if let editVaccVC = segue.destination as? AddVaccinationViewController{
                 editVaccVC.currentVaccination = self.currentVaccination!
-                print(self.currentAnimal!.showInfo())
                 editVaccVC.currentAnimal = self.currentAnimal!
                 editVaccVC.lastVC = self.lastVC!
+                editVaccVC.thisVC = self
             }
         }
     }

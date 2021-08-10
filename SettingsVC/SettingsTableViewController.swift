@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     @IBAction func ResetSettingsButton(_ sender: Any) {

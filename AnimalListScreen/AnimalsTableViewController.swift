@@ -15,7 +15,7 @@ class AnimalsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {

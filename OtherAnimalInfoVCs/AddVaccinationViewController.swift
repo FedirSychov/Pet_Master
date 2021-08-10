@@ -15,12 +15,14 @@ class AddVaccinationViewController: UIViewController {
     @IBOutlet weak var DateSwitcher: UISwitch!
     
     var lastVC: UITableViewController?
+    var thisVC: UIViewController?
     
     var currentAnimal: Animal?
     var currentVaccination: Vaccination?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        VaccDate.maximumDate = Date()
         if self.currentVaccination != nil {
             self.VaccName.text = self.currentVaccination!.name
             self.VaccDescription.text = self.currentVaccination!.description
@@ -60,8 +62,8 @@ class AddVaccinationViewController: UIViewController {
                             }
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                            
-                            self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                            self.navigationController?.popViewController(animated: true)
+                            thisVC!.viewDidLoad()
                         }
                         num_vacc += 1
                     }

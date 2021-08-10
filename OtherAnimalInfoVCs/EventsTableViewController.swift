@@ -12,13 +12,16 @@ class EventsTableViewController: UITableViewController {
     var currentAnimal: Animal?
     var currentEvent: Event?
     var data: [Event] = []
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var lastVC: UITableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        if currentAnimal!.date_of_death != nil{
+            self.addButton.isEnabled = false
+        }
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {

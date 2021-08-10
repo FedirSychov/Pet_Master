@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7E10536D269E327600C5AA7A /* animalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E10536C269E327600C5AA7A /* animalImage.swift */; };
+		7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1295A026C25E03003DCC62 /* What to do.rtf */; };
+		7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1295A226C26F0A003DCC62 /* DeathViewController.swift */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
 		7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		7E10536C269E327600C5AA7A /* animalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animalImage.swift; sourceTree = "<group>"; };
+		7E1295A026C25E03003DCC62 /* What to do.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "What to do.rtf"; sourceTree = "<group>"; };
+		7E1295A226C26F0A003DCC62 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
 		7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseInfoViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				7E6E03282605EDB50015571B /* Info.plist */,
 				7E6E03232605EDB50015571B /* Assets.xcassets */,
 				7EC5555B26B434CC0054F314 /* SavedAnimals.swift */,
+				7E1295A026C25E03003DCC62 /* What to do.rtf */,
 			);
 			path = PetMaster;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 			children = (
 				7EC5555E26B4746B0054F314 /* AnimalViewController.swift */,
 				7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */,
+				7E1295A226C26F0A003DCC62 /* DeathViewController.swift */,
 			);
 			path = AnimalVC;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			files = (
 				7E6E03272605EDB50015571B /* LaunchScreen.storyboard in Resources */,
 				7E6E03242605EDB50015571B /* Assets.xcassets in Resources */,
+				7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */,
 				7E6E03222605EDB40015571B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +382,7 @@
 				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,
 				7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */,
 				7E724DE626B95F640002AD4A /* VaccinationsTableViewController.swift in Sources */,
+				7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */,
 				7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */,
 				7E6E034E2605EDD60015571B /* Animals.swift in Sources */,
 				7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */,

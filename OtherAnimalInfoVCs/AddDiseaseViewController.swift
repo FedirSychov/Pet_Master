@@ -10,7 +10,7 @@ import UIKit
 class AddDiseaseViewController: UIViewController {
     
     var lastVC: UITableViewController?
-    //var animalVC: UIViewController?
+    var thisVC: UIViewController?
 
     @IBOutlet weak var DiseaseName: UITextField!
     @IBOutlet weak var StartDateSwitch: UISwitch!
@@ -27,6 +27,8 @@ class AddDiseaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        StartDatePicker.maximumDate = Date()
+        EndDatePicker.maximumDate = Date()
         if StartDateSwitch.isOn{
             EndDateSwitch.isOn = false
             StartDatePicker.isEnabled = false
@@ -133,7 +135,9 @@ class AddDiseaseViewController: UIViewController {
                             }
                             Saved.shared.currentSaves.animals.remove(at: num_animal)
                             Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                            self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                            //self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                            self.navigationController?.popViewController(animated: true)
+                            self.thisVC!.viewDidLoad()
                         }
                         num_vacc += 1
                     }

@@ -14,9 +14,14 @@ class DiseasesTableViewController: UITableViewController {
     var lastVC: UITableViewController?
     //var animalVC: UIViewController?
     var data: [Disease] = []
+    @IBOutlet weak var AddButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentAnimal!.date_of_death != nil{
+            self.AddButton.isEnabled = false
+        }
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func viewWillAppear(_ animated: Bool) {

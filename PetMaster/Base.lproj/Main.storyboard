@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings Table View Controller-->
+        <!--Settings-->
         <scene sceneID="ath-HV-qGE">
             <objects>
                 <tableViewController id="lSI-FX-vrY" customClass="SettingsTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <outlet property="delegate" destination="lSI-FX-vrY" id="ieo-GB-vda"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KVL-fU-WPP"/>
+                    <navigationItem key="navigationItem" title="Settings" id="KVL-fU-WPP"/>
                     <connections>
                         <outlet property="sortTypeLabel" destination="Mo5-hV-Peg" id="fbS-gA-Vol"/>
                     </connections>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="2562.6168224299063" y="-641.46868250539967"/>
         </scene>
-        <!--Sort Table View Controller-->
+        <!--Sort type-->
         <scene sceneID="SLI-5Y-kYP">
             <objects>
                 <tableViewController id="nuD-iq-uw6" customClass="SortTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                             <outlet property="delegate" destination="nuD-iq-uw6" id="nXb-vH-X9v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="S1D-Cs-CKA"/>
+                    <navigationItem key="navigationItem" title="Sort type" id="S1D-Cs-CKA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D1-w1-Dxv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -358,13 +358,14 @@
                         <outlet property="StatusLabel" destination="u01-im-g57" id="1L4-Lp-3hH"/>
                         <outlet property="TypeLabel" destination="pCp-2U-3CX" id="BPC-xV-ym6"/>
                         <segue destination="sfu-eb-Afd" kind="presentation" identifier="EditAnimal" id="YeG-af-J6N"/>
+                        <segue destination="92e-JL-Ns4" kind="show" identifier="goToDeadVC" id="ho8-5b-HJR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="037-7h-Tiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3486.4485981308408" y="64.146868250539967"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Food-->
         <scene sceneID="Vtd-P8-4LB">
             <objects>
                 <tableViewController id="pLS-1T-4bS" sceneMemberID="viewController">
@@ -396,7 +397,7 @@
                             <outlet property="delegate" destination="pLS-1T-4bS" id="DIs-Y7-JUv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jtZ-zL-4G2">
+                    <navigationItem key="navigationItem" title="Food" id="jtZ-zL-4G2">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="00G-aE-SfH">
                             <connections>
                                 <segue destination="lSa-jn-Nuu" kind="show" id="ihC-23-dr3"/>
@@ -604,7 +605,7 @@
             </objects>
             <point key="canvasLocation" x="3488" y="788"/>
         </scene>
-        <!--Events Table View Controller-->
+        <!--Events-->
         <scene sceneID="2g4-mq-bjN">
             <objects>
                 <tableViewController id="uxZ-4R-dSN" customClass="EventsTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -639,13 +640,16 @@
                             <outlet property="delegate" destination="uxZ-4R-dSN" id="fXp-tT-fnk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UoE-OT-AGW">
+                    <navigationItem key="navigationItem" title="Events" id="UoE-OT-AGW">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="1b0-6T-BZD">
                             <connections>
                                 <segue destination="I6M-dJ-8sG" kind="show" identifier="goToAddEvent" id="dNY-3M-5RJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="1b0-6T-BZD" id="K8T-8l-xRW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PL0-ZW-5ya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -777,6 +781,7 @@
                         <outlet property="Descriptionlabel" destination="56z-Ky-ptp" id="Bp5-cF-4vJ"/>
                         <outlet property="NameLabel" destination="aAj-jN-ndn" id="KuJ-aP-Qn0"/>
                         <outlet property="OptionsButton" destination="VSK-F1-K9h" id="iLe-z1-use"/>
+                        <outlet property="optionButton" destination="VSK-F1-K9h" id="fSq-1z-xww"/>
                         <segue destination="I6M-dJ-8sG" kind="show" identifier="goToEditEvent" id="szD-nL-Qvq"/>
                     </connections>
                 </viewController>
@@ -784,7 +789,7 @@
             </objects>
             <point key="canvasLocation" x="7286.9158878504668" y="-149.02807775377971"/>
         </scene>
-        <!--Diseases Table View Controller-->
+        <!--Diseases-->
         <scene sceneID="FJ8-02-0zb">
             <objects>
                 <tableViewController id="oY7-uS-X9S" customClass="DiseasesTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -819,19 +824,86 @@
                             <outlet property="delegate" destination="oY7-uS-X9S" id="nLT-o3-VvS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qLm-YK-92k">
+                    <navigationItem key="navigationItem" title="Diseases" id="qLm-YK-92k">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="7e9-XS-4NI">
                             <connections>
                                 <segue destination="NIv-Jr-Poq" kind="show" identifier="goToAddDisease" id="BuR-Qc-9ba"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="AddButton" destination="7e9-XS-4NI" id="nuk-dj-3wi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="om8-Au-U2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5357" y="-829"/>
         </scene>
-        <!--Vaccinations Table View Controller-->
+        <!--Death View Controller-->
+        <scene sceneID="Qrr-05-n5F">
+            <objects>
+                <viewController id="92e-JL-Ns4" customClass="DeathViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDq-if-aAd">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="lQi-sJ-aua">
+                                <rect key="frame" x="0.0" y="188" width="428" height="162"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="bTF-6Z-p12"/>
+                                </constraints>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xgX-J1-fjV">
+                                <rect key="frame" x="5" y="450" width="418" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnQ-eu-5uM">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="26.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VZM-AH-GIy">
+                                        <rect key="frame" x="0.0" y="34.333333333333314" width="418" height="35.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VZM-AH-GIy" secondAttribute="trailing" id="BBB-Ox-waD"/>
+                                    <constraint firstItem="VZM-AH-GIy" firstAttribute="leading" secondItem="xgX-J1-fjV" secondAttribute="leading" id="QEt-TX-Voq"/>
+                                    <constraint firstAttribute="height" constant="70" id="iAZ-za-44a"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mTe-sa-Err"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lQi-sJ-aua" firstAttribute="trailing" secondItem="mTe-sa-Err" secondAttribute="trailing" id="R6E-Zh-mBG"/>
+                            <constraint firstItem="xgX-J1-fjV" firstAttribute="top" secondItem="lQi-sJ-aua" secondAttribute="bottom" constant="100" id="TQz-iq-VuI"/>
+                            <constraint firstItem="mTe-sa-Err" firstAttribute="trailing" secondItem="xgX-J1-fjV" secondAttribute="trailing" constant="5" id="YPb-rI-PnK"/>
+                            <constraint firstItem="lQi-sJ-aua" firstAttribute="top" secondItem="mTe-sa-Err" secondAttribute="top" constant="100" id="ch3-GC-VZ2"/>
+                            <constraint firstItem="xgX-J1-fjV" firstAttribute="leading" secondItem="mTe-sa-Err" secondAttribute="leading" constant="5" id="oW2-mk-3y5"/>
+                            <constraint firstItem="lQi-sJ-aua" firstAttribute="leading" secondItem="mTe-sa-Err" secondAttribute="leading" id="seM-YG-Vle"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GIb-bR-QD9">
+                        <barButtonItem key="rightBarButtonItem" title="Save :(" id="eGU-uv-IvH">
+                            <connections>
+                                <action selector="SaveDeath:" destination="92e-JL-Ns4" id="DKG-Pv-JEM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="CommentTextField" destination="VZM-AH-GIy" id="3Um-5l-Xq3"/>
+                        <outlet property="DatePicker" destination="lQi-sJ-aua" id="4XW-pp-TiT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nvQ-9o-i8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4348.598130841121" y="-1519.4384449244062"/>
+        </scene>
+        <!--Vaccinations-->
         <scene sceneID="fIK-DM-SbQ">
             <objects>
                 <tableViewController id="JRp-XK-RZq" customClass="VaccinationsTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -866,13 +938,16 @@
                             <outlet property="delegate" destination="JRp-XK-RZq" id="26t-uO-Cg8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sXE-M2-CPe">
+                    <navigationItem key="navigationItem" title="Vaccinations" id="sXE-M2-CPe">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="ALX-X3-Zdw">
                             <connections>
                                 <segue destination="o8n-ul-piT" kind="show" identifier="goToAddVacc" id="Tpd-ms-F2s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="AddButton" destination="ALX-X3-Zdw" id="14z-Ov-0r5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ba5-VH-D4j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1003,6 +1078,7 @@
                         <outlet property="DateLabel" destination="NN4-ml-NFe" id="HYo-1t-I0y"/>
                         <outlet property="DescriptionLabel" destination="yE5-h6-hLZ" id="b3z-Sc-IMf"/>
                         <outlet property="NameLabel" destination="Kb7-7c-9HA" id="uYQ-uT-rT8"/>
+                        <outlet property="optionButton" destination="Op5-Aa-nB0" id="yFT-nH-Rdj"/>
                         <segue destination="o8n-ul-piT" kind="show" identifier="goToEditVacc" id="UPL-G6-Dek"/>
                     </connections>
                 </viewController>
@@ -1200,6 +1276,7 @@
                         <outlet property="DaysLabel" destination="NdI-zP-WJz" id="1kO-7M-rt9"/>
                         <outlet property="DescriptionLabel" destination="5cw-aJ-fob" id="CUD-QU-9Aa"/>
                         <outlet property="NameLabel" destination="U6N-Or-tN2" id="SLS-Tl-POa"/>
+                        <outlet property="optionButton" destination="LAc-89-gzc" id="Pgm-9c-6uK"/>
                         <segue destination="NIv-Jr-Poq" kind="show" identifier="goToEditDisease" id="zQG-nV-3Ph"/>
                     </connections>
                 </viewController>

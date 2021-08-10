@@ -144,6 +144,8 @@ class Animal: Codable {
     var disease_list = [Disease]()
     var events_list = [Event]()
     var animal_image: String?
+    var date_of_death: Date?
+    var deathComment: String?
 //    конструктор для 3 элементов
     init(name: String, birthday: String, type: String) {
         let data_f = DateFormatter()

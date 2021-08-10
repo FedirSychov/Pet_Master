@@ -30,7 +30,7 @@ class AddAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(currentAnimal?.name ?? "No Current Animal")
+        DateOfBirth.maximumDate = Date()
     
         if currentAnimal != nil{
             num = 0

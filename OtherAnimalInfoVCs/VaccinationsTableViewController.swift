@@ -14,9 +14,14 @@ class VaccinationsTableViewController: UITableViewController {
     var data: [Vaccination] = []
     
     var lastVC: UITableViewController?
+    @IBOutlet weak var AddButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentAnimal!.date_of_death != nil{
+            AddButton.isEnabled = false
+        }
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,9 +39,8 @@ class VaccinationsTableViewController: UITableViewController {
         case "goToVaccinationInfo":
             if let vaccInfoVC = segue.destination as? VaccInfoViewController{
                 vaccInfoVC.currentVaccination = self.currentVaccination!
-                print(currentAnimal!.showInfo())
                 vaccInfoVC.currentAnimal = self.currentAnimal!
-                vaccInfoVC.lastVC = self.lastVC!
+                vaccInfoVC.lastVC = self.lastVC
             }
         default:
             break

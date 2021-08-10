@@ -13,7 +13,7 @@ class FoodTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     // MARK: - Table view data source

@@ -14,6 +14,7 @@ class DiseaseInfoViewController: UIViewController {
     
     var lastVC: UITableViewController?
     
+    @IBOutlet weak var optionButton: UIBarButtonItem!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DaysLabel: UILabel!
@@ -24,6 +25,9 @@ class DiseaseInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if currentAnimal!.date_of_death != nil{
+            self.optionButton.isEnabled = false
+        }
         reloadInfo()
     }
     
@@ -37,6 +41,7 @@ class DiseaseInfoViewController: UIViewController {
                 editDiseaseVC.curreentDisease = self.currentDisease!
                 editDiseaseVC.currentAnimal = self.currentAnimal!
                 editDiseaseVC.lastVC = self.lastVC!
+                editDiseaseVC.thisVC = self
             }
         }
     }
