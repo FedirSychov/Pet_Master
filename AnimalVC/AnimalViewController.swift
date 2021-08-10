@@ -276,7 +276,6 @@ extension AnimalViewController: UIImagePickerControllerDelegate, UINavigationCon
         {
            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(name)
             let image    = UIImage(contentsOfFile: imageURL.path)
-            print("That's OK")
            return image
         }
         return nil

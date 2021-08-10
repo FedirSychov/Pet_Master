@@ -32,7 +32,7 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DatePicker.maximumDate = Date()
+        //DatePicker.maximumDate = Date()
         if DateSwitch.isOn {
             DatePicker.isEnabled = false
         } else {
@@ -45,6 +45,22 @@ class AddEventViewController: UIViewController {
             self.DateSwitch.isOn = false
             self.EventDescription.text = currentEvent!.description
         }
+    }
+    
+    private func noSameEvents(thisD: Event) -> Bool {
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                for event in Saved.shared.currentSaves.animals[num].events_list{
+                    if thisD == event{
+                        print("I Found!!!")
+                        return false
+                    }
+                }
+            }
+            num += 1
+        }
+        return true
     }
     
     @IBAction func SaveEvent(_ sender: Any) {
@@ -91,19 +107,46 @@ class AddEventViewController: UIViewController {
                 var num: Int = 0
                 for animal in Saved.shared.currentSaves.animals{
                     if animal.showInfo() == currentAnimal!.showInfo(){
-                        
-                        currentAnimal!.add_event(event_name: EventName.text!, event_date: dateTxt, event_descrtiption: EventDescription.text)
-                        if Saved.shared.currentSettings.sort == .down{
-                            currentAnimal!.events_list.sort(by: {$0.date > $1.date})
+                        let tempEvent = Event(name: EventName.text!, date: dateTxt, descr: EventDescription.text)
+                        if noSameEvents(thisD: tempEvent){
+                            currentAnimal!.events_list.append(tempEvent)
+                            if Saved.shared.currentSettings.sort == .down{
+                                currentAnimal!.events_list.sort(by: {$0.date > $1.date})
+                            } else {
+                                currentAnimal!.events_list.sort(by: {$0.date < $1.date})
+                            }
+                            Saved.shared.currentSaves.animals[num] = currentAnimal!
+                            navigationController?.popViewController(animated: true)
                         } else {
-                            currentAnimal!.events_list.sort(by: {$0.date < $1.date})
+                            ShowAlertSameEvent()
                         }
-                        Saved.shared.currentSaves.animals[num] = currentAnimal!
+                        
                     }
                     num += 1
                 }
+            } else {
+                ShowAlertNoData()
             }
-            navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func ShowAlertSameEvent(){
+        let alert = UIAlertController(title: "Warning", message: "This event already exists!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func ShowAlertNoData(){
+        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 }

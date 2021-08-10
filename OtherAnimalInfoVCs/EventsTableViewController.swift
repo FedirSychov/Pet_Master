@@ -12,12 +12,15 @@ class EventsTableViewController: UITableViewController {
     var currentAnimal: Animal?
     var currentEvent: Event?
     var data: [Event] = []
+    var dataReserved: [Event]?
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var lastVC: UITableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataReserved = currentAnimal!.events_list
         if currentAnimal!.date_of_death != nil{
             self.addButton.isEnabled = false
         }
@@ -26,7 +29,12 @@ class EventsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         data = currentAnimal!.events_list
-        //data.sort(by: {$0.date < $1.date})
+        if Saved.shared.currentSettings.sort == .up{
+            data.sort(by: {$0.date < $1.date})
+        } else {
+            data.sort(by: {$0.date > $1.date})
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -46,28 +54,63 @@ class EventsTableViewController: UITableViewController {
             break
         }
     }
+    
+    func setEventsArray() -> [[Event]]{
+        var arr: [[Event]] = [[]]
+        arr.append([])
+        for event in currentAnimal!.events_list{
+            if event.date > Date(){
+                arr[0].append(event)
+            } else {
+                arr[1].append(event)
+            }
+        }
+        return arr
+    }
+    
+    func setNumOfRows() -> [Int]{
+        var num_future: Int = 0
+        for event in currentAnimal!.events_list{
+            if event.date > Date(){
+                num_future += 1
+            }
+        }
+        return [num_future, currentAnimal!.events_list.count - num_future]
+    }
 }
 
 extension EventsTableViewController{
+    override func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 2
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentAnimal!.events_list.count
+        let sectionNumRows = setNumOfRows()[section]
+        return sectionNumRows
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Future"
+        } else {
+            return "Past"
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        
-        
+        let first: Int = indexPath[0]
+        let second: Int = indexPath[1]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
-        cell.textLabel?.text = "\(data[indexPath.row].name), \(dateFormatter.string(from: data[indexPath.row].date))"
+        cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
         return cell
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         tableView.deselectRow(at: indexPath, animated: true)
-        let num: Int = indexPath.row
-        self.currentEvent = data[num]
+        self.currentEvent = setEventsArray()[indexPath[0]][indexPath[1]]
         return indexPath
     }
 }

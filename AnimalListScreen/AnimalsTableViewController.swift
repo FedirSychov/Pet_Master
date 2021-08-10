@@ -13,8 +13,7 @@ class AnimalsTableViewController: UITableViewController {
     var currentAnimal: Animal?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
     

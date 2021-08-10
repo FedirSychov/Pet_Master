@@ -1260,6 +1260,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-Zy-Icn">
+                                <rect key="frame" x="20" y="347" width="388" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zI0-P8-ra7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1275,6 +1282,7 @@
                         <outlet property="DateLabel" destination="ilx-gA-J0F" id="ZDt-Q6-OKq"/>
                         <outlet property="DaysLabel" destination="NdI-zP-WJz" id="1kO-7M-rt9"/>
                         <outlet property="DescriptionLabel" destination="5cw-aJ-fob" id="CUD-QU-9Aa"/>
+                        <outlet property="MedicinesLabel" destination="YzY-Zy-Icn" id="xGC-g1-D9C"/>
                         <outlet property="NameLabel" destination="U6N-Or-tN2" id="SLS-Tl-POa"/>
                         <outlet property="optionButton" destination="LAc-89-gzc" id="Pgm-9c-6uK"/>
                         <segue destination="NIv-Jr-Poq" kind="show" identifier="goToEditDisease" id="zQG-nV-3Ph"/>

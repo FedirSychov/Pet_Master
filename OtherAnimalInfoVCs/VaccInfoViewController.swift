@@ -93,6 +93,7 @@ class VaccInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
                             self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
+                            break
                         }
                         self!.num_vacc += 1
                     }

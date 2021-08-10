@@ -103,6 +103,22 @@ class AddDiseaseViewController: UIViewController {
         }
     }
     
+    private func noSameDiaseses(thisD: Disease) -> Bool {
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                for disease in Saved.shared.currentSaves.animals[num].disease_list{
+                    if thisD == disease{
+                        print("I Found!!!")
+                        return false
+                    }
+                }
+            }
+            num += 1
+        }
+        return true
+    }
+    
     @IBAction func SaveDisease(_ sender: Any) {
         if self.curreentDisease != nil{
             var num_animal: Int = 0
@@ -126,18 +142,24 @@ class AddDiseaseViewController: UIViewController {
                             self.curreentDisease!.description = self.DiseaseDescription.text!
                             self.curreentDisease!.reloadDays()
                             
-                            let temp: Animal = self.currentAnimal!
-                            temp.disease_list[num_vacc] = self.curreentDisease!
-                            if Saved.shared.currentSettings.sort == .down{
-                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                            if noSameDiaseses(thisD: curreentDisease!){
+                                let temp: Animal = self.currentAnimal!
+                                temp.disease_list[num_vacc] = self.curreentDisease!
+                                if Saved.shared.currentSettings.sort == .down{
+                                    currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                                } else {
+                                    currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                                }
+                                Saved.shared.currentSaves.animals.remove(at: num_animal)
+                                Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                                self.navigationController?.popViewController(animated: true)
+                                self.thisVC!.viewDidLoad()
+                                break
                             } else {
-                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                                ShowAlertSameDisease()
+                                break
                             }
-                            Saved.shared.currentSaves.animals.remove(at: num_animal)
-                            Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                            //self.navigationController?.popToViewController(self.lastVC!, animated: true)
-                            self.navigationController?.popViewController(animated: true)
-                            self.thisVC!.viewDidLoad()
+                            
                         }
                         num_vacc += 1
                     }
@@ -171,27 +193,57 @@ class AddDiseaseViewController: UIViewController {
                 var num: Int = 0
                 for animal in Saved.shared.currentSaves.animals{
                     if animal.showInfo() == currentAnimal!.showInfo(){
-                        
+                        var newDisease: Disease
                         if LastsSwitch.isOn{
-                            currentAnimal?.add_disease_no_end(disease_name: DiseaseName.text!, disease_date: dateOfStart, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                            newDisease = Disease(name: DiseaseName.text!, data_d: dateOfStart, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                            
                         } else {
-                        currentAnimal?.add_disease(disease_name: DiseaseName.text!, disease_date: dateOfStart, disease_end: dateOfEnd!, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
+                            newDisease = Disease(name: DiseaseName.text!, data_d: dateOfStart, date_end: dateOfEnd, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
                         }
-                        if Saved.shared.currentSettings.sort == .down{
-                            currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                        if noSameDiaseses(thisD: newDisease){
+                            currentAnimal!.disease_list.append(newDisease)
+                            if Saved.shared.currentSettings.sort == .down{
+                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                            } else {
+                                currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                            }
+                            Saved.shared.currentSaves.animals[num] = currentAnimal!
+                            if LastsSwitch.isOn{
+                                self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                            } else {
+                                navigationController?.popViewController(animated: true)
+                            }
                         } else {
-                            currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                            ShowAlertSameDisease()
                         }
-                        Saved.shared.currentSaves.animals[num] = currentAnimal!
+                        
                     }
                     num += 1
                 }
-                if LastsSwitch.isOn{
-                    self.navigationController?.popToViewController(self.lastVC!, animated: true)
-                } else {
-                    navigationController?.popViewController(animated: true)
-                }
+                
+            } else {
+                ShowAlertNoData()
             }
         }
+    }
+    
+    private func ShowAlertSameDisease(){
+        let alert = UIAlertController(title: "Warning", message: "This disease already exists!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func ShowAlertNoData(){
+        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 }

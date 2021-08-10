@@ -54,31 +54,70 @@ class AddAnimalViewController: UIViewController {
         self.num = 0
     }
     
+    private func noSameAnimalsLike(thisAnimal: Animal) -> Bool {
+        for animal in Saved.shared.currentSaves.animals{
+            if thisAnimal == animal{
+                return false
+            }
+        }
+        return true
+    }
+    
     @IBAction func AddAnimalButton(_ sender: Any) {
         //TODO: - Add checking for alredy existed animals
         if currentAnimal != nil{
-            Saved.shared.currentSaves.animals.remove(at: num)
-            
-            currentAnimal?.name = NameTextField.text!
-            currentAnimal?.animal_type = TypeTextField.text!
-            currentAnimal?.date_of_birth = DateOfBirth.date
-            currentAnimal?.animal_breed = breedTextField.text!
-            
-            Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
-            
-            editdelegate?.UpdateAnimal(currentAnimal!)
-            //TODO: - go back and reload animal info
+            if currentAnimal!.name == NameTextField.text! && currentAnimal!.animal_type == TypeTextField.text! && currentAnimal!.date_of_birth == DateOfBirth.date && currentAnimal!.animal_breed == breedTextField.text!{
+                editdelegate?.UpdateAnimal(currentAnimal!)
+            } else {
+                currentAnimal?.name = NameTextField.text!
+                currentAnimal?.animal_type = TypeTextField.text!
+                currentAnimal?.date_of_birth = DateOfBirth.date
+                currentAnimal?.animal_breed = breedTextField.text!
+                if noSameAnimalsLike(thisAnimal: currentAnimal!){
+                    Saved.shared.currentSaves.animals.remove(at: num)
+                    Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
+                    editdelegate?.UpdateAnimal(currentAnimal!)
+                } else {
+                    ShowAlertSameAnimal()
+                }
+            }
         } else {
             if (NameTextField.text != "" && TypeTextField.text != "" && breedTextField.text != "") {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy"
             let dateTxt = dateFormatter.string(from: DateOfBirth.date)
             let newAnimal = Animal(name: NameTextField.text!, birthday: dateTxt, type: TypeTextField.text!, breed: breedTextField.text!)
-            Saved.shared.currentSaves.animals.append(newAnimal)
+                if noSameAnimalsLike(thisAnimal: newAnimal){
+                    Saved.shared.currentSaves.animals.append(newAnimal)
             
-                delegate?.AddNew(newAnimal)
+                    delegate?.AddNew(newAnimal)
+                } else {
+                    ShowAlertSameAnimal()
+                }
+            } else {
+                ShowAlertNoData()
             }
         }
+    }
+    
+    private func ShowAlertSameAnimal(){
+        let alert = UIAlertController(title: "Warning", message: "This animal already exists!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func ShowAlertNoData(){
+        let alert = UIAlertController(title: "No data", message: "Please fill all fields!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

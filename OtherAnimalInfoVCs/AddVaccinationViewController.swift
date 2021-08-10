@@ -40,30 +40,55 @@ class AddVaccinationViewController: UIViewController {
         }
     }
     
+    private func noSameVaccination(thisvacc: Vaccination) -> Bool {
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                for vacc in Saved.shared.currentSaves.animals[num].vaccinations_list{
+                    if thisvacc == vacc{
+                        print("I Found!!!")
+                        return false
+                    }
+                }
+            }
+            num += 1
+        }
+        return true
+    }
+    
     @IBAction func SaveVaccination(_ sender: Any) {
         if self.currentVaccination != nil{
             var num_animal: Int = 0
             var num_vacc: Int = 0
             for animal in Saved.shared.currentSaves.animals{
-                if animal.showInfo() == self.currentAnimal!.showInfo(){
+                if animal == self.currentAnimal!{
                     for vacc in animal.vaccinations_list{
-                        if vacc.name == self.currentVaccination!.name && vacc.date == self.currentVaccination!.date{
+                        if vacc == self.currentVaccination{
                             
-                            self.currentVaccination!.name = self.VaccName.text!
-                            self.currentVaccination!.date = self.VaccDate.date
-                            self.currentVaccination!.description = self.VaccDescription.text!
+                            let tempVacc = currentVaccination!
                             
-                            let temp: Animal = self.currentAnimal!
-                            temp.vaccinations_list[num_vacc] = self.currentVaccination!
-                            if Saved.shared.currentSettings.sort == .down{
-                                currentAnimal!.vaccinations_list.sort(by: {$0.date > $1.date})
+                            tempVacc.name = self.VaccName.text!
+                            tempVacc.date = self.VaccDate.date
+                            tempVacc.description = self.VaccDescription.text!
+                            if noSameVaccination(thisvacc: tempVacc){
+                                if self.VaccName.text == ""{
+                                    print("text is nil")
+                                    ShowAlertNoData()
+                                } else {
+                                    let temp: Animal = self.currentAnimal!
+                                    temp.vaccinations_list[num_vacc] = tempVacc
+                                    
+                                    Saved.shared.currentSaves.animals.remove(at: num_animal)
+                                    Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                                    print("It comes here")
+                                    //self.navigationController?.popViewController(animated: true)
+                                    //thisVC!.viewDidLoad()
+                                    self.navigationController?.popToViewController(lastVC!, animated: true)
+                                }
                             } else {
-                                currentAnimal!.vaccinations_list.sort(by: {$0.date < $1.date})
+                                print("And here too")
+                                ShowAlertSameVacc()
                             }
-                            Saved.shared.currentSaves.animals.remove(at: num_animal)
-                            Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                            self.navigationController?.popViewController(animated: true)
-                            thisVC!.viewDidLoad()
                         }
                         num_vacc += 1
                     }
@@ -81,23 +106,48 @@ class AddVaccinationViewController: UIViewController {
             } else{
                 dateTxt = dateFormatter.string(from: VaccDate.date)
             }
-
                 var num: Int = 0
                 for animal in Saved.shared.currentSaves.animals{
-                    if animal.showInfo() == currentAnimal!.showInfo(){
-                        
-                        currentAnimal?.add_vaccination(vacc_name: VaccName.text!, vac_date: dateTxt, description: VaccDescription.text)
-                        if Saved.shared.currentSettings.sort == .down{
-                            currentAnimal!.vaccinations_list.sort(by: {$0.date > $1.date})
+                    if animal == currentAnimal!{
+                        let tempVacc = Vaccination(name: VaccName.text!, descrpit: VaccDescription.text, date: dateTxt)
+                        if noSameVaccination(thisvacc: tempVacc) {
+                            currentAnimal!.vaccinations_list.append(tempVacc)
+                            if Saved.shared.currentSettings.sort == .down{
+                                currentAnimal!.vaccinations_list.sort(by: {$0.date > $1.date})
+                            } else {
+                                currentAnimal!.vaccinations_list.sort(by: {$0.date < $1.date})
+                            }
+                            Saved.shared.currentSaves.animals[num] = currentAnimal!
+                            navigationController?.popViewController(animated: true)
                         } else {
-                            currentAnimal!.vaccinations_list.sort(by: {$0.date < $1.date})
+                            ShowAlertSameVacc()
                         }
-                        Saved.shared.currentSaves.animals[num] = currentAnimal!
                     }
                     num += 1
                 }
+            } else {
+                ShowAlertNoData()
             }
-            navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func ShowAlertSameVacc(){
+        let alert = UIAlertController(title: "Warning", message: "This vaccination already exists!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func ShowAlertNoData(){
+        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 }

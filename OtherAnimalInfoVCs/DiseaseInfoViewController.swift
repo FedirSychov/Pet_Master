@@ -19,6 +19,7 @@ class DiseaseInfoViewController: UIViewController {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DaysLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
+    @IBOutlet weak var MedicinesLabel: UILabel!
     
     var num_animal: Int = 0
     var num_disease: Int = 0
@@ -53,6 +54,7 @@ class DiseaseInfoViewController: UIViewController {
         self.DateLabel.text = "Date: \(dateFormatter.string(from: currentDisease!.data_of_disease))"
         self.DescriptionLabel.text = "Description: \(currentDisease!.description)"
         self.DaysLabel.text = "Days last: \(currentDisease!.days_of_disease)"
+        self.MedicinesLabel.text = "Medicines: \(currentDisease!.medicines)"
     }
     
     private func ShowAlertActionSheet(){
@@ -95,6 +97,7 @@ class DiseaseInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
                             self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
+                            break
                         }
                         self!.num_disease += 1
                     }
