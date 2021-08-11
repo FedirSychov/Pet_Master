@@ -40,6 +40,9 @@
 		7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */; };
 		7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489D26C0125C003B99CF /* SortTableViewController.swift */; };
 		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
+		7EF9F10326C3CA2A00B70335 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9F10226C3CA2A00B70335 /* Images.swift */; };
+		7EF9F10626C3CAF900B70335 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */; };
+		7EF9F10726C3CAF900B70335 /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7ECB489D26C0125C003B99CF /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
 		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
+		7EF9F10226C3CA2A00B70335 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,8 @@
 				7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */,
 				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
 				7E10536C269E327600C5AA7A /* animalImage.swift */,
+				7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */,
+				7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */,
 			);
 			path = AnimalListScreen;
 			sourceTree = "<group>";
@@ -169,6 +177,7 @@
 				7E6E034D2605EDD60015571B /* Animals.swift */,
 				7E6F90B026C304B8001CB577 /* Alert.swift */,
 				7E6F90B426C30E9A001CB577 /* Design.swift */,
+				7EF9F10226C3CA2A00B70335 /* Images.swift */,
 				7EC5555B26B434CC0054F314 /* SavedAnimals.swift */,
 				7E6E031C2605EDB40015571B /* SceneDelegate.swift */,
 				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
@@ -350,6 +359,7 @@
 				7E6E03242605EDB50015571B /* Assets.xcassets in Resources */,
 				7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */,
 				7E6E03222605EDB40015571B /* Main.storyboard in Resources */,
+				7EF9F10726C3CAF900B70335 /* AnimalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +393,7 @@
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
+				7EF9F10326C3CA2A00B70335 /* Images.swift in Sources */,
 				7E6F90B526C30E9A001CB577 /* Design.swift in Sources */,
 				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,
 				7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */,
@@ -390,6 +401,7 @@
 				7E10536D269E327600C5AA7A /* animalImage.swift in Sources */,
 				7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */,
 				7E80C70726BB2AB000365A8B /* EventsTableViewController.swift in Sources */,
+				7EF9F10626C3CAF900B70335 /* AnimalTableViewCell.swift in Sources */,
 				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,
 				7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */,
 				7E724DE626B95F640002AD4A /* VaccinationsTableViewController.swift in Sources */,

@@ -142,6 +142,7 @@ class AddDiseaseViewController: UIViewController {
                                 }
                             }
                             tempDisease.description = self.DiseaseDescription.text!
+                            tempDisease.medicines = self.DiseaseMedicines.text!
                             tempDisease.reloadDays()
                             
                             if noSameDiaseses(thisD: tempDisease){

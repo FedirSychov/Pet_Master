@@ -17,7 +17,7 @@ class OtherFunctions{
 //класс болезни
 class Disease: Codable, Equatable {
     static func == (lhs: Disease, rhs: Disease) -> Bool {
-        return lhs.name == rhs.name && lhs.data_of_disease == rhs.data_of_disease
+        return lhs.name == rhs.name && lhs.data_of_disease == rhs.data_of_disease && lhs.date_of_end == rhs.date_of_end && lhs.description == rhs.description && lhs.medicines == rhs.medicines
     }
     
     var name: String
@@ -78,7 +78,7 @@ class Disease: Codable, Equatable {
 //класс прививок
 class Vaccination: Codable, Equatable {
     static func == (lhs: Vaccination, rhs: Vaccination) -> Bool {
-        return lhs.name == rhs.name && lhs.date == rhs.date
+        return lhs.name == rhs.name && lhs.date == rhs.date && lhs.description == rhs.description
     }
     
     var name: String
@@ -111,7 +111,7 @@ class Vaccination: Codable, Equatable {
 //класс события в жизни питомца
 class Event: Codable, Equatable {
     static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.name == rhs.name && lhs.date == rhs.date
+        return lhs.name == rhs.name && lhs.date == rhs.date && lhs.description == rhs.description
     }
     
     var name: String

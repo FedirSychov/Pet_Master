@@ -13,7 +13,8 @@ class AnimalsTableViewController: UITableViewController {
     var currentAnimal: Animal?
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        tableView.register(AnimalTableViewCell.nib(), forCellReuseIdentifier: AnimalTableViewCell.identifier)
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
@@ -50,8 +51,11 @@ extension AnimalsTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: AnimalTableViewCell.identifier, for: indexPath) as! AnimalTableViewCell
+        cell.configure(with: data[indexPath.row])
+        cell.accessoryType = .disclosureIndicator
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell", for: indexPath)
+        //cell.textLabel?.text = data[indexPath.row].name
         return cell
     }
 
@@ -60,6 +64,7 @@ extension AnimalsTableViewController{
         currentAnimal = data[indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "goToAnimalInfo", sender: nil)
         return indexPath
     }
 }

@@ -173,9 +173,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="8p4-ro-gad" kind="show" identifier="goToAnimalInfo" id="Uxb-i6-M3G"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -192,6 +189,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kM7-bg-DAW" id="eIk-mC-s2s"/>
+                        <segue destination="8p4-ro-gad" kind="show" identifier="goToAnimalInfo" id="yiU-NH-mwc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1334,7 +1332,7 @@
         <segue reference="zQG-nV-3Ph"/>
         <segue reference="UPL-G6-Dek"/>
         <segue reference="szD-nL-Qvq"/>
-        <segue reference="YeG-af-J6N"/>
+        <segue reference="qxN-oe-Nwy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
