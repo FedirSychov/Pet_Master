@@ -25,7 +25,13 @@ class VaccinationsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        data = currentAnimal!.vaccinations_list
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                self.data = animal.vaccinations_list
+            }
+            num += 1
+        }
         self.tableView.reloadData()
     }
     
@@ -41,6 +47,7 @@ class VaccinationsTableViewController: UITableViewController {
                 vaccInfoVC.currentVaccination = self.currentVaccination!
                 vaccInfoVC.currentAnimal = self.currentAnimal!
                 vaccInfoVC.lastVC = self.lastVC
+                vaccInfoVC.thisVC = self
             }
         default:
             break

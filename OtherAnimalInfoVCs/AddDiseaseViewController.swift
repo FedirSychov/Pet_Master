@@ -128,35 +128,42 @@ class AddDiseaseViewController: UIViewController {
                     for disease in animal.disease_list{
                         if disease == self.curreentDisease!{
                             
-                            self.curreentDisease!.name = self.DiseaseName.text!
-                            self.curreentDisease!.data_of_disease = self.StartDatePicker.date
+                            let tempDisease: Disease = Saved.shared.currentSaves.animals[num_animal].disease_list[num_vacc]
+                            
+                            tempDisease.name = self.DiseaseName.text!
+                            tempDisease.data_of_disease = self.StartDatePicker.date
                             if LastsSwitch.isOn{
-                                self.curreentDisease!.date_of_end = nil
+                                tempDisease.date_of_end = nil
                             } else {
                                 if EndDateSwitch.isOn{
-                                    self.curreentDisease!.date_of_end = Date()
+                                    tempDisease.date_of_end = Date()
                                 } else {
-                                    self.curreentDisease!.date_of_end = self.EndDatePicker.date
+                                    tempDisease.date_of_end = self.EndDatePicker.date
                                 }
                             }
-                            self.curreentDisease!.description = self.DiseaseDescription.text!
-                            self.curreentDisease!.reloadDays()
+                            tempDisease.description = self.DiseaseDescription.text!
+                            tempDisease.reloadDays()
                             
-                            if noSameDiaseses(thisD: curreentDisease!){
-                                let temp: Animal = self.currentAnimal!
-                                temp.disease_list[num_vacc] = self.curreentDisease!
-                                if Saved.shared.currentSettings.sort == .down{
-                                    currentAnimal!.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                            if noSameDiaseses(thisD: tempDisease){
+                                if self.DiseaseName.text == ""{
+                                    ShowAlertNoData()
                                 } else {
-                                    currentAnimal!.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                                    let temp: Animal = self.currentAnimal!
+                                    temp.disease_list[num_vacc] = tempDisease
+                                    if Saved.shared.currentSettings.sort == .down{
+                                        temp.disease_list.sort(by: {$0.data_of_disease > $1.data_of_disease})
+                                    } else {
+                                        temp.disease_list.sort(by: {$0.data_of_disease < $1.data_of_disease})
+                                    }
+                                    Saved.shared.currentSaves.animals.remove(at: num_animal)
+                                    Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                                    self.navigationController?.popToViewController(thisVC!, animated: true)
+                                    break
                                 }
-                                Saved.shared.currentSaves.animals.remove(at: num_animal)
-                                Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                                self.navigationController?.popViewController(animated: true)
-                                self.thisVC!.viewDidLoad()
-                                break
                             } else {
                                 ShowAlertSameDisease()
+                                self.DiseaseName.text = curreentDisease!.name
+                                self.StartDatePicker.date = curreentDisease!.data_of_disease
                                 break
                             }
                             
@@ -228,22 +235,10 @@ class AddDiseaseViewController: UIViewController {
     }
     
     private func ShowAlertSameDisease(){
-        let alert = UIAlertController(title: "Warning", message: "This disease already exists!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showBasicAlert(on: self, with: "Warning", message: "This disease already exists!")
     }
     
     private func ShowAlertNoData(){
-        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showIncompleteFormAlert(on: self)
     }
 }

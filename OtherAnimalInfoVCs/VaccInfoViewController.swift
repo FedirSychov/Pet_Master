@@ -13,6 +13,7 @@ class VaccInfoViewController: UIViewController {
     var currentAnimal: Animal?
     
     var lastVC: UITableViewController?
+    var thisVC: UITableViewController?
     
     var num_animal: Int = 0
     var num_vacc: Int = 0
@@ -40,7 +41,7 @@ class VaccInfoViewController: UIViewController {
                 editVaccVC.currentVaccination = self.currentVaccination!
                 editVaccVC.currentAnimal = self.currentAnimal!
                 editVaccVC.lastVC = self.lastVC!
-                editVaccVC.thisVC = self
+                editVaccVC.thisVC = self.thisVC!
             }
         }
     }

@@ -69,29 +69,42 @@ class AddEventViewController: UIViewController {
                 if animal.showInfo() == self.currentAnimal!.showInfo(){
                     for event in animal.events_list{
                         if event == self.currentEvent!{
+                            print(num_event, num_animal)
+                            let tempEvent: Event = Saved.shared.currentSaves.animals[num_animal].events_list[num_event]
                             
-                            self.currentEvent!.name = self.EventName.text!
-                            self.currentEvent!.date = self.DatePicker.date
-                            self.currentEvent!.description = self.EventDescription.text!
-                            
-                            let temp: Animal = self.currentAnimal!
-                            temp.events_list[num_event] = self.currentEvent!
-                            if Saved.shared.currentSettings.sort == .down{
-                                currentAnimal!.events_list.sort(by: {$0.date > $1.date})
+                            tempEvent.name = self.EventName.text!
+                            tempEvent.date = self.DatePicker.date
+                            tempEvent.description = self.EventDescription.text!
+                            if noSameEvents(thisD: tempEvent){
+                                if EventName.text == ""{
+                                    ShowAlertNoData()
+                                } else {
+                                    let temp: Animal = self.currentAnimal!
+                                    temp.events_list[num_event] = tempEvent
+                                    if Saved.shared.currentSettings.sort == .down{
+                                        temp.events_list.sort(by: {$0.date > $1.date})
+                                    } else {
+                                        temp.events_list.sort(by: {$0.date < $1.date})
+                                    }
+                                    Saved.shared.currentSaves.animals.remove(at: num_animal)
+                                    Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
+                    
+                                    self.navigationController?.popToViewController(self.thisVC!, animated: true)
+                                }
                             } else {
-                                currentAnimal!.events_list.sort(by: {$0.date < $1.date})
+                                ShowAlertSameEvent()
+                                EventName.text = currentEvent!.name
+                                DatePicker.date = currentEvent!.date
+                                break
                             }
-                            Saved.shared.currentSaves.animals.remove(at: num_animal)
-                            Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-            
-                            self.navigationController?.popViewController(animated: true)
-                            self.thisVC!.viewDidLoad()
                         }
                         num_event += 1
                     }
                 }
                 num_animal += 1
             }
+            num_animal = 0
+            num_event = 0
         } else {
             if (EventName.text != ""){
                 
@@ -131,22 +144,10 @@ class AddEventViewController: UIViewController {
     }
     
     private func ShowAlertSameEvent(){
-        let alert = UIAlertController(title: "Warning", message: "This event already exists!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showBasicAlert(on: self, with: "Warning", message: "This event already exists!")
     }
     
     private func ShowAlertNoData(){
-        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showIncompleteFormAlert(on: self)
     }
 }

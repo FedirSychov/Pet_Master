@@ -49,6 +49,7 @@ class EventsTableViewController: UITableViewController {
                 infoE.currentAnimal = self.currentAnimal!
                 infoE.currentEvent = self.currentEvent!
                 infoE.lastVC = self.lastVC!
+                infoE.thisVC = self
             }
         default:
             break

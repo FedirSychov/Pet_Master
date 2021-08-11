@@ -13,6 +13,7 @@ class EventInfoViewController: UIViewController {
     var currentAnimal: Animal?
     
     var lastVC: UITableViewController?
+    var thisVC: UITableViewController?
     
     var num_animal: Int = 0
     var num_event: Int = 0
@@ -41,7 +42,7 @@ class EventInfoViewController: UIViewController {
                 editEventVC.currentEvent = self.currentEvent!
                 editEventVC.currentAnimal = self.currentAnimal!
                 editEventVC.lastVC = self.lastVC!
-                editEventVC.thisVC = self
+                editEventVC.thisVC = self.thisVC!
             }
         }
     }

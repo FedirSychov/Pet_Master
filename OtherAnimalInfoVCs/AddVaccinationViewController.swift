@@ -65,14 +65,13 @@ class AddVaccinationViewController: UIViewController {
                     for vacc in animal.vaccinations_list{
                         if vacc == self.currentVaccination{
                             
-                            let tempVacc = currentVaccination!
+                            let tempVacc = Saved.shared.currentSaves.animals[num_animal].vaccinations_list[num_vacc]
                             
                             tempVacc.name = self.VaccName.text!
                             tempVacc.date = self.VaccDate.date
                             tempVacc.description = self.VaccDescription.text!
                             if noSameVaccination(thisvacc: tempVacc){
                                 if self.VaccName.text == ""{
-                                    print("text is nil")
                                     ShowAlertNoData()
                                 } else {
                                     let temp: Animal = self.currentAnimal!
@@ -81,13 +80,14 @@ class AddVaccinationViewController: UIViewController {
                                     Saved.shared.currentSaves.animals.remove(at: num_animal)
                                     Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                                     print("It comes here")
-                                    //self.navigationController?.popViewController(animated: true)
-                                    //thisVC!.viewDidLoad()
-                                    self.navigationController?.popToViewController(lastVC!, animated: true)
+                                    self.currentVaccination = tempVacc
+                                    self.navigationController!.popToViewController(self.thisVC!, animated: true)
                                 }
                             } else {
-                                print("And here too")
                                 ShowAlertSameVacc()
+                                self.VaccName.text = currentVaccination!.name
+                                self.VaccDate.date = currentVaccination!.date
+                                break
                             }
                         }
                         num_vacc += 1
@@ -118,7 +118,7 @@ class AddVaccinationViewController: UIViewController {
                                 currentAnimal!.vaccinations_list.sort(by: {$0.date < $1.date})
                             }
                             Saved.shared.currentSaves.animals[num] = currentAnimal!
-                            navigationController?.popViewController(animated: true)
+                            self.navigationController?.popViewController(animated: true)
                         } else {
                             ShowAlertSameVacc()
                         }
@@ -132,22 +132,10 @@ class AddVaccinationViewController: UIViewController {
     }
     
     private func ShowAlertSameVacc(){
-        let alert = UIAlertController(title: "Warning", message: "This vaccination already exists!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showBasicAlert(on: self, with: "Warning", message: "This vaccination already exists!")
     }
     
     private func ShowAlertNoData(){
-        let alert = UIAlertController(title: "No data", message: "Please fill at least name!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showIncompleteFormAlert(on: self)
     }
 }

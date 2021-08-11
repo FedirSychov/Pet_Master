@@ -41,6 +41,7 @@ class DiseasesTableViewController: UITableViewController {
                 infoD.currentAnimal = self.currentAnimal!
                 infoD.currentDisease = self.curreentDisease!
                 infoD.lastVC = self.lastVC!
+                infoD.thisVC = self
             }
         default:
             break

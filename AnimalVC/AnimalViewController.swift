@@ -26,6 +26,9 @@ class AnimalViewController: UIViewController {
     @IBOutlet weak var Container_table: UIView!
     @IBOutlet weak var Options: UIBarButtonItem!
     @IBOutlet weak var MakeHealthy: UIButton!
+    @IBOutlet weak var VaccinationsButton: UIButton!
+    @IBOutlet weak var DiseasesButton: UIButton!
+    @IBOutlet weak var EventsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,15 @@ class AnimalViewController: UIViewController {
             AnimalImage.image = #imageLiteral(resourceName: "NoImage")
         }
         self.title = self.currentAnimal!.name
+        setupButtons()
         updateStatus()
+    }
+    
+    private func setupButtons(){
+        Design.SetupGreenButton(button: MakeHealthy)
+        Design.SetupBaseButton(button: VaccinationsButton)
+        Design.SetupBaseButton(button: DiseasesButton)
+        Design.SetupBaseButton(button: EventsButton)
     }
     
     func updateStatus(){

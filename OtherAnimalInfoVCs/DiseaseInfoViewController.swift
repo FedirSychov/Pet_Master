@@ -13,6 +13,7 @@ class DiseaseInfoViewController: UIViewController {
     var currentAnimal: Animal?
     
     var lastVC: UITableViewController?
+    var thisVC: UITableViewController?
     
     @IBOutlet weak var optionButton: UIBarButtonItem!
     @IBOutlet weak var NameLabel: UILabel!
@@ -42,7 +43,7 @@ class DiseaseInfoViewController: UIViewController {
                 editDiseaseVC.curreentDisease = self.currentDisease!
                 editDiseaseVC.currentAnimal = self.currentAnimal!
                 editDiseaseVC.lastVC = self.lastVC!
-                editDiseaseVC.thisVC = self
+                editDiseaseVC.thisVC = self.thisVC!
             }
         }
     }
@@ -96,7 +97,7 @@ class DiseaseInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
-                            self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
+                            self?.navigationController?.popToViewController((self?.thisVC)!, animated: true)
                             break
                         }
                         self!.num_disease += 1

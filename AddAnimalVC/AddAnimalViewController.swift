@@ -27,11 +27,12 @@ class AddAnimalViewController: UIViewController {
     @IBOutlet weak var TypeTextField: UITextField!
     @IBOutlet weak var DateOfBirth: UIDatePicker!
     @IBOutlet weak var breedTextField: UITextField!
+    @IBOutlet weak var SaveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DateOfBirth.maximumDate = Date()
-    
+        Design.SetupBaseButton(button: SaveButton)
         if currentAnimal != nil{
             num = 0
             for animal in Saved.shared.currentSaves.animals{
@@ -101,23 +102,11 @@ class AddAnimalViewController: UIViewController {
     }
     
     private func ShowAlertSameAnimal(){
-        let alert = UIAlertController(title: "Warning", message: "This animal already exists!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showBasicAlert(on: self, with: "Warning", message: "This animal already exists!")
     }
     
     private func ShowAlertNoData(){
-        let alert = UIAlertController(title: "No data", message: "Please fill all fields!", preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        
-        alert.addAction(okButton)
-        
-        present(alert, animated: true, completion: nil)
+        Alert.showIncompleteFormAlert(on: self)
     }
 }
 
