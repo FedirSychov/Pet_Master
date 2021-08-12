@@ -50,7 +50,7 @@ class VaccInfoViewController: UIViewController {
     
     func reloadInfo(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
         self.NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentVaccination!.name)"
         self.DateLabel.text = "\(NSLocalizedString("animal_date", comment: ""))\(dateFormatter.string(from: currentVaccination!.date))"
         self.DescriptionLabel.text = "\(NSLocalizedString("animal_description", comment: ""))\(currentVaccination!.description!)"

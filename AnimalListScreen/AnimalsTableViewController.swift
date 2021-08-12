@@ -58,7 +58,6 @@ extension AnimalsTableViewController{
         cell.backgroundColor = .clear
         return cell
     }
-
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         currentAnimal = data[indexPath.row]

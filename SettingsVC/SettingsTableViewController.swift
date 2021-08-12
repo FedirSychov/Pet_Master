@@ -12,6 +12,8 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var sortTypeLabel: UILabel!
     @IBOutlet weak var resetSettingsButton: UIButton!
     @IBOutlet weak var SortingLabel: UILabel!
+    @IBOutlet weak var dateFormatLabel: UILabel!
+    @IBOutlet weak var formatTypeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ class SettingsTableViewController: UITableViewController {
         resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
         SortingLabel.text = NSLocalizedString("sorting", comment: "")
         sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
+        dateFormatLabel.text = NSLocalizedString("date_format", comment: "")
+        formatTypeLabel.text = Saved.shared.currentSettings.dateFormat
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
@@ -38,6 +42,7 @@ class SettingsTableViewController: UITableViewController {
         } else {
             self.sortTypeLabel.text = NSLocalizedString("sorting_down", comment: "")
         }
+        self.formatTypeLabel.text = Saved.shared.currentSettings.dateFormat
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,6 +50,6 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
 }

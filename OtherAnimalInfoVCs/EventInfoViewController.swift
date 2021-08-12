@@ -51,7 +51,7 @@ class EventInfoViewController: UIViewController {
     
     func reloadInfo(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
         self.NameLabel.text = "\(NSLocalizedString("name", comment: "")): \(currentEvent!.name)"
         self.DateLabel.text = "\(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: currentEvent!.date))"
         self.Descriptionlabel.text = "\(NSLocalizedString("description", comment: "")): \(currentEvent!.description!)"

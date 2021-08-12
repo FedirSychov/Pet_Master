@@ -30,6 +30,8 @@
 "days_last" = "Dauer: ";
 "it_lasts" = "Dauert noch";
 "days" = " Tage";
+"monthes" = " Monate";
+"years" = " Jahre";
 "breed" = "Rasse";
 "type" = "Art";
 "birthday" = "Geburtstag";
@@ -52,3 +54,4 @@
 "yes" = "Ja";
 "oh_no" = "Oh nein!";
 "pity_message" = "Schade :( würden Sie gerne über ein neues Haustier nachdenken?";
+"date_format" = "Datumsformat";

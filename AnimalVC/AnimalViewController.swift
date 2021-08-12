@@ -29,8 +29,8 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(currentAnimal!.UpdateAge())
         Design.setupBackground(controller: self)
-        TypeLabel.sizeToFit()
         if self.currentAnimal?.animal_image != nil{
             AnimalImage.image = getImageFromDocs(name: currentAnimal!.animal_image!)
         } else {
@@ -71,17 +71,13 @@ class AnimalViewController: UIViewController {
                 MakeHealthy.alpha = 0
                 MakeHealthy.isEnabled = false
             }
-            NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
-            AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
-            TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
+            reloadData()
         }
         else {
             StatusLabel.text = NSLocalizedString("healthy", comment: "")
             MakeHealthy.alpha = 0
             MakeHealthy.isEnabled = false
-            NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
-            AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
-            TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
+            reloadData()
         }
         if currentAnimal!.date_of_death != nil{
             self.StatusLabel.text = ""
@@ -108,8 +104,14 @@ class AnimalViewController: UIViewController {
     }
     
     func reloadData(){
+        TypeLabel.sizeToFit()
+        NameLabel.sizeToFit()
+        AgeLabel.sizeToFit()
+        StatusLabel.sizeToFit()
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = Saved.shared.currentSettings.dateFormat
         NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
-        AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
+        AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_full_age!) (\(dateFormat.string(from: currentAnimal!.date_of_birth)))"
         TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
     }
     

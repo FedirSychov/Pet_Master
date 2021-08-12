@@ -52,7 +52,7 @@ class DiseaseInfoViewController: UIViewController {
     
     func reloadInfo(){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
         self.NameLabel.text = "\(NSLocalizedString("name", comment: "")): \(currentDisease!.name)"
         self.DateLabel.text = "\(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: currentDisease!.data_of_disease))"
         self.DescriptionLabel.text = "\(NSLocalizedString("description", comment: "")): \(currentDisease!.description)"

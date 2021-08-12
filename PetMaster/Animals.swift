@@ -140,6 +140,7 @@ class Animal: Codable, Equatable {
     var name: String
     var date_of_birth: Date
     var animal_age: Int
+    var animal_full_age: String?
     var animal_type: String
     var animal_breed: String?
     var food: String?
@@ -193,6 +194,45 @@ class Animal: Codable, Equatable {
             all_info.append(", возраст на человеческие годы: \(String(Int(log(Double(self.animal_age))*16 + 31)))")
         }
         return all_info
+    }
+//    метод обновления полного возраста
+    func UpdateAge() -> Bool{
+        var ageComponents = Calendar.current.dateComponents([.year, .month, .day], from: date_of_birth, to: Date())
+        if self.date_of_death == nil {
+            ageComponents = Calendar.current.dateComponents([.year, .month, .day], from: date_of_birth, to: Date())
+        } else {
+            ageComponents = Calendar.current.dateComponents([.year, .month, .day], from: date_of_birth, to: self.date_of_death!)
+        }
+        let dateFormat = Saved.shared.currentSettings.dateFormat
+        var new_full_age: String
+        switch dateFormat {
+        case "dd/MM/YYYY":
+            new_full_age = "\(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
+        case "MM/dd/YYYY":
+            new_full_age = "\(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
+        case "YYYY/dd/MM":
+            new_full_age = "\(ageComponents.year!)\(NSLocalizedString("years", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: ""))"
+        case "YYYY/MM/dd":
+            new_full_age = "\(ageComponents.year!)\(NSLocalizedString("years", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: ""))"
+        default:
+            new_full_age = "\(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!) \(NSLocalizedString("monthes", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
+        }
+        if ageComponents.year! <= 4 {
+            if new_full_age.contains("лет") {
+                if ageComponents.year! == 1{
+                    new_full_age = new_full_age.replacingOccurrences(of: "лет", with: "год")
+                } else {
+                    new_full_age = new_full_age.replacingOccurrences(of: "лет", with: "года")
+                }
+            }
+        }
+        print(new_full_age)
+        self.animal_full_age = new_full_age
+        if ageComponents.month! == 0 && ageComponents.day! == 0 {
+            return true
+        } else {
+            return false
+        }
     }
 //    метод добавления болезни в список болезней
     func add_disease(disease_name: String, disease_date: String, disease_end: String?, description: String, meds: String) {

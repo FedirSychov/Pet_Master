@@ -39,6 +39,7 @@
 		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
 		7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555B26B434CC0054F314 /* SavedAnimals.swift */; };
 		7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555E26B4746B0054F314 /* AnimalViewController.swift */; };
+		7EC7997D26C57C1D00EF1399 /* DateFormatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7997C26C57C1D00EF1399 /* DateFormatTableViewController.swift */; };
 		7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */; };
 		7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489D26C0125C003B99CF /* SortTableViewController.swift */; };
 		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
@@ -109,6 +110,7 @@
 		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		7EC5555B26B434CC0054F314 /* SavedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAnimals.swift; sourceTree = "<group>"; };
 		7EC5555E26B4746B0054F314 /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		7EC7997C26C57C1D00EF1399 /* DateFormatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatTableViewController.swift; sourceTree = "<group>"; };
 		7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7ECB489D26C0125C003B99CF /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
 		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */,
 				7ECB489D26C0125C003B99CF /* SortTableViewController.swift */,
+				7EC7997C26C57C1D00EF1399 /* DateFormatTableViewController.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				7E6F90B126C304B8001CB577 /* Alert.swift in Sources */,
 				7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */,
 				7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */,
+				7EC7997D26C57C1D00EF1399 /* DateFormatTableViewController.swift in Sources */,
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,

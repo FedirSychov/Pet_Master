@@ -60,7 +60,13 @@ class EventsTableViewController: UITableViewController {
     func setEventsArray() -> [[Event]]{
         var arr: [[Event]] = [[]]
         arr.append([])
-        for event in currentAnimal!.events_list{
+        var tempEvents = currentAnimal!.events_list
+        if Saved.shared.currentSettings.sort == .down{
+            tempEvents.sort(by: {$0.date > $1.date})
+        } else {
+            tempEvents.sort(by: {$0.date < $1.date})
+        }
+        for event in tempEvents{
             if event.date > Date(){
                 arr[0].append(event)
             } else {
@@ -122,7 +128,7 @@ extension EventsTableViewController{
         let first: Int = indexPath[0]
         let second: Int = indexPath[1]
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YYYY"
+        dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
         cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
         cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
         return cell

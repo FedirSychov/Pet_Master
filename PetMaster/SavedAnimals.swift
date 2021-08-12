@@ -23,6 +23,7 @@ struct SavedAnimals: Codable{
 
 struct Settings: Codable{
     var sort: StatusSort
+    var dateFormat: String
 }
 
 class Saved{
@@ -30,7 +31,7 @@ class Saved{
     
     private var baseSave = SavedAnimals(animals: [])
     
-    private var baseSettings = Settings(sort: .down)
+    private var baseSettings = Settings(sort: .down, dateFormat: "dd/MM/YYYY")
     
     var currentSettings: Settings{
         get{

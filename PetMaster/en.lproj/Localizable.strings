@@ -30,6 +30,8 @@
 "days_last" = "Duration: ";
 "it_lasts" = "Still lasts";
 "days" = " days";
+"monthes" = " months";
+"years" = " years";
 "breed" = "Breed";
 "type" = "Type";
 "birthday" = "Birthday";
@@ -52,3 +54,4 @@
 "yes" = "Yes";
 "oh_no" = "Oh no";
 "pity_message" = "What a pity :( Maybe you want to have a new pet?";
+"date_format" = "Date format";

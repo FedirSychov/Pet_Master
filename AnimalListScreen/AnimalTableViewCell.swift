@@ -36,6 +36,9 @@ class AnimalTableViewCell: UITableViewCell {
     
     func updateStatus(currentAnimal: Animal) -> String{
         var currDiseaseNum: Int = -1
+        if currentAnimal.date_of_death != nil{
+            return ""
+        }
         if currentAnimal.disease_list.count > 0{
             var temp: Int = 0
             for disease in currentAnimal.disease_list{
@@ -50,9 +53,6 @@ class AnimalTableViewCell: UITableViewCell {
             } else {
                 return NSLocalizedString("healthy", comment: "")
             }
-        }
-        if currentAnimal.date_of_death != nil{
-            return ""
         }
         return NSLocalizedString("healthy", comment: "")
     }
