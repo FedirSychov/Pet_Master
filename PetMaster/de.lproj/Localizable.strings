@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+"animal_name" = "Name: ";
+"animal_age" = "Alter: ";
+"animal_type" = "Rasse: ";
+"animal_status" = "Status: ";
+"healthy" = "gesund";
+"sick" = "krank";
+"vaccinations_button" = "Impfungen";
+"sorting" = "Sortierung";
+"sorting_up" = "up";
+"sorting_down" = "down";
+"save" = "Speichern";
+"name" = "Name";
+"name_for_animal" = "Name";
+"date" = "Datum";
+"animal_date" = "Datum: ";
+"description" = "Beschreibung";
+"animal_description" = "Beschreibung: ";
+"date_of_start" = "Startdatum";
+"date_of_end" = "Enddatum";
+"medicines" = "Medikamente";
+"today" = "Heute";
+"days_last" = "Dauer: ";
+"it_lasts" = "Dauert noch";
+"days" = " Tage";
+"breed" = "Rasse";
+"type" = "Art";
+"birthday" = "Geburtstag";
+"plans" = "Pläne";
+"past" = "Vorher";
+"comment" = "Kommentar";
+"day/month/year" = "Tag/Monat/Jahr";
+"month/day/year" = "Monat/Tag/Jahr";
+"year/day/month" = "Jahr/Tag/Monat";
+"year/month/day" = "Jahr/Monat/Tag";
+"reset_settings" = "Zurücksetzen";
+"set_photo" = "Wählen ein Haustierfoto";
+"edit" = "Verändern";
+"delete" = "Löschen";
+"dead" = "Als verstorben markieren";
+"cancel" = "Zurück";
+"options" = "Einstellungen";
+"are_you_sure" = "Sind Sie sicher?";
+"no" = "Nein";
+"yes" = "Ja";
+"oh_no" = "Oh nein!";
+"pity_message" = "Schade :( würden Sie gerne über ein neues Haustier nachdenken?";

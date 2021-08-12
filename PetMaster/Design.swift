@@ -30,3 +30,9 @@ class Design{
         controller.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background1"))
     }
 }
+
+extension String{
+    func localized(tableName: String = "Localizable") -> String{
+        return NSLocalizedString(self, comment: "")
+    }
+}

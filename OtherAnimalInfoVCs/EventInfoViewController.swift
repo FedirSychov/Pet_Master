@@ -52,9 +52,9 @@ class EventInfoViewController: UIViewController {
     func reloadInfo(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
-        self.NameLabel.text = "Name: \(currentEvent!.name)"
-        self.DateLabel.text = "Date: \(dateFormatter.string(from: currentEvent!.date))"
-        self.Descriptionlabel.text = "Description: \(currentEvent!.description!)"
+        self.NameLabel.text = "\(NSLocalizedString("name", comment: "")): \(currentEvent!.name)"
+        self.DateLabel.text = "\(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: currentEvent!.date))"
+        self.Descriptionlabel.text = "\(NSLocalizedString("description", comment: "")): \(currentEvent!.description!)"
     }
     
     private func ShowAlertActionSheet(){

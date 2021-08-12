@@ -20,13 +20,22 @@ class AddDiseaseViewController: UIViewController {
     @IBOutlet weak var DiseaseDescription: UITextField!
     @IBOutlet weak var DiseaseMedicines: UITextField!
     @IBOutlet weak var LastsSwitch: UISwitch!
+    
     @IBOutlet weak var EndNowlabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nowLabel: UILabel!
+    @IBOutlet weak var startdateLabel: UILabel!
+    @IBOutlet weak var endDatelabel: UILabel!
+    @IBOutlet weak var lastsLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var medicineLabel: UILabel!
     
     var currentAnimal: Animal?
     var curreentDisease: Disease?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLabels()
         Design.setupBackground(controller: self)
         StartDatePicker.maximumDate = Date()
         EndDatePicker.maximumDate = Date()
@@ -63,6 +72,16 @@ class AddDiseaseViewController: UIViewController {
             self.DiseaseMedicines.text = self.curreentDisease!.medicines
         }
 
+    }
+    
+    private func setupLabels() {
+        EndNowlabel.text = NSLocalizedString("today", comment: "")
+        nameLabel.text = NSLocalizedString("name", comment: "")
+        startdateLabel.text = NSLocalizedString("date_of_start", comment: "")
+        endDatelabel.text = NSLocalizedString("date_of_end", comment: "")
+        lastsLabel.text = NSLocalizedString("it_lasts", comment: "")
+        descriptionLabel.text = NSLocalizedString("description", comment: "")
+        medicineLabel.text = NSLocalizedString("medicines", comment: "")
     }
     
     @IBAction func StartSwitched(_ sender: UISwitch) {

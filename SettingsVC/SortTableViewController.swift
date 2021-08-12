@@ -8,13 +8,21 @@
 import UIKit
 
 class SortTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var downLabel: UILabel!
+    @IBOutlet weak var upLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
+        setupButtons()
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
-
+    
+    private func setupButtons(){
+        self.downLabel.text = NSLocalizedString("sorting_down", comment: "")
+        self.upLabel.text = NSLocalizedString("sorting_up", comment: "")
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

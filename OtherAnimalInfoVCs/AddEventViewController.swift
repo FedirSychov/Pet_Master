@@ -22,6 +22,11 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var DateSwitch: UISwitch!
     @IBOutlet weak var EventDescription: UITextField!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBAction func DateSwitched(_ sender: UISwitch) {
         if DateSwitch.isOn {
             DatePicker.isEnabled = false
@@ -30,8 +35,16 @@ class AddEventViewController: UIViewController {
         }
     }
     
+    private func setupLabels(){
+        nameLabel.text = NSLocalizedString("name", comment: "")
+        dateLabel.text = NSLocalizedString("date", comment: "")
+        todayLabel.text = NSLocalizedString("today", comment: "")
+        descriptionLabel.text = NSLocalizedString("description", comment: "")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLabels()
         Design.setupBackground(controller: self)
         if DateSwitch.isOn {
             DatePicker.isEnabled = false

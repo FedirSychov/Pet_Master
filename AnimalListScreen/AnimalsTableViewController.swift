@@ -56,9 +56,6 @@ extension AnimalsTableViewController{
         cell.configure(with: data[indexPath.row])
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = .clear
-        //cell.backgroundView = [[UIView new] autorelease]
-        //cell.selectedBackgroundView = [[UIView new] autorelease]
-
         return cell
     }
 

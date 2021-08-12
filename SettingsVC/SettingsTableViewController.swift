@@ -10,10 +10,14 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var sortTypeLabel: UILabel!
+    @IBOutlet weak var resetSettingsButton: UIButton!
+    @IBOutlet weak var SortingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
+        resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
+        SortingLabel.text = NSLocalizedString("sorting", comment: "")
         sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -29,7 +33,11 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func loadSettings(){
-        sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
+        if Saved.shared.currentSettings.sort.rawValue == "up" {
+            self.sortTypeLabel.text = NSLocalizedString("sorting_up", comment: "")
+        } else {
+            self.sortTypeLabel.text = NSLocalizedString("sorting_down", comment: "")
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

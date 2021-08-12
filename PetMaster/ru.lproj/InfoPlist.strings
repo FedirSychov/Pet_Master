@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+NSPhotoLibraryUsageDescription = "Bitte erlauben Sie den Zugriff auf Ihre Fotos, um sie als Haustierfoto zu verwenden.";

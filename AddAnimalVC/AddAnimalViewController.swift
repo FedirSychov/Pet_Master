@@ -28,12 +28,18 @@ class AddAnimalViewController: UIViewController {
     @IBOutlet weak var DateOfBirth: UIDatePicker!
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var SaveButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
         DateOfBirth.maximumDate = Date()
         Design.SetupBaseButton(button: SaveButton)
+        SaveButton.setTitle(NSLocalizedString("save", comment: ""), for: .normal)
+        setupButtons()
         if currentAnimal != nil{
             num = 0
             for animal in Saved.shared.currentSaves.animals{
@@ -42,13 +48,18 @@ class AddAnimalViewController: UIViewController {
                 }
                 num += 1
             }
-            
             NameTextField.text = currentAnimal?.name
             TypeTextField.text = currentAnimal?.animal_type
             DateOfBirth.date = currentAnimal!.date_of_birth
             breedTextField.text = currentAnimal?.animal_breed
-            //print(num)
         }
+    }
+    
+    private func setupButtons(){
+        nameLabel.text = NSLocalizedString("name", comment: "")
+        typeLabel.text = NSLocalizedString("type", comment: "")
+        birthdayLabel.text = NSLocalizedString("birthday", comment: "")
+        breedLabel.text = NSLocalizedString("breed", comment: "")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+"animal_name" = "Name: ";
+"animal_age" = "Age: ";
+"animal_type" = "Breed: ";
+"animal_status" = "Status: ";
+"healthy" = "healthy";
+"sick" = "sick";
+"vaccinations_button" = "Vaccinations";
+"sorting" = "sorting";
+"sorting_up" = "up";
+"sorting_down" = "down";
+"save" = "Save";
+"name" = "Name";
+"name_for_animal" = "Name";
+"date" = "Date";
+"animal_date" = "Date: ";
+"description" = "Description";
+"animal_description" = "Description: ";
+"date_of_start" = "Date of start";
+"date_of_end" = "Date of End";
+"medicines" = "Medications";
+"today" = "Today";
+"days_last" = "Duration: ";
+"it_lasts" = "Still lasts";
+"days" = " days";
+"breed" = "Breed";
+"type" = "Type";
+"birthday" = "Birthday";
+"plans" = "Plans";
+"past" = "Earlier";
+"comment" = "Comment";
+"day/month/year" = "day/month/year";
+"month/day/year" = "month/day/year";
+"year/day/month" = "year/day/month";
+"year/month/day" = "year/month/day";
+"reset_settings" = "Reset settings";
+"set_photo" = "Set photo as avatar";
+"edit" = "Edit";
+"delete" = "Delete";
+"dead" = "Mark as dead";
+"cancel" = "Cancel";
+"options" = "Options";
+"are_you_sure" = "Are you sure?";
+"no" = "No";
+"yes" = "Yes";
+"oh_no" = "Oh no";
+"pity_message" = "What a pity :( Maybe you want to have a new pet?";

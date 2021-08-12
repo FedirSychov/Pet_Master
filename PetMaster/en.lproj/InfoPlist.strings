@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+NSPhotoLibraryUsageDescription = "Please allow accsess for using your selected photo as pet image.";

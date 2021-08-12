@@ -8,8 +8,6 @@
 import UIKit
 
 class AnimalViewController: UIViewController {
-    //TODO: - make updating of disease days
-    //TODO: - make list of current diseases
     var currentAnimal: Animal?
     var currentDiseaseLasts: Disease?
     var currDiseaseNum: Int = -1
@@ -22,7 +20,6 @@ class AnimalViewController: UIViewController {
     @IBOutlet weak var StatusLabel: UILabel!
     @IBOutlet weak var AgeLabel: UILabel!
     @IBOutlet weak var TypeLabel: UILabel!
-    @IBOutlet weak var BreedLabel: UILabel!
     @IBOutlet weak var Container_table: UIView!
     @IBOutlet weak var Options: UIBarButtonItem!
     @IBOutlet weak var MakeHealthy: UIButton!
@@ -33,6 +30,7 @@ class AnimalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
+        TypeLabel.sizeToFit()
         if self.currentAnimal?.animal_image != nil{
             AnimalImage.image = getImageFromDocs(name: currentAnimal!.animal_image!)
         } else {
@@ -49,6 +47,7 @@ class AnimalViewController: UIViewController {
     private func setupButtons(){
         Design.SetupGreenButton(button: MakeHealthy)
         Design.SetupBaseButton(button: VaccinationsButton)
+        VaccinationsButton.setTitle(NSLocalizedString("vaccinations_button", comment: ""), for: .normal)
         Design.SetupBaseButton(button: DiseasesButton)
         Design.SetupBaseButton(button: EventsButton)
     }
@@ -64,30 +63,28 @@ class AnimalViewController: UIViewController {
                 temp += 1
             }
             if currDiseaseNum != -1{
-                StatusLabel.text = "Sick: \(currentAnimal!.disease_list[currDiseaseNum].name)"
+                StatusLabel.text = "\(NSLocalizedString("animal_status", comment: ""))\(NSLocalizedString("sick", comment: "")): \(currentAnimal!.disease_list[currDiseaseNum].name)"
                 MakeHealthy.alpha = 1
                 MakeHealthy.isEnabled = true
             } else {
-                StatusLabel.text = "Healthy"
+                StatusLabel.text = NSLocalizedString("healthy", comment: "")
                 MakeHealthy.alpha = 0
                 MakeHealthy.isEnabled = false
             }
-            NameLabel.text = "Name: \(currentAnimal!.name)"
-            AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
-            TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
-            BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+            NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
+            AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
+            TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
         }
         else {
-            StatusLabel.text = "Healthy"
+            StatusLabel.text = NSLocalizedString("healthy", comment: "")
             MakeHealthy.alpha = 0
             MakeHealthy.isEnabled = false
-            NameLabel.text = "Name: \(currentAnimal!.name)"
-            AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
-            TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
-            BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+            NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
+            AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
+            TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
         }
         if currentAnimal!.date_of_death != nil{
-            self.StatusLabel.text = "Dead"
+            self.StatusLabel.text = ""
             MakeHealthy.alpha = 0
             MakeHealthy.isEnabled = false
         }
@@ -105,16 +102,15 @@ class AnimalViewController: UIViewController {
         }
         MakeHealthy.alpha = 0
         MakeHealthy.isEnabled = false
-        self.StatusLabel.text = "Healthy"
+        self.StatusLabel.text = NSLocalizedString("healthy", comment: "")
         currDiseaseNum = -1
         updateStatus()
     }
     
     func reloadData(){
-        NameLabel.text = "Name: \(currentAnimal!.name)"
-        AgeLabel.text = "Age: \(currentAnimal!.animal_age)"
-        TypeLabel.text = "Type: \(currentAnimal!.animal_type)"
-        BreedLabel.text = "Breed: \(currentAnimal!.animal_breed!)"
+        NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
+        AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_age)"
+        TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
     }
     
     @IBAction func OptionsButton(_ sender: Any) {
@@ -194,7 +190,6 @@ class AnimalViewController: UIViewController {
                 if animal.showInfo() == self!.currentAnimal!.showInfo(){
                     Saved.shared.currentSaves.animals.remove(at: num)
                     Saved.shared.currentSaves.animals.insert(self!.currentAnimal!, at: num)
-                    //self!.navigationController?.popViewController(animated: true)
                     self!.viewDidLoad()
                 }
                 num += 1

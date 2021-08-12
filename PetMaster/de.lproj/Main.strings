@@ -1,0 +1,99 @@
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "00G-aE-SfH"; */
+"00G-aE-SfH.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Vaccinations"; ObjectID = "0dF-k1-eLG"; */
+"0dF-k1-eLG.normalTitle" = "Vaccinations";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "1b0-6T-BZD"; */
+"1b0-6T-BZD.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Make Healthy"; ObjectID = "3Go-Kz-cfg"; */
+"3Go-Kz-cfg.normalTitle" = "Make Healthy";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "5E0-CZ-Xpd"; */
+"5E0-CZ-Xpd.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "7RH-Dh-4gy"; */
+"7RH-Dh-4gy.title" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "7e9-XS-4NI"; */
+"7e9-XS-4NI.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ALX-X3-Zdw"; */
+"ALX-X3-Zdw.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "My Animals"; ObjectID = "Hpg-x7-Y0N"; */
+"Hpg-x7-Y0N.normalTitle" = "My Animals";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "KVL-fU-WPP"; */
+"KVL-fU-WPP.title" = "Settings";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "LAc-89-gzc"; */
+"LAc-89-gzc.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Op5-Aa-nB0"; */
+"Op5-Aa-nB0.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Sort type"; ObjectID = "S1D-Cs-CKA"; */
+"S1D-Cs-CKA.title" = "Sort type";
+
+/* Class = "UINavigationItem"; title = "Events"; ObjectID = "UoE-OT-AGW"; */
+"UoE-OT-AGW.title" = "Events";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "VSK-F1-K9h"; */
+"VSK-F1-K9h.title" = "Item";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Wlt-8B-Sui"; */
+"Wlt-8B-Sui.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "X1I-ql-5NC"; */
+"X1I-ql-5NC.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "My animals"; ObjectID = "Xjs-RE-KCw"; */
+"Xjs-RE-KCw.title" = "My animals";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Y8h-w3-tJT"; */
+"Y8h-w3-tJT.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Food"; ObjectID = "Ygf-b8-vdG"; */
+"Ygf-b8-vdG.normalTitle" = "Food";
+
+/* Class = "UIBarButtonItem"; title = "Save :("; ObjectID = "eGU-uv-IvH"; */
+"eGU-uv-IvH.title" = "Save :(";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ew2-f2-xT3"; */
+"ew2-f2-xT3.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "fov-Cp-ShZ"; */
+"fov-Cp-ShZ.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Diseases"; ObjectID = "gxu-eQ-NN5"; */
+"gxu-eQ-NN5.normalTitle" = "Diseases";
+
+/* Class = "UINavigationItem"; title = "Food"; ObjectID = "jtZ-zL-4G2"; */
+"jtZ-zL-4G2.title" = "Food";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "kLM-pg-eNa"; */
+"kLM-pg-eNa.normalTitle" = "Settings";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "olU-Sf-tbF"; */
+"olU-Sf-tbF.title" = "Save";
+
+/* Class = "UINavigationItem"; title = "Diseases"; ObjectID = "qLm-YK-92k"; */
+"qLm-YK-92k.title" = "Diseases";
+
+/* Class = "UINavigationItem"; title = "Vaccinations"; ObjectID = "sXE-M2-CPe"; */
+"sXE-M2-CPe.title" = "Vaccinations";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "tTs-Ae-Jyz"; */
+"tTs-Ae-Jyz.title" = "Save";
+
+/* Class = "UILabel"; text = "Comment"; ObjectID = "xnQ-eu-5uM"; */
+"xnQ-eu-5uM.text" = "Comment";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "xvM-ch-aBC"; */
+"xvM-ch-aBC.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Events"; ObjectID = "z6C-2f-oR3"; */
+"z6C-2f-oR3.normalTitle" = "Events";

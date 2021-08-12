@@ -53,11 +53,11 @@ class DiseaseInfoViewController: UIViewController {
     func reloadInfo(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
-        self.NameLabel.text = "Name: \(currentDisease!.name)"
-        self.DateLabel.text = "Date: \(dateFormatter.string(from: currentDisease!.data_of_disease))"
-        self.DescriptionLabel.text = "Description: \(currentDisease!.description)"
-        self.DaysLabel.text = "Days last: \(currentDisease!.days_of_disease)"
-        self.MedicinesLabel.text = "Medicines: \(currentDisease!.medicines)"
+        self.NameLabel.text = "\(NSLocalizedString("name", comment: "")): \(currentDisease!.name)"
+        self.DateLabel.text = "\(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: currentDisease!.data_of_disease))"
+        self.DescriptionLabel.text = "\(NSLocalizedString("description", comment: "")): \(currentDisease!.description)"
+        self.DaysLabel.text = "\(NSLocalizedString("days_last", comment: ""))\(currentDisease!.days_of_disease)\(NSLocalizedString("days", comment: ""))"
+        self.MedicinesLabel.text = "\(NSLocalizedString("medicines", comment: "")): \(currentDisease!.medicines)"
     }
     
     private func ShowAlertActionSheet(){

@@ -14,9 +14,11 @@ class DeathViewController: UIViewController {
     
     @IBOutlet weak var DatePicker: UIDatePicker!
     @IBOutlet weak var CommentTextField: UITextField!
+    @IBOutlet weak var commentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        commentLabel.text = NSLocalizedString("comment", comment: "")
         DatePicker.backgroundColor = .lightGray
     }
     
@@ -35,9 +37,9 @@ class DeathViewController: UIViewController {
     }
     
     private func showAlert(){
-        let alert = UIAlertController(title: "Oh no", message: "What a pity :( Maybe you want to have a new pet?", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("oh_no", comment: ""), message: NSLocalizedString("pity_message", comment: ""), preferredStyle: .alert)
         
-        let okButton = UIAlertAction(title: "Ok", style: .default) { [weak self](_) in
+        let okButton = UIAlertAction(title: "OK", style: .default) { [weak self](_) in
             self?.navigationController?.popToViewController(self!.lastVC!, animated: true)
         }
         

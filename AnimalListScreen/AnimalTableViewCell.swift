@@ -46,15 +46,15 @@ class AnimalTableViewCell: UITableViewCell {
                 temp += 1
             }
             if currDiseaseNum != -1{
-                return "Sick"
+                return NSLocalizedString("sick", comment: "")
             } else {
-                return "Healthy"
+                return NSLocalizedString("healthy", comment: "")
             }
         }
         if currentAnimal.date_of_death != nil{
-            return "Dead"
+            return ""
         }
-        return "Healthy"
+        return NSLocalizedString("healthy", comment: "")
     }
 
     override func awakeFromNib() {

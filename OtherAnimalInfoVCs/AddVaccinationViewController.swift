@@ -14,6 +14,12 @@ class AddVaccinationViewController: UIViewController {
     @IBOutlet weak var VaccDate: UIDatePicker!
     @IBOutlet weak var DateSwitcher: UISwitch!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var nowlabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     var lastVC: UITableViewController?
     var thisVC: UIViewController?
     
@@ -24,6 +30,8 @@ class AddVaccinationViewController: UIViewController {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
         VaccDate.maximumDate = Date()
+        setupLabels()
+        scrollView.isDirectionalLockEnabled = true
         if self.currentVaccination != nil {
             self.VaccName.text = self.currentVaccination!.name
             self.VaccDescription.text = self.currentVaccination!.description
@@ -31,6 +39,13 @@ class AddVaccinationViewController: UIViewController {
             self.DateSwitcher.isOn = false
             self.VaccDate.date = self.currentVaccination!.date
         }
+    }
+    
+    private func setupLabels() {
+        nameLabel.text = NSLocalizedString("name", comment: "")
+        dateLabel.text = NSLocalizedString("date", comment: "")
+        nowlabel.text = NSLocalizedString("today", comment: "")
+        descriptionLabel.text = NSLocalizedString("description", comment: "")
     }
     
     @IBAction func SwitchedDate(_ sender: UISwitch) {
@@ -138,5 +153,13 @@ class AddVaccinationViewController: UIViewController {
     
     private func ShowAlertNoData(){
         Alert.showIncompleteFormAlert(on: self)
+    }
+}
+
+extension AddVaccinationViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.x>0 {
+            scrollView.contentOffset.x = 0
+        }
     }
 }

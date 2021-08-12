@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+"animal_name" = "Имя: ";
+"animal_age" = "Возраст: ";
+"animal_type" = "Порода: ";
+"animal_status" = "Статус: ";
+"healthy" = "здоров";
+"sick" = "болеет";
+"vaccinations_button" = "Прививки";
+"sorting" = "Сортировка";
+"sorting_up" = "Восходящая";
+"sorting_down" = "Нисходящая";
+"save" = "Сохранить";
+"name" = "Название";
+"name_for_animal" = "Имя";
+"date" = "Дата";
+"animal_date" = "Дата: ";
+"description" = "Описание";
+"animal_description" = "Описание: ";
+"date_of_start" = "Дата начала";
+"date_of_end" = "Дата конца";
+"medicines" = "Лекарства";
+"today" = "Сегодня";
+"days_last" = "Длительность: ";
+"it_lasts" = "Еще длится";
+"days" = " дней";
+"breed" = "Порода";
+"type" = "Тип";
+"birthday" = "День рождения";
+"plans" = "Планы";
+"past" = "Ранее";
+"comment" = "Комментарий";
+"day/month/year" = "день/месяц/год";
+"month/day/year" = "месяц/день/год";
+"year/day/month" = "год/день/месяц";
+"year/month/day" = "год/месяц/день";
+"reset_settings" = "Сброс настроек";
+"set_photo" = "Выбрать фото питомца";
+"edit" = "Изменить";
+"delete" = "Удалить";
+"dead" = "Пометить как умершее";
+"cancel" = "Отмена";
+"options" = "Настройки";
+"are_you_sure" = "Вы уверены?";
+"no" = "Нет";
+"yes" = "Да";
+"oh_no" = "О нет!";
+"pity_message" = "Как жаль :( не хотите ли подумать о новом питомце?";
