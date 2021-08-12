@@ -14,6 +14,7 @@ class AnimalsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         tableView.register(AnimalTableViewCell.nib(), forCellReuseIdentifier: AnimalTableViewCell.identifier)
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
@@ -54,8 +55,10 @@ extension AnimalsTableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: AnimalTableViewCell.identifier, for: indexPath) as! AnimalTableViewCell
         cell.configure(with: data[indexPath.row])
         cell.accessoryType = .disclosureIndicator
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell", for: indexPath)
-        //cell.textLabel?.text = data[indexPath.row].name
+        cell.backgroundColor = .clear
+        //cell.backgroundView = [[UIView new] autorelease]
+        //cell.selectedBackgroundView = [[UIView new] autorelease]
+
         return cell
     }
 

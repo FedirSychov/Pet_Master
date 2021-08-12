@@ -11,6 +11,7 @@ class SortTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         self.tableView.tableFooterView = UIView(frame: .zero)
     }
 

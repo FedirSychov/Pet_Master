@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
         self.tableView.tableFooterView = UIView(frame: .zero)
     }

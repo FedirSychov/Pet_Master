@@ -29,6 +29,8 @@ class VaccInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
+        DescriptionLabel.sizeToFit()
         if currentAnimal!.date_of_death != nil{
             self.optionButton.isEnabled = false
         }

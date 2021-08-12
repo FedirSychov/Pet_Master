@@ -22,6 +22,7 @@ class AddVaccinationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         VaccDate.maximumDate = Date()
         if self.currentVaccination != nil {
             self.VaccName.text = self.currentVaccination!.name

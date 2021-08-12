@@ -23,4 +23,10 @@ class Design{
         button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 26)
         button.layer.cornerRadius = button.frame.size.height/2
     }
+    
+    static func setupBackground(controller: UIViewController){
+        controller.view.insetsLayoutMarginsFromSafeArea = false
+        controller.view.contentMode = .scaleAspectFill
+        controller.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background1"))
+    }
 }

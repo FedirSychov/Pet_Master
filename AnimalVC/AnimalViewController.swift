@@ -32,11 +32,15 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         if self.currentAnimal?.animal_image != nil{
             AnimalImage.image = getImageFromDocs(name: currentAnimal!.animal_image!)
         } else {
             AnimalImage.image = #imageLiteral(resourceName: "NoImage")
         }
+        AnimalImage.layer.borderColor = CGColor(red: 255/255, green: 171/255, blue: 74/255, alpha: 1)
+        AnimalImage.layer.masksToBounds = true
+        AnimalImage.layer.borderWidth = 8
         self.title = self.currentAnimal!.name
         setupButtons()
         updateStatus()

@@ -27,6 +27,7 @@ class AddDiseaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         StartDatePicker.maximumDate = Date()
         EndDatePicker.maximumDate = Date()
         if StartDateSwitch.isOn{

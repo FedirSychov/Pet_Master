@@ -27,6 +27,8 @@ class DiseaseInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DescriptionLabel.sizeToFit()
+        Design.setupBackground(controller: self)
         if currentAnimal!.date_of_death != nil{
             self.optionButton.isEnabled = false
         }

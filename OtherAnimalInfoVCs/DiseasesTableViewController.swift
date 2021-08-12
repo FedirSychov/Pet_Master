@@ -18,6 +18,7 @@ class DiseasesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         if currentAnimal!.date_of_death != nil{
             self.AddButton.isEnabled = false
         }
@@ -58,6 +59,7 @@ extension DiseasesTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiseaseCell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row].name
+        cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
         return cell
     }
 

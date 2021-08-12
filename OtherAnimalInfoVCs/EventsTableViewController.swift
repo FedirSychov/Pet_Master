@@ -20,6 +20,7 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         dataReserved = currentAnimal!.events_list
         if currentAnimal!.date_of_death != nil{
             self.addButton.isEnabled = false
@@ -82,7 +83,6 @@ class EventsTableViewController: UITableViewController {
 
 extension EventsTableViewController{
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 2
     }
     
@@ -92,12 +92,30 @@ extension EventsTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        tableView.tableHeaderView?.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
         if section == 0{
             return "Future"
         } else {
             return "Past"
         }
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+                let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 30)) //set these values as necessary
+        returnedView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
+
+                let label = UILabel(frame: CGRect(x: 20, y: 4, width: 100, height: 20))
+        label.font = UIFont(name: "Avenir Next Medium", size: 26)
+
+        if section == 0 {
+            label.text = "Plans"
+        } else {
+            label.text = "Past"
+        }
+                returnedView.addSubview(label)
+
+                return returnedView
+            }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
@@ -106,6 +124,7 @@ extension EventsTableViewController{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YYYY"
         cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
+        cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
         return cell
     }
 

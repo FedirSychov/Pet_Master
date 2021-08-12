@@ -31,6 +31,7 @@ class AddAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupBackground(controller: self)
         DateOfBirth.maximumDate = Date()
         Design.SetupBaseButton(button: SaveButton)
         if currentAnimal != nil{

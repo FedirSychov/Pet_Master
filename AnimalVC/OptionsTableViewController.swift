@@ -11,7 +11,7 @@ class OptionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Design.setupBackground(controller: self)
     }
 
     // MARK: - Table view data source

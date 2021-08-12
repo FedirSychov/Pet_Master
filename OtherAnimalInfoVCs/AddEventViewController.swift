@@ -32,7 +32,7 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //DatePicker.maximumDate = Date()
+        Design.setupBackground(controller: self)
         if DateSwitch.isOn {
             DatePicker.isEnabled = false
         } else {
