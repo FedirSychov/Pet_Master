@@ -16,9 +16,22 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.insetsLayoutMarginsFromSafeArea = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         Design.setupBackground(controller: self)
         Design.SetupBaseButton(button: myAnimalsButton)
         Design.SetupBaseButton(button: settingsButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
 }

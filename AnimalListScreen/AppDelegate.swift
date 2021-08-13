@@ -9,16 +9,45 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    // main notification center
     let notificationCenter = UNUserNotificationCenter.current()
+    // set orientations that will be allowed in this property by default
+    var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print(Saved.shared.currentSaves.animals[0].vaccinations_list.count)
+        checkAllBirthdays()
         if findAllPlans() != ""{
             AllowNotifications()
-            SendNotification(identifier: "plans", title: "You have plans!", body: findAllPlans())
+            SendNotification(identifier: "plans", title: "You have plans!", body: findAllPlans(), timeW8: 3)
         }
         return true
+    }
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            return self.orientationLock
+    }
+    
+    private func checkAllBirthdays() {
+        var tempAnimals: [Animal]
+        tempAnimals = Saved.shared.currentSaves.animals
+        var bodyText: String = ""
+        for animal in tempAnimals {
+            if animal.UpdateAge() && animal.date_of_death == nil {
+                if bodyText == "" {
+                    bodyText += animal.name
+                } else {
+                    bodyText += ", \(animal.name)"
+                }
+            }
+        }
+        if bodyText != "" {
+            if bodyText.contains(",") {
+                SendNotification(identifier: "birthday", title: "\(NSLocalizedString("birthday", comment: ""))!", body: "\(bodyText)\(NSLocalizedString("have_a_birthday", comment: ""))", timeW8: 10)
+            } else {
+                SendNotification(identifier: "birthday", title: "\(NSLocalizedString("birthday", comment: ""))!", body: "\(bodyText)\(NSLocalizedString("has_a_birthday", comment: ""))", timeW8: 10)
+            }
+        }
+        Saved.shared.currentSaves.animals = tempAnimals
     }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -50,21 +79,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .sound, .alert]) { (granted, error) in
             guard granted else { return }
             self.notificationCenter.getNotificationSettings { (settings) in
-                print(settings)
                 guard settings.authorizationStatus == .authorized else { return}
             }
         }
         UNUserNotificationCenter.current().delegate = self
     }
     
-    func SendNotification(identifier: String, title: String, body: String) {
+    func SendNotification(identifier: String, title: String, body: String, timeW8: Int) {
         let content = UNMutableNotificationContent()
         
         content.title = title
         content.body = body
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(timeW8), repeats: false)
         
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         notificationCenter.add(request) { (error) in
@@ -76,10 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .sound])
-        print(#function)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(#function)
     }
 }

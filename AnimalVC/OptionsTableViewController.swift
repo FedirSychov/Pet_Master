@@ -11,6 +11,7 @@ class OptionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
     }
 

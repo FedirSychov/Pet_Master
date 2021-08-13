@@ -56,6 +56,9 @@ class AddAnimalViewController: UIViewController {
     }
     
     private func setupButtons(){
+        Design.setupTextField_Type2(field: NameTextField)
+        Design.setupTextField_Type2(field: TypeTextField)
+        Design.setupTextField_Type2(field: breedTextField)
         nameLabel.text = NSLocalizedString("name", comment: "")
         typeLabel.text = NSLocalizedString("type", comment: "")
         birthdayLabel.text = NSLocalizedString("birthday", comment: "")
@@ -136,7 +139,6 @@ extension AnimalViewController: UpdateDelegate{
         dismiss(animated: true) { [weak self] in
             self?.currentAnimal = animal
             self?.reloadData()
-            print("2 is OK")
         }
     }
 }

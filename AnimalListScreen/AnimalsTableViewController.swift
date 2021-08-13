@@ -14,6 +14,7 @@ class AnimalsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         tableView.register(AnimalTableViewCell.nib(), forCellReuseIdentifier: AnimalTableViewCell.identifier)
         self.tableView.tableFooterView = UIView(frame: .zero)
@@ -56,6 +57,11 @@ extension AnimalsTableViewController{
         cell.configure(with: data[indexPath.row])
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
+        //backgroundView.backgroundColor = UIColor.systemYellow
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     
@@ -63,6 +69,7 @@ extension AnimalsTableViewController{
         currentAnimal = data[indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
         performSegue(withIdentifier: "goToAnimalInfo", sender: nil)
         return indexPath
     }

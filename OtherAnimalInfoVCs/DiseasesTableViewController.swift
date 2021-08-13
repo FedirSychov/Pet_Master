@@ -18,6 +18,7 @@ class DiseasesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         if currentAnimal!.date_of_death != nil{
             self.AddButton.isEnabled = false

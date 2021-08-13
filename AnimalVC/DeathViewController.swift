@@ -18,6 +18,7 @@ class DeathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CommentTextField.backgroundColor = UIColor.systemYellow
         commentLabel.text = NSLocalizedString("comment", comment: "")
         DatePicker.backgroundColor = .lightGray
     }

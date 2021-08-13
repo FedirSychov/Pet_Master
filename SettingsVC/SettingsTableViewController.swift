@@ -17,6 +17,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
         SortingLabel.text = NSLocalizedString("sorting", comment: "")

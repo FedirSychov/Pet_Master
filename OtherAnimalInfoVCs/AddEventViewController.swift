@@ -36,6 +36,8 @@ class AddEventViewController: UIViewController {
     }
     
     private func setupLabels(){
+        Design.setupTextField_Type2(field: EventName)
+        Design.setupTextField_Type2(field: EventDescription)
         nameLabel.text = NSLocalizedString("name", comment: "")
         dateLabel.text = NSLocalizedString("date", comment: "")
         todayLabel.text = NSLocalizedString("today", comment: "")
@@ -66,7 +68,6 @@ class AddEventViewController: UIViewController {
             if animal == currentAnimal!{
                 for event in Saved.shared.currentSaves.animals[num].events_list{
                     if thisD == event{
-                        print("I Found!!!")
                         return false
                     }
                 }
@@ -82,7 +83,6 @@ class AddEventViewController: UIViewController {
                 if animal.showInfo() == self.currentAnimal!.showInfo(){
                     for event in animal.events_list{
                         if event == self.currentEvent!{
-                            print(num_event, num_animal)
                             let tempEvent: Event = Saved.shared.currentSaves.animals[num_animal].events_list[num_event]
                             
                             tempEvent.name = self.EventName.text!

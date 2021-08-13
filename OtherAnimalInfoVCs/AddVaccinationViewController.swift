@@ -28,6 +28,8 @@ class AddVaccinationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.contentSize.height = 1.0
+        scrollView.contentInsetAdjustmentBehavior = .never
         Design.setupBackground(controller: self)
         VaccDate.maximumDate = Date()
         setupLabels()
@@ -42,6 +44,18 @@ class AddVaccinationViewController: UIViewController {
     }
     
     private func setupLabels() {
+        
+        let constraints = [
+            VaccName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(-30)),
+            DateSwitcher.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            nowlabel.leftAnchor.constraint(equalTo: DateSwitcher.rightAnchor, constant: 30),
+            nowlabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        Design.setupTextField_Type2(field: VaccName)
+        Design.setupTextField_Type2(field: VaccDescription)
         nameLabel.text = NSLocalizedString("name", comment: "")
         dateLabel.text = NSLocalizedString("date", comment: "")
         nowlabel.text = NSLocalizedString("today", comment: "")
@@ -62,7 +76,6 @@ class AddVaccinationViewController: UIViewController {
             if animal == currentAnimal!{
                 for vacc in Saved.shared.currentSaves.animals[num].vaccinations_list{
                     if thisvacc == vacc{
-                        print("I Found!!!")
                         return false
                     }
                 }
@@ -95,7 +108,6 @@ class AddVaccinationViewController: UIViewController {
                                     
                                     Saved.shared.currentSaves.animals.remove(at: num_animal)
                                     Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                                    print("It comes here")
                                     self.currentVaccination = tempVacc
                                     self.navigationController!.popToViewController(self.thisVC!, animated: true)
                                 }
@@ -157,7 +169,7 @@ class AddVaccinationViewController: UIViewController {
 }
 
 extension AddVaccinationViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x>0 {
             scrollView.contentOffset.x = 0
         }

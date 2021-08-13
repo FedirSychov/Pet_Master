@@ -20,6 +20,7 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         dataReserved = currentAnimal!.events_list
         if currentAnimal!.date_of_death != nil{
@@ -37,6 +38,11 @@ class EventsTableViewController: UITableViewController {
         }
         
         self.tableView.reloadData()
+    }
+    
+    private func setupTableView() {
+        self.tableView.sectionHeaderHeight = 100
+        self.tableView.headerView(forSection: 0)!.backgroundColor = .green
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,39 +95,40 @@ class EventsTableViewController: UITableViewController {
 
 extension EventsTableViewController{
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        if setNumOfRows()[0] == 0 || setNumOfRows()[1] == 0{
+            return 1
+        } else {
+            return 2
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionNumRows = setNumOfRows()[section]
+        let sectionNumRows: Int
+        if setNumOfRows()[0] == 0 {
+            sectionNumRows = setNumOfRows()[1]
+        } else if setNumOfRows()[1] == 0 {
+            sectionNumRows = setNumOfRows()[0]
+        } else {
+            sectionNumRows = setNumOfRows()[section]
+        }
         return sectionNumRows
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        tableView.tableHeaderView?.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
-        if section == 0{
-            return "Future"
-        } else {
+        if setNumOfRows()[0] == 0 {
             return "Past"
+        } else if setNumOfRows()[1] == 0{
+            return "Plans"
+        } else {
+            if section == 0{
+                return "Plans"
+            } else {
+                return "Past"
+            }
         }
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-                let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 30)) //set these values as necessary
-        returnedView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
 
-                let label = UILabel(frame: CGRect(x: 20, y: 4, width: 100, height: 20))
-        label.font = UIFont(name: "Avenir Next Medium", size: 26)
-
-        if section == 0 {
-            label.text = "Plans"
-        } else {
-            label.text = "Past"
-        }
-                returnedView.addSubview(label)
-
-                return returnedView
-            }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
@@ -129,14 +136,50 @@ extension EventsTableViewController{
         let second: Int = indexPath[1]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
-        cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
+        if setNumOfRows()[0] == 0 {
+            cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[1][second].date))  -  \(setEventsArray()[1][second].name)"
+        } else if setNumOfRows()[1] == 0 {
+            cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[0][second].date))  -  \(setEventsArray()[0][second].name)"
+        } else {
+            cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
+        }
         cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.currentEvent = setEventsArray()[indexPath[0]][indexPath[1]]
+        if setNumOfRows()[0] == 0 {
+            self.currentEvent = setEventsArray()[1][indexPath[1]]
+        } else if setNumOfRows()[1] == 0 {
+            self.currentEvent = setEventsArray()[0][indexPath[1]]
+        } else {
+            self.currentEvent = setEventsArray()[indexPath[0]][indexPath[1]]
+        }
         return indexPath
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+                    let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 100))
+        tableView.estimatedSectionHeaderHeight = 100
+        returnedView.backgroundColor = UIColor.clear
+
+        let label = UILabel(frame: CGRect(x: self.tableView.frame.size.width/2 - 40, y: 4, width: 100, height: 20))
+
+            label.font = UIFont(name: "Avenir Next Medium", size: 32)
+
+        if setNumOfRows()[0] == 0 {
+            label.text = "Past"
+        } else if setNumOfRows()[1] == 0{
+            label.text = "Plans"
+        } else {
+            if section == 0{
+                label.text = "Plans"
+            } else {
+                label.text = "Past"
+            }
+        }
+                    //returnedView.addSubview(label)
+                    return returnedView
+                }
 }

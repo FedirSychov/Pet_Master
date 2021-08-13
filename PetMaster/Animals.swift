@@ -226,8 +226,8 @@ class Animal: Codable, Equatable {
                 }
             }
         }
-        print(new_full_age)
         self.animal_full_age = new_full_age
+        self.animal_age = ageComponents.year!
         if ageComponents.month! == 0 && ageComponents.day! == 0 {
             return true
         } else {

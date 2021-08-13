@@ -71,10 +71,21 @@ class AddDiseaseViewController: UIViewController {
             self.DiseaseDescription.text = self.curreentDisease!.description
             self.DiseaseMedicines.text = self.curreentDisease!.medicines
         }
-
     }
     
     private func setupLabels() {
+        
+        let constraints = [
+            EndNowlabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            EndNowlabel.widthAnchor.constraint(equalToConstant: 120),
+            EndDateSwitch.rightAnchor.constraint(equalTo: EndNowlabel.leftAnchor, constant: 10)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+        
+        Design.setupTextField_Type2(field: DiseaseName)
+        Design.setupTextField_Type2(field: DiseaseDescription)
+        Design.setupTextField_Type2(field: DiseaseMedicines)
         EndNowlabel.text = NSLocalizedString("today", comment: "")
         nameLabel.text = NSLocalizedString("name", comment: "")
         startdateLabel.text = NSLocalizedString("date_of_start", comment: "")
@@ -129,7 +140,6 @@ class AddDiseaseViewController: UIViewController {
             if animal == currentAnimal!{
                 for disease in Saved.shared.currentSaves.animals[num].disease_list{
                     if thisD == disease{
-                        print("I Found!!!")
                         return false
                     }
                 }

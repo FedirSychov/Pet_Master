@@ -29,7 +29,6 @@ class AnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(currentAnimal!.UpdateAge())
         Design.setupBackground(controller: self)
         if self.currentAnimal?.animal_image != nil{
             AnimalImage.image = getImageFromDocs(name: currentAnimal!.animal_image!)
