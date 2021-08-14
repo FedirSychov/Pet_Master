@@ -7,10 +7,24 @@
 
 import UIKit
 
+//MARK: - protocols
+protocol AddDiseaseDelegate: NSObject {
+    func AddDisease(_ disease: Disease)
+}
+
+protocol EditDiseaseDelegate: NSObject {
+    func EditDisease(_ disease: Disease)
+}
+
+protocol BackToAnimalDelegate: NSObject {
+    func ReturnBackToAnimal()
+}
+
 class AddDiseaseViewController: UIViewController {
     
-    var lastVC: UITableViewController?
-    var thisVC: UIViewController?
+    weak var addDelegate: AddDiseaseDelegate?
+    weak var editDelegate: EditDiseaseDelegate?
+    weak var returnDelegate: BackToAnimalDelegate?
 
     @IBOutlet weak var DiseaseName: UITextField!
     @IBOutlet weak var StartDateSwitch: UISwitch!
@@ -148,7 +162,7 @@ class AddDiseaseViewController: UIViewController {
         }
         return true
     }
-    
+//MARK: - saving or editing
     @IBAction func SaveDisease(_ sender: Any) {
         if self.curreentDisease != nil{
             var num_animal: Int = 0
@@ -188,14 +202,17 @@ class AddDiseaseViewController: UIViewController {
                                     }
                                     Saved.shared.currentSaves.animals.remove(at: num_animal)
                                     Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
-                                    self.navigationController?.popToViewController(thisVC!, animated: true)
-                                    break
+                                    
+                                    if LastsSwitch.isOn{
+                                        returnDelegate?.ReturnBackToAnimal()
+                                    } else {
+                                        editDelegate?.EditDisease(tempDisease)
+                                    }
                                 }
                             } else {
                                 ShowAlertSameDisease()
                                 self.DiseaseName.text = curreentDisease!.name
                                 self.StartDatePicker.date = curreentDisease!.data_of_disease
-                                break
                             }
                             
                         }
@@ -247,9 +264,9 @@ class AddDiseaseViewController: UIViewController {
                             }
                             Saved.shared.currentSaves.animals[num] = currentAnimal!
                             if LastsSwitch.isOn{
-                                self.navigationController?.popToViewController(self.lastVC!, animated: true)
+                                returnDelegate?.ReturnBackToAnimal()
                             } else {
-                                navigationController?.popViewController(animated: true)
+                                addDelegate?.AddDisease(newDisease)
                             }
                         } else {
                             ShowAlertSameDisease()
@@ -271,5 +288,34 @@ class AddDiseaseViewController: UIViewController {
     
     private func ShowAlertNoData(){
         Alert.showIncompleteFormAlert(on: self)
+    }
+}
+
+extension DiseasesTableViewController: AddDiseaseDelegate {
+    func AddDisease(_ disease: Disease) {
+        dismiss(animated: true) {
+            self.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension DiseaseInfoViewController: EditDiseaseDelegate {
+    func EditDisease(_ disease: Disease) {
+        dismiss(animated: true) {
+            self.currentDisease = disease
+            self.reloadInfo()
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension AnimalViewController: BackToAnimalDelegate {
+    func ReturnBackToAnimal() {
+        dismiss(animated: true) {
+            self.reloadData()
+            self.updateStatus()
+            self.navigationController?.popToViewController(self, animated: true)
+        }
     }
 }

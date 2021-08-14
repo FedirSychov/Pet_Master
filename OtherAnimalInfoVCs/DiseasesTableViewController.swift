@@ -11,8 +11,10 @@ class DiseasesTableViewController: UITableViewController {
 
     var currentAnimal: Animal?
     var curreentDisease: Disease?
-    var lastVC: UITableViewController?
-    //var animalVC: UIViewController?
+    var lastVC: UIViewController?
+    
+    weak var updateDelegate: UpdateStatusDelegate?
+    
     var data: [Disease] = []
     @IBOutlet weak var AddButton: UIBarButtonItem!
     
@@ -27,7 +29,13 @@ class DiseasesTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        data = currentAnimal!.disease_list
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                self.data = animal.disease_list
+            }
+            num += 1
+        }
         self.tableView.reloadData()
     }
     
@@ -36,14 +44,15 @@ class DiseasesTableViewController: UITableViewController {
         case "goToAddDisease":
             if let AddDiseaseVC = segue.destination as? AddDiseaseViewController{
                 AddDiseaseVC.currentAnimal = self.currentAnimal!
-                AddDiseaseVC.lastVC = self.lastVC!
+                AddDiseaseVC.addDelegate = self
+                AddDiseaseVC.returnDelegate = self.lastVC! as? BackToAnimalDelegate
             }
         case "goToDiseaseInfo":
             if let infoD = segue.destination as? DiseaseInfoViewController{
                 infoD.currentAnimal = self.currentAnimal!
                 infoD.currentDisease = self.curreentDisease!
                 infoD.lastVC = self.lastVC!
-                infoD.thisVC = self
+                infoD.deleteDelegate = self
             }
         default:
             break

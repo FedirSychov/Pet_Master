@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DeleteEventDelegate: NSObject {
+    func DeleteEvent(_ animal: Animal)
+}
+
 class EventInfoViewController: UIViewController {
 
     var currentEvent: Event?
@@ -14,6 +18,8 @@ class EventInfoViewController: UIViewController {
     
     var lastVC: UITableViewController?
     var thisVC: UITableViewController?
+    
+    weak var deleteDelegate: DeleteEventDelegate?
     
     var num_animal: Int = 0
     var num_event: Int = 0
@@ -43,8 +49,7 @@ class EventInfoViewController: UIViewController {
             if let editEventVC = segue.destination as? AddEventViewController{
                 editEventVC.currentEvent = self.currentEvent!
                 editEventVC.currentAnimal = self.currentAnimal!
-                editEventVC.lastVC = self.lastVC!
-                editEventVC.thisVC = self.thisVC!
+                editEventVC.editProtocol = self
             }
         }
     }
@@ -96,7 +101,7 @@ class EventInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
-                            self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
+                            self!.deleteDelegate!.DeleteEvent(temp1)
                         }
                         self!.num_event += 1
                     }
@@ -109,5 +114,15 @@ class EventInfoViewController: UIViewController {
         alert.addAction(yesAction)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension EventsTableViewController: DeleteEventDelegate {
+    func DeleteEvent(_ animal: Animal) {
+        self.dismiss(animated: true) {
+            self.currentAnimal = animal
+            self.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

@@ -7,13 +7,22 @@
 
 import UIKit
 
+protocol UpdateStatusDelegate: NSObject {
+    func UpdateStatus(_ animal: Animal)
+}
+
+protocol DeleteDiseaseDelegate: NSObject {
+    func DeleteDisease(_ animal: Animal)
+}
+
 class DiseaseInfoViewController: UIViewController {
 
     var currentDisease: Disease?
     var currentAnimal: Animal?
     
-    var lastVC: UITableViewController?
-    var thisVC: UITableViewController?
+    weak var deleteDelegate: DeleteDiseaseDelegate?
+    
+    var lastVC: UIViewController?
     
     @IBOutlet weak var optionButton: UIBarButtonItem!
     @IBOutlet weak var NameLabel: UILabel!
@@ -44,8 +53,8 @@ class DiseaseInfoViewController: UIViewController {
             if let editDiseaseVC = segue.destination as? AddDiseaseViewController{
                 editDiseaseVC.curreentDisease = self.currentDisease!
                 editDiseaseVC.currentAnimal = self.currentAnimal!
-                editDiseaseVC.lastVC = self.lastVC!
-                editDiseaseVC.thisVC = self.thisVC!
+                editDiseaseVC.editDelegate = self
+                editDiseaseVC.returnDelegate = self.lastVC! as? BackToAnimalDelegate
             }
         }
     }
@@ -99,8 +108,7 @@ class DiseaseInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
-                            self?.navigationController?.popToViewController((self?.thisVC)!, animated: true)
-                            break
+                            self!.deleteDelegate!.DeleteDisease(temp1)
                         }
                         self!.num_disease += 1
                     }
@@ -113,5 +121,24 @@ class DiseaseInfoViewController: UIViewController {
         alert.addAction(yesAction)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DiseasesTableViewController: DeleteDiseaseDelegate {
+    func DeleteDisease(_ animal: Animal) {
+        self.dismiss(animated: true) {
+            self.currentAnimal = animal
+            self.data = animal.disease_list
+            self.viewWillAppear(true)
+            self.updateDelegate?.UpdateStatus(animal)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension AnimalViewController: UpdateStatusDelegate {
+    func UpdateStatus(_ animal: Animal) {
+        self.currentAnimal = animal
+        self.updateStatus()
     }
 }

@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol DeleteVaccinationDelegate: NSObject {
+    func DeleteVaccination(_ animal: Animal)
+}
+
 class VaccInfoViewController: UIViewController {
 
     var currentVaccination: Vaccination?
     var currentAnimal: Animal?
+    
+    weak var deleteDelegate: DeleteVaccinationDelegate?
     
     var lastVC: UITableViewController?
     var thisVC: UITableViewController?
@@ -44,6 +50,7 @@ class VaccInfoViewController: UIViewController {
                 editVaccVC.currentAnimal = self.currentAnimal!
                 editVaccVC.lastVC = self.lastVC!
                 editVaccVC.thisVC = self.thisVC!
+                editVaccVC.editDelegate = self
             }
         }
     }
@@ -95,8 +102,7 @@ class VaccInfoViewController: UIViewController {
                             Saved.shared.currentSaves.animals.remove(at: self!.num_animal)
                             Saved.shared.currentSaves.animals.insert(temp1, at: self!.num_animal)
                             
-                            self?.navigationController?.popToViewController((self?.lastVC)!, animated: true)
-                            break
+                            self!.deleteDelegate?.DeleteVaccination(temp1)
                         }
                         self!.num_vacc += 1
                     }
@@ -115,5 +121,16 @@ class VaccInfoViewController: UIViewController {
 extension String {
     subscript(i: Int) -> String {
         return String(self[index(startIndex, offsetBy: i)])
+    }
+}
+
+extension VaccinationsTableViewController: DeleteVaccinationDelegate {
+    func DeleteVaccination(_ animal: Animal) {
+        self.dismiss(animated: true) {
+            self.currentAnimal = animal
+            self.data = animal.vaccinations_list
+            self.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

@@ -43,6 +43,7 @@ class VaccinationsTableViewController: UITableViewController {
             if let addVaccVC = segue.destination as? AddVaccinationViewController{
                 addVaccVC.currentAnimal = self.currentAnimal!
                 addVaccVC.lastVC = self.lastVC!
+                addVaccVC.addDelegate = self
             }
         case "goToVaccinationInfo":
             if let vaccInfoVC = segue.destination as? VaccInfoViewController{
@@ -50,6 +51,7 @@ class VaccinationsTableViewController: UITableViewController {
                 vaccInfoVC.currentAnimal = self.currentAnimal!
                 vaccInfoVC.lastVC = self.lastVC
                 vaccInfoVC.thisVC = self
+                vaccInfoVC.deleteDelegate = self
             }
         default:
             break

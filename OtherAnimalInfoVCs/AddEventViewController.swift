@@ -7,12 +7,21 @@
 
 import UIKit
 
+protocol AddEventDelegate: NSObject {
+    func AddEvent(_ event: Event)
+}
+
+protocol EditEventDelegate: NSObject {
+    func EditEvent(_ event: Event)
+}
+
 class AddEventViewController: UIViewController {
+    
+    weak var addProtocol: AddEventDelegate?
+    weak var editProtocol: EditEventDelegate?
 
     var currentAnimal: Animal?
     var currentEvent: Event?
-    var lastVC: UITableViewController?
-    var thisVC: UIViewController?
     
     var num_animal: Int = 0
     var num_event: Int = 0
@@ -86,7 +95,11 @@ class AddEventViewController: UIViewController {
                             let tempEvent: Event = Saved.shared.currentSaves.animals[num_animal].events_list[num_event]
                             
                             tempEvent.name = self.EventName.text!
-                            tempEvent.date = self.DatePicker.date
+                            if DateSwitch.isOn {
+                                tempEvent.date = Date()
+                            } else {
+                                tempEvent.date = self.DatePicker.date
+                            }
                             tempEvent.description = self.EventDescription.text!
                             if noSameEvents(thisD: tempEvent){
                                 if EventName.text == ""{
@@ -102,13 +115,12 @@ class AddEventViewController: UIViewController {
                                     Saved.shared.currentSaves.animals.remove(at: num_animal)
                                     Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                     
-                                    self.navigationController?.popToViewController(self.thisVC!, animated: true)
+                                    editProtocol?.EditEvent(tempEvent)
                                 }
                             } else {
                                 ShowAlertSameEvent()
                                 EventName.text = currentEvent!.name
                                 DatePicker.date = currentEvent!.date
-                                break
                             }
                         }
                         num_event += 1
@@ -142,7 +154,7 @@ class AddEventViewController: UIViewController {
                                 currentAnimal!.events_list.sort(by: {$0.date < $1.date})
                             }
                             Saved.shared.currentSaves.animals[num] = currentAnimal!
-                            navigationController?.popViewController(animated: true)
+                            addProtocol?.AddEvent(tempEvent)
                         } else {
                             ShowAlertSameEvent()
                         }
@@ -162,5 +174,24 @@ class AddEventViewController: UIViewController {
     
     private func ShowAlertNoData(){
         Alert.showIncompleteFormAlert(on: self)
+    }
+}
+
+extension EventsTableViewController: AddEventDelegate {
+    func AddEvent(_ event: Event) {
+        dismiss(animated: true) {
+            self.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension EventInfoViewController: EditEventDelegate {
+    func EditEvent(_ event: Event) {
+        dismiss(animated: true) {
+            self.currentEvent = event
+            self.reloadInfo()
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

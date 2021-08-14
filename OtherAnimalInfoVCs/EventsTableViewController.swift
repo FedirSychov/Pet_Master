@@ -30,7 +30,13 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        data = currentAnimal!.events_list
+        var num: Int = 0
+        for animal in Saved.shared.currentSaves.animals{
+            if animal == currentAnimal!{
+                self.data = animal.events_list
+            }
+            num += 1
+        }
         if Saved.shared.currentSettings.sort == .up{
             data.sort(by: {$0.date < $1.date})
         } else {
@@ -50,6 +56,7 @@ class EventsTableViewController: UITableViewController {
         case "goToAddEvent":
             if let addEventVC = segue.destination as? AddEventViewController{
                 addEventVC.currentAnimal = self.currentAnimal
+                addEventVC.addProtocol = self
             }
         case "goToEventnfo":
             if let infoE = segue.destination as? EventInfoViewController{
@@ -57,6 +64,7 @@ class EventsTableViewController: UITableViewController {
                 infoE.currentEvent = self.currentEvent!
                 infoE.lastVC = self.lastVC!
                 infoE.thisVC = self
+                infoE.deleteDelegate = self
             }
         default:
             break

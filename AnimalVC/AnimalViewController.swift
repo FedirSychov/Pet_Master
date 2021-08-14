@@ -9,7 +9,6 @@ import UIKit
 
 class AnimalViewController: UIViewController {
     var currentAnimal: Animal?
-    var currentDiseaseLasts: Disease?
     var currDiseaseNum: Int = -1
     var currentImage: String?
     
@@ -110,7 +109,7 @@ class AnimalViewController: UIViewController {
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = Saved.shared.currentSettings.dateFormat
         NameLabel.text = "\(NSLocalizedString("animal_name", comment: ""))\(currentAnimal!.name)"
-        AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_full_age!) (\(dateFormat.string(from: currentAnimal!.date_of_birth)))"
+        AgeLabel.text = "\(NSLocalizedString("animal_age", comment: ""))\(currentAnimal!.animal_full_age ?? "not counted") (\(dateFormat.string(from: currentAnimal!.date_of_birth)))"
         TypeLabel.text = "\(NSLocalizedString("animal_type", comment: ""))\(currentAnimal!.animal_type), \(currentAnimal!.animal_breed!)"
     }
     
@@ -128,7 +127,8 @@ class AnimalViewController: UIViewController {
         case "goToDiseasesVC":
             if let diseaseVC = segue.destination as? DiseasesTableViewController{
                 diseaseVC.currentAnimal = self.currentAnimal
-                diseaseVC.lastVC = self.lastVC!
+                diseaseVC.lastVC = self
+                diseaseVC.updateDelegate = self
             }
         case "goToEventsVC":
             if let eventVC = segue.destination as? EventsTableViewController{

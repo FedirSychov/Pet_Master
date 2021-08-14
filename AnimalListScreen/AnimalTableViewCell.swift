@@ -67,7 +67,7 @@ class AnimalTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+//MARK: - Getting image from docs
     func getImageFromDocs(name: String) -> UIImage?{
         let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
         let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask

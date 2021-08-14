@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class Design{
-    
+//MARK: - setting up buttons
     static func SetupBaseButton(button: UIButton) {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
@@ -23,13 +23,13 @@ class Design{
         button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 26)
         button.layer.cornerRadius = button.frame.size.height/2
     }
-    
+//MARK: - setting up background
     static func setupBackground(controller: UIViewController){
         controller.view.insetsLayoutMarginsFromSafeArea = false
         controller.view.contentMode = .scaleAspectFill
         controller.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background1"))
     }
-    
+//MARK: - setting up textFields
     static func setupTextField(field: UITextField) {
         let width = CGFloat(2.0)
         let border1 = CALayer()
@@ -66,7 +66,7 @@ class Design{
         field.backgroundColor = UIColor.clear
         field.font = UIFont(name: "Avenir Next Medium", size: 26)
     }
-    
+//MARK: - setting up view behind table
     static func setupViewBehindTable(tableView: UITableView) {
         var frame = tableView.bounds
         frame.origin.y = -frame.size.height

@@ -14,7 +14,8 @@ class OtherFunctions{
           return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
-//класс болезни
+
+//MARK: - Disease class
 class Disease: Codable, Equatable {
     static func == (lhs: Disease, rhs: Disease) -> Bool {
         return lhs.name == rhs.name && lhs.data_of_disease == rhs.data_of_disease && lhs.date_of_end == rhs.date_of_end && lhs.description == rhs.description && lhs.medicines == rhs.medicines
@@ -75,7 +76,7 @@ class Disease: Codable, Equatable {
     }
 }
 
-//класс прививок
+//MARK: - Vaccination class
 class Vaccination: Codable, Equatable {
     static func == (lhs: Vaccination, rhs: Vaccination) -> Bool {
         return lhs.name == rhs.name && lhs.date == rhs.date && lhs.description == rhs.description
@@ -108,7 +109,7 @@ class Vaccination: Codable, Equatable {
     }
 }
 
-//класс события в жизни питомца
+//MARK: - event class
 class Event: Codable, Equatable {
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.name == rhs.name && lhs.date == rhs.date && lhs.description == rhs.description
@@ -131,7 +132,7 @@ class Event: Codable, Equatable {
     }
 }
 
-//класс домашнего животного
+//MARK: - animal class
 class Animal: Codable, Equatable {
     static func == (lhs: Animal, rhs: Animal) -> Bool {
         return lhs.name == rhs.name && lhs.animal_type == rhs.animal_type && lhs.date_of_birth == rhs.date_of_birth

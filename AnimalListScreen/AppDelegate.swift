@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
             return self.orientationLock
     }
-    
+//MARK: - Checking birthdays
     private func checkAllBirthdays() {
         var tempAnimals: [Animal]
         tempAnimals = Saved.shared.currentSaves.animals
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
 
     }
-    
+//MARK: - Finding plans
     func findAllPlans() -> String{
         var text: String = ""
         for animal in Saved.shared.currentSaves.animals{
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return text
     }
-    
+//MARK: - Notifications
     func AllowNotifications(){
         notificationCenter.requestAuthorization(options: [.alert, .sound, .alert]) { (granted, error) in
             guard granted else { return }

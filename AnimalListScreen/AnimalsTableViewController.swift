@@ -25,7 +25,7 @@ class AnimalsTableViewController: UITableViewController {
         data = Saved.shared.currentSaves.animals
         self.tableView.reloadData()
     }
-    
+// MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier{
         case "goToAnimalInfo":
@@ -45,7 +45,7 @@ class AnimalsTableViewController: UITableViewController {
     
     
 }
-
+//MARK: - TableView
 extension AnimalsTableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

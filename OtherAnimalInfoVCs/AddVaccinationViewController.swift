@@ -7,8 +7,20 @@
 
 import UIKit
 
-class AddVaccinationViewController: UIViewController {
+//MARK: - protocols
+protocol VaccDelegate: NSObject {
+    func AddNew(_ vaccination: Vaccination)
+}
 
+protocol EditVaccDelegate: NSObject {
+    func EditVacc(_ vaccination: Vaccination)
+}
+
+class AddVaccinationViewController: UIViewController {
+    
+    weak var addDelegate: VaccDelegate?
+    weak var editDelegate: EditVaccDelegate?
+    
     @IBOutlet weak var VaccName: UITextField!
     @IBOutlet weak var VaccDescription: UITextField!
     @IBOutlet weak var VaccDate: UIDatePicker!
@@ -109,7 +121,7 @@ class AddVaccinationViewController: UIViewController {
                                     Saved.shared.currentSaves.animals.remove(at: num_animal)
                                     Saved.shared.currentSaves.animals.insert(temp, at: num_animal)
                                     self.currentVaccination = tempVacc
-                                    self.navigationController!.popToViewController(self.thisVC!, animated: true)
+                                    editDelegate?.EditVacc(tempVacc)
                                 }
                             } else {
                                 ShowAlertSameVacc()
@@ -146,7 +158,7 @@ class AddVaccinationViewController: UIViewController {
                                 currentAnimal!.vaccinations_list.sort(by: {$0.date < $1.date})
                             }
                             Saved.shared.currentSaves.animals[num] = currentAnimal!
-                            self.navigationController?.popViewController(animated: true)
+                            addDelegate?.AddNew(tempVacc)
                         } else {
                             ShowAlertSameVacc()
                         }
@@ -167,11 +179,30 @@ class AddVaccinationViewController: UIViewController {
         Alert.showIncompleteFormAlert(on: self)
     }
 }
-
+//MARK: - extensions
 extension AddVaccinationViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.x>0 {
             scrollView.contentOffset.x = 0
+        }
+    }
+}
+
+extension VaccinationsTableViewController: VaccDelegate {
+    func AddNew(_ vaccination: Vaccination) {
+        self.dismiss(animated: true) {
+            self.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension VaccInfoViewController: EditVaccDelegate {
+    func EditVacc(_ vaccination: Vaccination) {
+        dismiss(animated: true) {
+            self.currentVaccination = vaccination
+            self.reloadInfo()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

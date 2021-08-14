@@ -91,6 +91,7 @@ class AddAnimalViewController: UIViewController {
                 currentAnimal?.animal_breed = breedTextField.text!
                 if noSameAnimalsLike(thisAnimal: currentAnimal!){
                     Saved.shared.currentSaves.animals.remove(at: num)
+                    _ = currentAnimal!.UpdateAge()
                     Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
                     editdelegate?.UpdateAnimal(currentAnimal!)
                 } else {
@@ -104,7 +105,8 @@ class AddAnimalViewController: UIViewController {
             let dateTxt = dateFormatter.string(from: DateOfBirth.date)
             let newAnimal = Animal(name: NameTextField.text!, birthday: dateTxt, type: TypeTextField.text!, breed: breedTextField.text!)
                 if noSameAnimalsLike(thisAnimal: newAnimal){
-                    Saved.shared.currentSaves.animals.append(newAnimal)
+                    _ = newAnimal.UpdateAge()
+                    Saved.shared.currentSaves.animals.insert(newAnimal, at: 0)
             
                     delegate?.AddNew(newAnimal)
                 } else {
@@ -128,7 +130,8 @@ class AddAnimalViewController: UIViewController {
 extension AnimalsTableViewController: AnimalsDelegate{
     func AddNew(_ animal: Animal) {
         dismiss(animated: true) { [weak self] in
-            self?.data.append(animal)
+            self?.data.insert(animal, at: 0)
+            _ = self?.data[0].UpdateAge()
             self?.tableView.reloadData()
         }
     }
