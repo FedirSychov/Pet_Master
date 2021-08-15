@@ -255,6 +255,7 @@ class AddDiseaseViewController: UIViewController {
                         } else {
                             newDisease = Disease(name: DiseaseName.text!, data_d: dateOfStart, date_end: dateOfEnd, description: DiseaseDescription.text!, meds: DiseaseMedicines.text!)
                         }
+                        newDisease.reloadDays()
                         if noSameDiaseses(thisD: newDisease){
                             currentAnimal!.disease_list.append(newDisease)
                             if Saved.shared.currentSettings.sort == .down{

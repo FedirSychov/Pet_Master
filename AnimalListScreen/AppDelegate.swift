@@ -26,12 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
             return self.orientationLock
     }
+    
 //MARK: - Checking birthdays
     private func checkAllBirthdays() {
         var tempAnimals: [Animal]
         tempAnimals = Saved.shared.currentSaves.animals
         var bodyText: String = ""
+        //updating age and finding birthdays
         for animal in tempAnimals {
+            //updating disease duration
+            for disease in animal.disease_list{
+                disease.reloadDays()
+            }
             if animal.UpdateAge() && animal.date_of_death == nil {
                 if bodyText == "" {
                     bodyText += animal.name
@@ -57,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
 
     }
+    
 //MARK: - Finding plans
     func findAllPlans() -> String{
         var text: String = ""
@@ -74,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return text
     }
+    
 //MARK: - Notifications
     func AllowNotifications(){
         notificationCenter.requestAuthorization(options: [.alert, .sound, .alert]) { (granted, error) in

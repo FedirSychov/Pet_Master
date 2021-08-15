@@ -29,6 +29,10 @@ class Design{
         controller.view.contentMode = .scaleAspectFill
         controller.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background1"))
     }
+    
+    static func setupBackgroundForTableView(tableView: UITableView) {
+        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "Background1").crop(to: CGSize(width: 0, height: 0)))
+    }
 //MARK: - setting up textFields
     static func setupTextField(field: UITextField) {
         let width = CGFloat(2.0)
@@ -75,7 +79,10 @@ class Design{
         tableView.addSubview(backView)
     }
     
-    static func setupGradierntTextView(field: UITextField) {
+    static func setupBackgroundForCells(cell: UITableViewCell) {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
+        cell.selectedBackgroundView = backgroundView
     }
 }
 
@@ -83,4 +90,61 @@ extension String{
     func localized(tableName: String = "Localizable") -> String{
         return NSLocalizedString(self, comment: "")
     }
+}
+
+extension UIImage {
+
+func crop(to:CGSize) -> UIImage {
+
+    guard let cgimage = self.cgImage else { return self }
+
+    let contextImage: UIImage = UIImage(cgImage: cgimage)
+
+    guard let newCgImage = contextImage.cgImage else { return self }
+
+    let contextSize: CGSize = contextImage.size
+
+    //Set to square
+    var posX: CGFloat = 0.0
+    var posY: CGFloat = 0.0
+    let cropAspect: CGFloat = to.width / to.height
+
+    var cropWidth: CGFloat = to.width
+    var cropHeight: CGFloat = to.height
+
+    if to.width > to.height { //Landscape
+        cropWidth = contextSize.width
+        cropHeight = contextSize.width / cropAspect
+        posY = (contextSize.height - cropHeight) / 2
+    } else if to.width < to.height { //Portrait
+        cropHeight = contextSize.height
+        cropWidth = contextSize.height * cropAspect
+        posX = (contextSize.width - cropWidth) / 2
+    } else { //Square
+        if contextSize.width >= contextSize.height { //Square on landscape (or square)
+            cropHeight = contextSize.height
+            cropWidth = contextSize.height * cropAspect
+            posX = (contextSize.width - cropWidth) / 2
+        }else{ //Square on portrait
+            cropWidth = contextSize.width
+            cropHeight = contextSize.width / cropAspect
+            posY = (contextSize.height - cropHeight) / 2
+        }
+    }
+
+    let rect: CGRect = CGRect(x: posX, y: posY, width: cropWidth, height: cropHeight)
+
+    // Create bitmap image from context using the rect
+    guard let imageRef: CGImage = newCgImage.cropping(to: rect) else { return self}
+
+    // Create a new image based on the imageRef and rotate back to the original orientation
+    let cropped: UIImage = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+
+    UIGraphicsBeginImageContextWithOptions(to, false, self.scale)
+    cropped.draw(in: CGRect(x: 0, y: 0, width: to.width, height: to.height))
+    let resized = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    return resized ?? self
+  }
 }

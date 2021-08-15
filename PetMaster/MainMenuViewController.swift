@@ -13,6 +13,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var BackgroundImage: UIImageView!
     @IBOutlet weak var myAnimalsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var moneyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ class MainMenuViewController: UIViewController {
         Design.setupBackground(controller: self)
         Design.SetupBaseButton(button: myAnimalsButton)
         Design.SetupBaseButton(button: settingsButton)
+        Design.SetupBaseButton(button: moneyButton)
+        moneyButton.setTitle(NSLocalizedString("money_expenditures", comment: ""), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

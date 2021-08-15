@@ -67,7 +67,8 @@ class Disease: Codable, Equatable {
             let components = calendar.dateComponents([.day], from: calendar.startOfDay(for: my_date), to: calendar.startOfDay(for: my_end_date!))
             self.days_of_disease = components.day!
         } else {
-            self.days_of_disease = 0
+            let components = calendar.dateComponents([.day], from: calendar.startOfDay(for: my_date), to: calendar.startOfDay(for: Date()))
+            self.days_of_disease = components.day!
         }
     }
 //    вывод информации о болезни
@@ -226,6 +227,40 @@ class Animal: Codable, Equatable {
                     new_full_age = new_full_age.replacingOccurrences(of: "лет", with: "года")
                 }
             }
+            if new_full_age.contains("years") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "years", with: "year")
+            }
+            if new_full_age.contains("Jahre") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "Jahre", with: "Jahr")
+            }
+        }
+        if ageComponents.month! <= 4 {
+            if new_full_age.contains("месяцев") && ageComponents.month! == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "месяцев", with: "месяц")
+            }
+            if new_full_age.contains("месяцев") && ageComponents.month! >= 2 && ageComponents.month! <= 4 {
+                new_full_age = new_full_age.replacingOccurrences(of: "месяцев", with: "месяца")
+            }
+            if new_full_age.contains("monthes") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "monthes", with: "month")
+            }
+            if new_full_age.contains("Monate") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "Monate", with: "Monat")
+            }
+        }
+        if ageComponents.day! <= 4 {
+            if new_full_age.contains("дней") && ageComponents.month! == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "дней", with: "день")
+            }
+            if new_full_age.contains("дней") && ageComponents.month! >= 2 && ageComponents.month! <= 4 {
+                new_full_age = new_full_age.replacingOccurrences(of: "дней", with: "дня")
+            }
+            if new_full_age.contains("days") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "days", with: "day")
+            }
+            if new_full_age.contains("Tage") && ageComponents.year == 1 {
+                new_full_age = new_full_age.replacingOccurrences(of: "Tage", with: "Tag")
+            }
         }
         self.animal_full_age = new_full_age
         self.animal_age = ageComponents.year!
@@ -253,5 +288,29 @@ class Animal: Codable, Equatable {
     func add_event(event_name: String, event_date: String, event_descrtiption: String?) {
         let new_event = Event(name: event_name, date: event_date, descr: event_descrtiption)
         self.events_list.insert(new_event, at: 0)
+    }
+}
+
+enum moneyFor: String, Codable {
+    case entertainment = "entertainment"
+    case food = "food"
+    case vet = "vet"
+    case other = "other"
+}
+
+//MARK: - expendinture
+class Expenditure: Codable {
+    var animal: String?
+    var name: String
+    var summ: Double
+    var date: Date
+    var moneyFor: moneyFor
+    
+    init(name: String, animal: String?, summ: Double, forM: moneyFor) {
+        self.animal = animal
+        self.summ = summ
+        self.date = Date()
+        self.moneyFor = forM
+        self.name = name
     }
 }

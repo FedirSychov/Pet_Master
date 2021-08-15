@@ -57,11 +57,7 @@ extension AnimalsTableViewController{
         cell.configure(with: data[indexPath.row])
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = .clear
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
-        //backgroundView.backgroundColor = UIColor.systemYellow
-        cell.selectedBackgroundView = backgroundView
+        Design.setupBackgroundForCells(cell: cell)
         return cell
     }
     

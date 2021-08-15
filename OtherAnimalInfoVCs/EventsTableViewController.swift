@@ -21,7 +21,7 @@ class EventsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupViewBehindTable(tableView: self.tableView)
-        Design.setupBackground(controller: self)
+        Design.setupBackgroundForTableView(tableView: self.tableView)
         dataReserved = currentAnimal!.events_list
         if currentAnimal!.date_of_death != nil{
             self.addButton.isEnabled = false
@@ -152,6 +152,7 @@ extension EventsTableViewController{
             cell.textLabel?.text = "\(dateFormatter.string(from: setEventsArray()[first][second].date))  -  \(setEventsArray()[first][second].name)"
         }
         cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
+        Design.setupBackgroundForCells(cell: cell)
         return cell
     }
 

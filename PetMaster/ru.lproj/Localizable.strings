@@ -27,7 +27,7 @@
 "date_of_end" = "Дата конца";
 "medicines" = "Лекарства";
 "today" = "Сегодня";
-"days_last" = "Длительность: ";
+"days_last" = "Длится дней: ";
 "it_lasts" = "Еще длится";
 "days" = " дней";
 "monthes" = " месяцев";
@@ -58,3 +58,5 @@
 "you_have_plans" = "У вас есть планы!";
 "has_a_birthday" = " празднует день рождения!";
 "have_a_birthday" = " празднуют день рождения!";
+"expenditures_this_month" = "Затраты в этом месяце: ";
+"money_expenditures" = "Денежные расходы";

@@ -19,7 +19,7 @@ class VaccinationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupViewBehindTable(tableView: self.tableView)
-        Design.setupBackground(controller: self)
+        Design.setupBackgroundForTableView(tableView: self.tableView)
         if currentAnimal!.date_of_death != nil{
             AddButton.isEnabled = false
         }
@@ -75,6 +75,7 @@ extension VaccinationsTableViewController{
         cell.textLabel?.text = data[indexPath.row].name
         cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
         cell.backgroundColor = .clear
+        Design.setupBackgroundForCells(cell: cell)
         return cell
     }
 

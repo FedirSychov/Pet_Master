@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */; };
 		7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1295A026C25E03003DCC62 /* What to do.rtf */; };
 		7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1295A226C26F0A003DCC62 /* DeathViewController.swift */; };
+		7E29214226C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
 		7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */; };
@@ -34,6 +36,8 @@
 		7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70826BB2AC100365A8B /* AddEventViewController.swift */; };
 		7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70A26BB330500365A8B /* FoodTableViewController.swift */; };
 		7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70C26BB331400365A8B /* AddFoodViewController.swift */; };
+		7EACC12B26C851B00036739C /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACC12A26C851B00036739C /* MoneyViewController.swift */; };
+		7EACC12D26C8573D0036739C /* AddExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACC12C26C8573D0036739C /* AddExpenditureViewController.swift */; };
 		7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */; };
 		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
 		7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555B26B434CC0054F314 /* SavedAnimals.swift */; };
@@ -44,6 +48,8 @@
 		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
 		7EF9F10626C3CAF900B70335 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */; };
 		7EF9F10726C3CAF900B70335 /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */; };
+		C15AAD8C630F228F2A87032D /* Pods_PetMaster_PetMasterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */; };
+		E44869C64CCF4771B2CE003B /* Pods_PetMasterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F192A09D7D60E81B4C97A4B /* Pods_PetMasterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +70,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02246E6811765113E22AFAC1 /* Pods-PetMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster.debug.xcconfig"; path = "Target Support Files/Pods-PetMaster/Pods-PetMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		2E20C55ED370B99A0BE2EED3 /* Pods-PetMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster.release.xcconfig"; path = "Target Support Files/Pods-PetMaster/Pods-PetMaster.release.xcconfig"; sourceTree = "<group>"; };
+		4F192A09D7D60E81B4C97A4B /* Pods_PetMasterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMasterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126D9519380CF80C8E3DFEE /* Pods-PetMasterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMasterTests.debug.xcconfig"; path = "Target Support Files/Pods-PetMasterTests/Pods-PetMasterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1DCFAA74D4FE7A4F62EA53 /* Pods-PetMaster-PetMasterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster-PetMasterUITests.debug.xcconfig"; path = "Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		79EE05674E3809F0DABD78BD /* Pods-PetMasterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMasterTests.release.xcconfig"; path = "Target Support Files/Pods-PetMasterTests/Pods-PetMasterTests.release.xcconfig"; sourceTree = "<group>"; };
+		7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster_PetMasterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1295A026C25E03003DCC62 /* What to do.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "What to do.rtf"; sourceTree = "<group>"; };
 		7E1295A226C26F0A003DCC62 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
+		7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryTableViewController.swift; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
 		7E46214526BEA606005D7E68 /* DiseaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseInfoViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +118,8 @@
 		7E80C70826BB2AC100365A8B /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		7E80C70A26BB330500365A8B /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		7E80C70C26BB331400365A8B /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
+		7EACC12A26C851B00036739C /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
+		7EACC12C26C8573D0036739C /* AddExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenditureViewController.swift; sourceTree = "<group>"; };
 		7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTableViewController.swift; sourceTree = "<group>"; };
 		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		7EC5555B26B434CC0054F314 /* SavedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAnimals.swift; sourceTree = "<group>"; };
@@ -113,6 +130,7 @@
 		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
 		7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
+		E264FF99315B56E69B3F90CB /* Pods-PetMaster-PetMasterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster-PetMasterUITests.release.xcconfig"; path = "Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44869C64CCF4771B2CE003B /* Pods_PetMasterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +154,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15AAD8C630F228F2A87032D /* Pods_PetMaster_PetMasterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063F14437ACAB0D5E969E81B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */,
+				7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */,
+				4F192A09D7D60E81B4C97A4B /* Pods_PetMasterTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7E10536E269E339100C5AA7A /* AnimalListScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +185,7 @@
 		7E6E030E2605EDB40015571B = {
 			isa = PBXGroup;
 			children = (
+				7EACC12926C84A3F0036739C /* MoneyForAnimal */,
 				7E724DE426B95F410002AD4A /* OtherAnimalInfoVCs */,
 				7EC5555D26B4745F0054F314 /* AnimalVC */,
 				7EC5555826B3FF910054F314 /* AddAnimalVC */,
@@ -163,6 +195,8 @@
 				7E6E03302605EDB50015571B /* PetMasterTests */,
 				7E6E033B2605EDB50015571B /* PetMasterUITests */,
 				7E6E03182605EDB40015571B /* Products */,
+				D7373971DB5DC7997F03C4F5 /* Pods */,
+				063F14437ACAB0D5E969E81B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,6 +267,16 @@
 			path = OtherAnimalInfoVCs;
 			sourceTree = "<group>";
 		};
+		7EACC12926C84A3F0036739C /* MoneyForAnimal */ = {
+			isa = PBXGroup;
+			children = (
+				7EACC12A26C851B00036739C /* MoneyViewController.swift */,
+				7EACC12C26C8573D0036739C /* AddExpenditureViewController.swift */,
+				7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */,
+			);
+			path = MoneyForAnimal;
+			sourceTree = "<group>";
+		};
 		7EC5555326B3FBC20054F314 /* SettingsVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +305,19 @@
 			path = AnimalVC;
 			sourceTree = "<group>";
 		};
+		D7373971DB5DC7997F03C4F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02246E6811765113E22AFAC1 /* Pods-PetMaster.debug.xcconfig */,
+				2E20C55ED370B99A0BE2EED3 /* Pods-PetMaster.release.xcconfig */,
+				6D1DCFAA74D4FE7A4F62EA53 /* Pods-PetMaster-PetMasterUITests.debug.xcconfig */,
+				E264FF99315B56E69B3F90CB /* Pods-PetMaster-PetMasterUITests.release.xcconfig */,
+				5126D9519380CF80C8E3DFEE /* Pods-PetMasterTests.debug.xcconfig */,
+				79EE05674E3809F0DABD78BD /* Pods-PetMasterTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,9 +325,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E6E03412605EDB50015571B /* Build configuration list for PBXNativeTarget "PetMaster" */;
 			buildPhases = (
+				9C614961315B04B600D71E7A /* [CP] Check Pods Manifest.lock */,
 				7E6E03132605EDB40015571B /* Sources */,
 				7E6E03142605EDB40015571B /* Frameworks */,
 				7E6E03152605EDB40015571B /* Resources */,
+				9D4BACD1266243C0D3C97937 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,6 +344,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E6E03442605EDB50015571B /* Build configuration list for PBXNativeTarget "PetMasterTests" */;
 			buildPhases = (
+				581F731CA437349D66ACDC85 /* [CP] Check Pods Manifest.lock */,
 				7E6E03292605EDB50015571B /* Sources */,
 				7E6E032A2605EDB50015571B /* Frameworks */,
 				7E6E032B2605EDB50015571B /* Resources */,
@@ -303,9 +363,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E6E03472605EDB50015571B /* Build configuration list for PBXNativeTarget "PetMasterUITests" */;
 			buildPhases = (
+				4DAB824F3E355AB63F1EA670 /* [CP] Check Pods Manifest.lock */,
 				7E6E03342605EDB50015571B /* Sources */,
 				7E6E03352605EDB50015571B /* Frameworks */,
 				7E6E03362605EDB50015571B /* Resources */,
+				9276C947051F6638E4912858 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -392,6 +454,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4DAB824F3E355AB63F1EA670 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetMaster-PetMasterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		581F731CA437349D66ACDC85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetMasterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9276C947051F6638E4912858 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C614961315B04B600D71E7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetMaster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D4BACD1266243C0D3C97937 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetMaster/Pods-PetMaster-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetMaster/Pods-PetMaster-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetMaster/Pods-PetMaster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7E6E03132605EDB40015571B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -399,6 +564,7 @@
 			files = (
 				7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */,
 				7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */,
+				7EACC12B26C851B00036739C /* MoneyViewController.swift in Sources */,
 				7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */,
 				7E6F90B126C304B8001CB577 /* Alert.swift in Sources */,
 				7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */,
@@ -420,6 +586,8 @@
 				7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */,
 				7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */,
 				7E6E034E2605EDD60015571B /* Animals.swift in Sources */,
+				7EACC12D26C8573D0036739C /* AddExpenditureViewController.swift in Sources */,
+				7E29214226C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift in Sources */,
 				7E6E031B2605EDB40015571B /* AppDelegate.swift in Sources */,
 				7E6F90B326C308DE001CB577 /* MainMenuViewController.swift in Sources */,
 				7E6E031D2605EDB40015571B /* SceneDelegate.swift in Sources */,
@@ -621,9 +789,11 @@
 		};
 		7E6E03422605EDB50015571B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02246E6811765113E22AFAC1 /* Pods-PetMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;
 				INFOPLIST_FILE = PetMaster/Info.plist;
@@ -633,16 +803,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SWP.PetMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		7E6E03432605EDB50015571B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E20C55ED370B99A0BE2EED3 /* Pods-PetMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;
 				INFOPLIST_FILE = PetMaster/Info.plist;
@@ -652,13 +825,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SWP.PetMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		7E6E03452605EDB50015571B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5126D9519380CF80C8E3DFEE /* Pods-PetMasterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -681,6 +856,7 @@
 		};
 		7E6E03462605EDB50015571B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79EE05674E3809F0DABD78BD /* Pods-PetMasterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -703,6 +879,7 @@
 		};
 		7E6E03482605EDB50015571B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D1DCFAA74D4FE7A4F62EA53 /* Pods-PetMaster-PetMasterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -723,6 +900,7 @@
 		};
 		7E6E03492605EDB50015571B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E264FF99315B56E69B3F90CB /* Pods-PetMaster-PetMasterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

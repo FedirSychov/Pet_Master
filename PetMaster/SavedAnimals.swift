@@ -10,28 +10,35 @@ import Foundation
 enum DefaultKeys{
     static let savedData = "SavedData"
     static let savedSettings = "SavedSettings"
+    static let savedExpenditures = "SavedExpenditures"
 }
 
-enum StatusSort: String, Decodable, Encodable{
+enum StatusSort: String, Decodable, Encodable {
     case up = "up"
     case down = "down"
 }
 
-struct SavedAnimals: Codable{
+struct SavedAnimals: Codable {
     var animals: [Animal]
 }
 
-struct Settings: Codable{
+struct Settings: Codable {
     var sort: StatusSort
     var dateFormat: String
 }
 
-class Saved{
+struct Money: Codable {
+    var allExpenditures: [Expenditure]
+}
+
+class Saved {
     static var shared = Saved()
     
     private var baseSave = SavedAnimals(animals: [])
     
     private var baseSettings = Settings(sort: .down, dateFormat: "dd/MM/YYYY")
+    
+    private var baseExpenditures = Money(allExpenditures: [])
     
     var currentSettings: Settings{
         get{
@@ -76,11 +83,37 @@ class Saved{
         }
     }
     
-    private func resetSaves(){
+    var currentExpenditures: Money {
+        get {
+            if let data = UserDefaults.standard.object(forKey: DefaultKeys.savedExpenditures) as? Data{
+                do{
+                    return try PropertyListDecoder().decode(Money.self, from: data)
+                }
+                catch {
+                    self.resetExpenditures()
+                }
+                }
+            else{
+                return baseExpenditures
+            }
+            return baseExpenditures
+        }
+        set {
+            if let data = try? PropertyListEncoder().encode(newValue){
+                UserDefaults.standard.setValue(data, forKey: DefaultKeys.savedExpenditures)
+            }
+        }
+    }
+    
+    private func resetSaves() {
         Saved.shared.currentSaves = baseSave
     }
     
-    func reserSettings(){
+    func reserSettings() {
         Saved.shared.currentSettings = baseSettings
+    }
+    
+    func resetExpenditures() {
+        Saved.shared.currentExpenditures = baseExpenditures
     }
 }
