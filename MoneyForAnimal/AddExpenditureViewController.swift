@@ -67,6 +67,16 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         Design.setupTextField_Type2(field: nameTextField)
         Design.setupTextField_Type2(field: priceTextField)
         Design.SetupBaseButton(button: addButton)
+        
+        let constraints = [
+            animalPicker.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            animalPicker.rightAnchor.constraint(equalTo: self.view.centerXAnchor),
+            forPicker.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            animalPicker.leftAnchor.constraint(equalTo: self.view.centerXAnchor),
+            addButton.topAnchor.constraint(equalTo: animalPicker.bottomAnchor, constant: 0)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     func setupPickers() {

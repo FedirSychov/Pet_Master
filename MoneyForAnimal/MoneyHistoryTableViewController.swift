@@ -22,7 +22,6 @@ class MoneyHistoryTableViewController: UITableViewController {
     
     private func setupView() {
         Design.setupBackgroundForTableView(tableView: self.tableView)
-        //Design.setupBackground(controller: self)
         Design.setupViewBehindTable(tableView: self.tableView)
     }
     
@@ -31,23 +30,30 @@ class MoneyHistoryTableViewController: UITableViewController {
         var current_month_year = [0, 0]
         
         self.monthes_array = []
-        
-        for _ in 1...months(from: data![0].date) {
+        if self.data!.count != 0 {
+            for _ in 1...months(from: data![0].date) {
+                array_data.append([])
+            }
+        } else {
             array_data.append([])
         }
-        
-        for n in 1...self.data!.count {
-            let exp = self.data![self.data!.count - n]
-            let tempComponents = Calendar.current.dateComponents([.year, .month], from: exp.date)
-            
-            let temp_month_year = [tempComponents.month, tempComponents.year]
-            
-            if current_month_year != temp_month_year {
-                self.monthes_array?.append("\(temp_month_year[0]!)/\(temp_month_year[1]!)")
-                current_month_year[0] = temp_month_year[0]!
-                current_month_year[1] = temp_month_year[1]!
+
+        if self.data!.count > 0 {
+            for n in 1...self.data!.count {
+                let exp = self.data![self.data!.count - n]
+                let tempComponents = Calendar.current.dateComponents([.year, .month], from: exp.date)
+                
+                let temp_month_year = [tempComponents.month, tempComponents.year]
+                
+                if current_month_year != temp_month_year {
+                    self.monthes_array?.append("\(temp_month_year[0]!)/\(temp_month_year[1]!)")
+                    current_month_year[0] = temp_month_year[0]!
+                    current_month_year[1] = temp_month_year[1]!
+                }
+                array_data[self.monthes_array!.count - 1].append(exp)
+                
             }
-            array_data[self.monthes_array!.count - 1].append(exp)
+        } else {
             
         }
         
@@ -76,11 +82,34 @@ class MoneyHistoryTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
         
-        cell.textLabel!.text = "\(self.data_array![first][second].name) | \(dateFormatter.string(from: self.data_array![first][second].date)) | \(self.data_array![first][second].summ)"
-        cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 24)
+        cell.textLabel!.text = "\(dateFormatter.string(from: self.data_array![first][second].date)) | \(self.data_array![first][second].summ) | \(self.data_array![first][second].name)"
+        cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
         cell.backgroundColor = UIColor.clear
         
         Design.setupBackgroundForCells(cell: cell)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+                    let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: 500, height: 200))
+        tableView.estimatedSectionHeaderHeight = 200
+        returnedView.backgroundColor = UIColor.clear
+
+        let label = UILabel(frame: CGRect(x: 18, y: 20, width: 300, height: 34))
+
+            label.font = UIFont(name: "Avenir Next Medium", size: 32)
+
+        if monthes_array!.count > 0 {
+            label.text = monthes_array![section]
+        } else {
+            label.text = ""
+        }
+            
+                    returnedView.addSubview(label)
+            return returnedView
+        }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }

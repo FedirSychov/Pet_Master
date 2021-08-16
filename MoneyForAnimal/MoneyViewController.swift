@@ -94,7 +94,7 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
             
             let temp = Calendar.current.dateComponents([.year, .month], from: previousMonth!)
             
-            let header: String = "\(NSLocalizedString("month", comment: "")): \(temp.year!)/\(temp.month!)"
+            let header: String = "\(NSLocalizedString("month", comment: "")): \(temp.month!)/\(temp.year!)"
             
             setupPresentedVC(vc: vc, header: header, month: 1 - n)
             
