@@ -97,3 +97,12 @@
 
 /* Class = "UIButton"; normalTitle = "Events"; ObjectID = "z6C-2f-oR3"; */
 "z6C-2f-oR3.normalTitle" = "Events";
+
+//Navigation bar headers
+"m4c-To-eu0.title" = "Geldausgabe";
+"RkF-PY-sxh.title" = "Geschichte";
+
+//Buttons in MoneyVC
+"nzS-v7-Zq0.normalTitle" = "Statistik";
+"m2H-Um-jTt.normalTitle" = "Geldausgabe hinzufügen";
+"eIK-xb-qzH.normalTitle" = "Geschichte";

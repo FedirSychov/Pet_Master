@@ -58,15 +58,19 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        priceTextField.delegate = self
         setupPickers()
         setupView()
     }
     
     private func setupView() {
+        nameLabel.text = NSLocalizedString("name", comment: "")
+        priceLabel.text = NSLocalizedString("price", comment: "")
         Design.setupBackground(controller: self)
         Design.setupTextField_Type2(field: nameTextField)
         Design.setupTextField_Type2(field: priceTextField)
         Design.SetupBaseButton(button: addButton)
+        addButton.setTitle(NSLocalizedString("add", comment: ""), for: .normal)
         
         let constraints = [
             animalPicker.leftAnchor.constraint(equalTo: self.view.leftAnchor),
@@ -100,10 +104,10 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     func getForArray() -> [String] {
         var output: [String] = []
-        output.append(moneyFor.entertainment.rawValue)
-        output.append(moneyFor.food.rawValue)
-        output.append(moneyFor.vet.rawValue)
-        output.append(moneyFor.other.rawValue)
+        output.append(NSLocalizedString(moneyFor.entertainment.rawValue, comment: ""))
+        output.append(NSLocalizedString(moneyFor.food.rawValue, comment: ""))
+        output.append(NSLocalizedString(moneyFor.vet.rawValue, comment: ""))
+        output.append(NSLocalizedString(moneyFor.other.rawValue, comment: ""))
         self.currentFor = output[0]
         return output
     }
@@ -119,6 +123,31 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
     
     private func ShowAlertNoData(){
         Alert.showBasicAlert(on: self, with: "Warning!", message: "Please fill out all fields!")
+    }
+}
+
+extension AddExpenditureViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newCharacters = NSCharacterSet(charactersIn: string)
+        let boolIsNumber = NSCharacterSet.decimalDigits.isSuperset(of: newCharacters as CharacterSet)
+            if boolIsNumber == true {
+                return true
+            } else {
+                if string == "." {
+                    let countdots = textField.text!.components(separatedBy: ".").count - 1
+                    if countdots == 0 {
+                        return true
+                    } else {
+                        if countdots > 0 && string == "." {
+                            return false
+                        } else {
+                            return true
+                        }
+                    }
+                } else {
+                    return false
+                }
+            }
     }
 }
 

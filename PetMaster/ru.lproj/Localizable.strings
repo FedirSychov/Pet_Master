@@ -31,6 +31,7 @@
 "it_lasts" = "Еще длится";
 "days" = " дней";
 "monthes" = " месяцев";
+"month" = "Месяц";
 "years" = " лет";
 "breed" = "Порода";
 "type" = "Тип";
@@ -60,3 +61,9 @@
 "have_a_birthday" = " празднуют день рождения!";
 "expenditures_this_month" = "Затраты в этом месяце: ";
 "money_expenditures" = "Денежные расходы";
+"entertainment" = "Развлечения";
+"food" = "Еда";
+"vet" = "Ветеринар";
+"other" = "Другое";
+"price" = "Цена";
+"add" = "Добавить";

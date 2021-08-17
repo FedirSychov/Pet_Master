@@ -31,6 +31,7 @@
 "it_lasts" = "Dauert noch";
 "days" = " Tage";
 "monthes" = " Monate";
+"month" = "Monat";
 "years" = " Jahre";
 "breed" = "Rasse";
 "type" = "Art";
@@ -60,3 +61,9 @@
 "have_a_birthday" = " feiern ihren Geburtstag!";
 "expenditures_this_month" = "Geldausgaben in diesem Monat: ";
 "money_expenditures" = "Geldausgabe";
+"entertainment" = "Unterhaltung";
+"food" = "Futter";
+"vet" = "Tierarzt";
+"other" = "Andere";
+"price" = "Preis";
+"add" = "Hinzufügen";

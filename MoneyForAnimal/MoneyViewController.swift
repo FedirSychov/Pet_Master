@@ -68,7 +68,7 @@ class MoneyViewController: UIViewController {
                 Summ += expenditure.summ
             }
         }
-        self.MoneyCountLabel.text = "\(NSLocalizedString("expenditures_this_month", comment: ""))\(Summ)"
+        self.MoneyCountLabel.text = "\(NSLocalizedString("expenditures_this_month", comment: ""))\(Double(round(100*Summ))/100)"
     }
 }
 
@@ -152,10 +152,10 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
             }
         }
         
-        entertainmentDataEntry.label = "Entertainment: \(Int(entertainmentDataEntry.value))"
-        foodDataEntry.label = "Food: \(Int(foodDataEntry.value))"
-        vetDataEntry.label = "Vet: \(Int(vetDataEntry.value))"
-        otherDataEntry.label = "Other: \(Int(otherDataEntry.value))"
+        entertainmentDataEntry.label = "\(NSLocalizedString("entertainment", comment: "")): \(Double(round(entertainmentDataEntry.value*100))/100)"
+        foodDataEntry.label = "\(NSLocalizedString("food", comment: "")): \(Double(round(foodDataEntry.value*100))/100)"
+        vetDataEntry.label = "\(NSLocalizedString("vet", comment: "")): \(Double(round(vetDataEntry.value*100))/100)"
+        otherDataEntry.label = "\(NSLocalizedString("other", comment: "")): \(Double(round(otherDataEntry.value*100))/100)"
         
         dataForChart = [entertainmentDataEntry, foodDataEntry, vetDataEntry, otherDataEntry]
         let chartDataSet = PieChartDataSet(entries: dataForChart, label: nil)
@@ -212,7 +212,7 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
         
         
         
-        let constraintsView = [
+        _ = [
             
             newView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0)
         ]
