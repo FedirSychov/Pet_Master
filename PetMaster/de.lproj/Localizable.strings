@@ -34,7 +34,7 @@
 "month" = "Monat";
 "years" = " Jahre";
 "breed" = "Rasse";
-"type" = "Art";
+"type" = "Art von Tier";
 "birthday" = "Geburtstag";
 "plans" = "Pläne";
 "past" = "Vorher";
@@ -67,3 +67,4 @@
 "other" = "Andere";
 "price" = "Preis";
 "add" = "Hinzufügen";
+"all" = "Alle";

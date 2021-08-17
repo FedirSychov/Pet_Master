@@ -93,6 +93,9 @@
 		7E5A2A3326C51C950052053E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		7E5A2A3426C51C950052053E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E5A2A3526C51C950052053E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7E65E6D926CC353E0006DDBC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		7E65E6DA26CC353E0006DDBC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E65E6DB26CC353E0006DDBC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E6E03172605EDB40015571B /* PetMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6E031A2605EDB40015571B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E6E031C2605EDB40015571B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -410,6 +413,7 @@
 				Base,
 				ru,
 				de,
+				uk,
 			);
 			mainGroup = 7E6E030E2605EDB40015571B;
 			productRefGroup = 7E6E03182605EDB40015571B /* Products */;
@@ -634,6 +638,7 @@
 				7E5A2A2A26C509F90052053E /* en */,
 				7E5A2A2C26C509FD0052053E /* ru */,
 				7E5A2A3426C51C950052053E /* de */,
+				7E65E6DA26CC353E0006DDBC /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				7E5A2A3026C50E570052053E /* en */,
 				7E5A2A3226C50E5A0052053E /* ru */,
 				7E5A2A3526C51C950052053E /* de */,
+				7E65E6DB26CC353E0006DDBC /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 				7E6E03212605EDB40015571B /* Base */,
 				7E5A2A2526C507CF0052053E /* ru */,
 				7E5A2A3326C51C950052053E /* de */,
+				7E65E6D926CC353E0006DDBC /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

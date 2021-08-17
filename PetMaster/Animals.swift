@@ -233,6 +233,13 @@ class Animal: Codable, Equatable {
             if new_full_age.contains("Jahre") && ageComponents.year == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "Jahre", with: "Jahr")
             }
+            if new_full_age.contains("років") {
+                if ageComponents.year! == 1{
+                    new_full_age = new_full_age.replacingOccurrences(of: "років", with: "рік")
+                } else {
+                    new_full_age = new_full_age.replacingOccurrences(of: "років", with: "роки")
+                }
+            }
         }
         if ageComponents.month! <= 4 {
             if new_full_age.contains("месяцев") && ageComponents.month! == 1 {
@@ -247,6 +254,13 @@ class Animal: Codable, Equatable {
             if new_full_age.contains("Monate") && ageComponents.year == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "Monate", with: "Monat")
             }
+            if new_full_age.contains("місяців") {
+                if ageComponents.month! == 1{
+                    new_full_age = new_full_age.replacingOccurrences(of: "місяців", with: "місяць")
+                } else {
+                    new_full_age = new_full_age.replacingOccurrences(of: "місяців", with: "місяця")
+                }
+            }
         }
         if ageComponents.day! <= 4 {
             if new_full_age.contains("дней") && ageComponents.month! == 1 {
@@ -260,6 +274,13 @@ class Animal: Codable, Equatable {
             }
             if new_full_age.contains("Tage") && ageComponents.year == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "Tage", with: "Tag")
+            }
+            if new_full_age.contains("днів") {
+                if ageComponents.day! == 1{
+                    new_full_age = new_full_age.replacingOccurrences(of: "днів", with: "день")
+                } else {
+                    new_full_age = new_full_age.replacingOccurrences(of: "днів", with: "дні")
+                }
             }
         }
         self.animal_full_age = new_full_age

@@ -852,14 +852,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-SX-Qwr">
+                                <rect key="frame" x="0.0" y="140" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wtv-KO-FAX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mBD-Cc-aMB" firstAttribute="centerY" secondItem="wtv-KO-FAX" secondAttribute="centerY" id="1uz-bJ-2jE"/>
                             <constraint firstItem="v0s-s7-9qb" firstAttribute="leading" secondItem="wtv-KO-FAX" secondAttribute="leading" constant="10" id="3Qv-Bf-05H"/>
+                            <constraint firstItem="9MK-SX-Qwr" firstAttribute="top" secondItem="Tid-pY-3d3" secondAttribute="top" priority="1" constant="186" id="8Nu-2d-Wyt"/>
                             <constraint firstItem="wtv-KO-FAX" firstAttribute="trailing" secondItem="mBD-Cc-aMB" secondAttribute="trailing" constant="50" id="O6d-f1-Yl3"/>
                             <constraint firstItem="wtv-KO-FAX" firstAttribute="trailing" secondItem="v0s-s7-9qb" secondAttribute="trailing" constant="10" id="U6K-bt-2zh"/>
+                            <constraint firstItem="9MK-SX-Qwr" firstAttribute="centerX" secondItem="v0s-s7-9qb" secondAttribute="centerX" id="fF2-aA-kGf"/>
+                            <constraint firstItem="9MK-SX-Qwr" firstAttribute="leading" secondItem="wtv-KO-FAX" secondAttribute="leading" id="fcs-Tg-anz"/>
+                            <constraint firstItem="mBD-Cc-aMB" firstAttribute="top" secondItem="9MK-SX-Qwr" secondAttribute="bottom" id="itm-SY-yOT"/>
+                            <constraint firstItem="9MK-SX-Qwr" firstAttribute="top" secondItem="v0s-s7-9qb" secondAttribute="bottom" priority="1" constant="32" id="lqe-XB-XWt"/>
                             <constraint firstItem="v0s-s7-9qb" firstAttribute="top" secondItem="wtv-KO-FAX" secondAttribute="top" constant="30" id="mjl-Bd-2XW"/>
                             <constraint firstItem="mBD-Cc-aMB" firstAttribute="leading" secondItem="wtv-KO-FAX" secondAttribute="leading" constant="50" id="oLt-Dw-KLK"/>
                         </constraints>
@@ -868,6 +876,7 @@
                     <connections>
                         <outlet property="MoneyCountLabel" destination="v0s-s7-9qb" id="WxJ-b9-3Y7"/>
                         <outlet property="addButton" destination="m2H-Um-jTt" id="5Gd-d8-Dga"/>
+                        <outlet property="animalPicker" destination="9MK-SX-Qwr" id="Ldr-NX-6O3"/>
                         <outlet property="historyButton" destination="eIK-xb-qzH" id="N0n-cB-dYq"/>
                         <outlet property="statisticsButton" destination="nzS-v7-Zq0" id="W7F-4M-gye"/>
                     </connections>

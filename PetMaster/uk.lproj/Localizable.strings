@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  PetMaster
+
+  Created by Fedor Sychev on 12.08.2021.
+  
+*/
+
+"animal_name" = "Кличка: ";
+"animal_age" = "Вік: ";
+"animal_type" = "Порода: ";
+"animal_status" = "Статус: ";
+"healthy" = "здоровий";
+"sick" = "хворий";
+"vaccinations_button" = "Щеплення";
+"sorting" = "Сортування";
+"sorting_up" = "угору";
+"sorting_down" = "донизу";
+"save" = "Зберегти";
+"name" = "Назва";
+"name_for_animal" = "Кличка";
+"date" = "Дата";
+"animal_date" = "Дата: ";
+"description" = "Опис";
+"animal_description" = "Опис: ";
+"date_of_start" = "Дата початку";
+"date_of_end" = "Дата закінчення";
+"medicines" = "Лікарські засоби";
+"today" = "Сьогодні";
+"days_last" = "Тривалість: ";
+"it_lasts" = "Ще триває";
+"days" = " днів";
+"monthes" = " місяців";
+"month" = "Місяць";
+"years" = " років";
+"breed" = "Порода";
+"type" = "Вид тварини";
+"birthday" = "День народження";
+"plans" = "Плани";
+"past" = "Раніше";
+"comment" = "Коментарій";
+"day/month/year" = "день/місяць/рік";
+"month/day/year" = "місяць/день/рік";
+"year/day/month" = "рік/день/місяць";
+"year/month/day" = "рік/місяць/день";
+"reset_settings" = "Скинути настройки";
+"set_photo" = "Встановити фото як аватар";
+"edit" = "Змінити";
+"delete" = "Видалити";
+"dead" = "Поставити відмітку - помер";
+"cancel" = "Відмінити";
+"options" = "Настройки";
+"are_you_sure" = "Ви впевнені?";
+"no" = "Ні";
+"yes" = "Так";
+"oh_no" = "О, ні";
+"pity_message" = "Дуже шкода :( Можливо слід завести іншу тваринку?";
+"date_format" = "Формат дати";
+"you_have_plans" = "Ваші плани!";
+"has_a_birthday" = " святкує день нарождення!";
+"have_a_birthday" = " святкують день нарождення!";
+"expenditures_this_month" = "Витрати цього місяця: ";
+"money_expenditures" = "Витрати";
+"entertainment" = "Іграшки";
+"food" = "Корм";
+"vet" = "Ветеринар";
+"other" = "Інше";
+"price" = "Ціна";
+"add" = "Добавити";
+"all" = "Усі";

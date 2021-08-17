@@ -26,11 +26,13 @@ class DeathViewController: UIViewController {
     @IBAction func SaveDeath(_ sender: Any) {
         currentAnimal!.date_of_death = DatePicker.date
         currentAnimal!.deathComment = CommentTextField.text
+        _ = currentAnimal!.UpdateAge()
         var num: Int = 0
         for animal in Saved.shared.currentSaves.animals{
             if animal.showInfo() == currentAnimal!.showInfo(){
                 Saved.shared.currentSaves.animals.remove(at: num)
                 Saved.shared.currentSaves.animals.insert(currentAnimal!, at: num)
+                print(Saved.shared.currentSaves.animals[num].date_of_death ?? "no date")
                 showAlert()
             }
             num += 1

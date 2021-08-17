@@ -17,16 +17,25 @@ class MoneyViewController: UIViewController {
     var ChartData: PieChartData?
     
     var myControllers = [UIViewController]()
+    
+    var chosenAnimal: Animal?
 
     @IBOutlet weak var MoneyCountLabel: UILabel!
     @IBOutlet weak var statisticsButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
+    @IBOutlet weak var animalPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SetupView()
+        setupPickers()
         countMoney()
+    }
+    
+    func setupPickers() {
+        animalPicker.delegate = self
+        animalPicker.dataSource = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,8 +73,14 @@ class MoneyViewController: UIViewController {
         let targetDate = Calendar.current.dateComponents([.year, .month], from: previousMonth!)
         for expenditure in self.data! {
             let thisDate = Calendar.current.dateComponents([.year, .month], from: expenditure.date)
-            if thisDate == targetDate {
-                Summ += expenditure.summ
+            if self.chosenAnimal == nil {
+                if thisDate == targetDate {
+                    Summ += expenditure.summ
+                }
+            } else {
+                if thisDate == targetDate && expenditure.animal == self.chosenAnimal!.name {
+                    Summ += expenditure.summ
+                }
             }
         }
         self.MoneyCountLabel.text = "\(NSLocalizedString("expenditures_this_month", comment: ""))\(Double(round(100*Summ))/100)"
@@ -139,15 +154,29 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
         let targetDate = Calendar.current.dateComponents([.year, .month], from: previousMonth!)
         for expenditure in self.data! {
             let thisDate = Calendar.current.dateComponents([.year, .month], from: expenditure.date)
-            if thisDate == targetDate {
-                if expenditure.moneyFor == .entertainment {
-                    entertainmentDataEntry.value += expenditure.summ
-                } else if expenditure.moneyFor == .food {
-                    foodDataEntry.value += expenditure.summ
-                } else if expenditure.moneyFor == .vet {
-                    vetDataEntry.value += expenditure.summ
-                } else {
-                    otherDataEntry.value += expenditure.summ
+            if self.chosenAnimal == nil {
+                if thisDate == targetDate {
+                    if expenditure.moneyFor == .entertainment {
+                        entertainmentDataEntry.value += expenditure.summ
+                    } else if expenditure.moneyFor == .food {
+                        foodDataEntry.value += expenditure.summ
+                    } else if expenditure.moneyFor == .vet {
+                        vetDataEntry.value += expenditure.summ
+                    } else {
+                        otherDataEntry.value += expenditure.summ
+                    }
+                }
+            } else {
+                if thisDate == targetDate && expenditure.animal == self.chosenAnimal!.name {
+                    if expenditure.moneyFor == .entertainment {
+                        entertainmentDataEntry.value += expenditure.summ
+                    } else if expenditure.moneyFor == .food {
+                        foodDataEntry.value += expenditure.summ
+                    } else if expenditure.moneyFor == .vet {
+                        vetDataEntry.value += expenditure.summ
+                    } else {
+                        otherDataEntry.value += expenditure.summ
+                    }
                 }
             }
         }
@@ -297,3 +326,29 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
     }
 }
 
+extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Saved.shared.currentSaves.animals.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 0 {
+            return NSLocalizedString("all", comment: "")
+        } else {
+            return Saved.shared.currentSaves.animals[row].name
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row == 0 {
+            self.chosenAnimal = nil
+        } else {
+            self.chosenAnimal = Saved.shared.currentSaves.animals[row]
+        }
+        countMoney()
+    }
+}

@@ -34,7 +34,7 @@
 "month" = "Месяц";
 "years" = " лет";
 "breed" = "Порода";
-"type" = "Тип";
+"type" = "Вид животного";
 "birthday" = "День рождения";
 "plans" = "Планы";
 "past" = "Ранее";
@@ -59,7 +59,7 @@
 "you_have_plans" = "У вас есть планы!";
 "has_a_birthday" = " празднует день рождения!";
 "have_a_birthday" = " празднуют день рождения!";
-"expenditures_this_month" = "Затраты в этом месяце: ";
+"expenditures_this_month" = "Расходы в этом месяце: ";
 "money_expenditures" = "Денежные расходы";
 "entertainment" = "Развлечения";
 "food" = "Еда";
@@ -67,3 +67,4 @@
 "other" = "Другое";
 "price" = "Цена";
 "add" = "Добавить";
+"all" = "Все";

@@ -34,7 +34,7 @@
 "month" = "Month";
 "years" = " years";
 "breed" = "Breed";
-"type" = "Type";
+"type" = "Kind of animal";
 "birthday" = "Birthday";
 "plans" = "Plans";
 "past" = "Earlier";
@@ -67,3 +67,4 @@
 "other" = "Other";
 "price" = "Price";
 "add" = "Add";
+"all" = "All";
