@@ -11,6 +11,7 @@ enum DefaultKeys{
     static let savedData = "SavedData"
     static let savedSettings = "SavedSettings"
     static let savedExpenditures = "SavedExpenditures"
+    static let savedVersion = "SavedVersion"
 }
 
 enum StatusSort: String, Decodable, Encodable {
@@ -29,6 +30,10 @@ struct Settings: Codable {
 
 struct Money: Codable {
     var allExpenditures: [Expenditure]
+}
+
+struct FullVersion: Codable {
+    var isFullVersion: Bool
 }
 
 class Saved {
@@ -101,6 +106,49 @@ class Saved {
         set {
             if let data = try? PropertyListEncoder().encode(newValue){
                 UserDefaults.standard.setValue(data, forKey: DefaultKeys.savedExpenditures)
+            }
+        }
+    }
+    
+    var currentVersion: FullVersion {
+        get {
+            if let data = UserDefaults.standard.object(forKey: DefaultKeys.savedVersion) as? Data{
+                do{
+                    
+                    let result = try PropertyListDecoder().decode(FullVersion.self, from: data)
+                    print("TEST: \(result.isFullVersion)")
+                    if result.isFullVersion == true {
+                        return result
+                    } else {
+                        if AppVersion.isFullVersion {
+                            return FullVersion.init(isFullVersion: true)
+                        } else {
+                            return FullVersion.init(isFullVersion: false)
+                        }
+                    }
+                }
+                catch {
+                    //try to get data from icloud
+                    if AppVersion.isFullVersion {
+                        return FullVersion.init(isFullVersion: true)
+                    } else {
+                        return FullVersion.init(isFullVersion: false)
+                    }
+                }
+                }
+            else{
+                //try to get data from icloud
+                //AppVersion.CheckFullVersion()
+                if AppVersion.isFullVersion {
+                    return FullVersion.init(isFullVersion: true)
+                } else {
+                    return FullVersion.init(isFullVersion: false)
+                }
+            }
+        }
+        set {
+            if let data = try? PropertyListEncoder().encode(newValue){
+                UserDefaults.standard.setValue(data, forKey: DefaultKeys.savedVersion)
             }
         }
     }

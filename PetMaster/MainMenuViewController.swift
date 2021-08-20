@@ -25,6 +25,19 @@ class MainMenuViewController: UIViewController {
         Design.SetupBaseButton(button: settingsButton)
         Design.SetupBaseButton(button: moneyButton)
         moneyButton.setTitle(NSLocalizedString("money_expenditures", comment: ""), for: .normal)
+        if !AppVersion.isFullVersion {
+            Design.setupDeactivatedButton(button: moneyButton)
+            self.moneyButton.isEnabled = false
+            self.moneyButton.setTitle("\(NSLocalizedString("money_expenditures", comment: "")) (full version)", for: .normal)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSettings" {
+            if let settingsVC = segue.destination as? SettingsTableViewController {
+                settingsVC.updatedelegate = self
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

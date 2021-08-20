@@ -219,7 +219,7 @@ class Animal: Codable, Equatable {
         default:
             new_full_age = "\(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!) \(NSLocalizedString("monthes", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
         }
-        if ageComponents.year! <= 4 {
+        if ageComponents.year! <= 4 && ageComponents.year! > 0 {
             if new_full_age.contains("лет") {
                 if ageComponents.year! == 1{
                     new_full_age = new_full_age.replacingOccurrences(of: "лет", with: "год")
@@ -241,17 +241,17 @@ class Animal: Codable, Equatable {
                 }
             }
         }
-        if ageComponents.month! <= 4 {
+        if ageComponents.month! <= 4 && ageComponents.month! > 0 {
             if new_full_age.contains("месяцев") && ageComponents.month! == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "месяцев", with: "месяц")
             }
             if new_full_age.contains("месяцев") && ageComponents.month! >= 2 && ageComponents.month! <= 4 {
                 new_full_age = new_full_age.replacingOccurrences(of: "месяцев", with: "месяца")
             }
-            if new_full_age.contains("monthes") && ageComponents.year == 1 {
+            if new_full_age.contains("monthes") && ageComponents.month == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "monthes", with: "month")
             }
-            if new_full_age.contains("Monate") && ageComponents.year == 1 {
+            if new_full_age.contains("Monate") && ageComponents.month == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "Monate", with: "Monat")
             }
             if new_full_age.contains("місяців") {
@@ -262,17 +262,17 @@ class Animal: Codable, Equatable {
                 }
             }
         }
-        if ageComponents.day! <= 4 {
-            if new_full_age.contains("дней") && ageComponents.month! == 1 {
+        if ageComponents.day! <= 4 && ageComponents.day! > 0 {
+            if new_full_age.contains("дней") && ageComponents.day! == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "дней", with: "день")
             }
-            if new_full_age.contains("дней") && ageComponents.month! >= 2 && ageComponents.month! <= 4 {
+            if new_full_age.contains("дней") && ageComponents.day! >= 2 && ageComponents.day! <= 4 {
                 new_full_age = new_full_age.replacingOccurrences(of: "дней", with: "дня")
             }
-            if new_full_age.contains("days") && ageComponents.year == 1 {
+            if new_full_age.contains("days") && ageComponents.day! == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "days", with: "day")
             }
-            if new_full_age.contains("Tage") && ageComponents.year == 1 {
+            if new_full_age.contains("Tage") && ageComponents.day! == 1 {
                 new_full_age = new_full_age.replacingOccurrences(of: "Tage", with: "Tag")
             }
             if new_full_age.contains("днів") {

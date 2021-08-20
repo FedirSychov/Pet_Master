@@ -60,7 +60,7 @@
 "has_a_birthday" = " feiert seinen Geburtstag!";
 "have_a_birthday" = " feiern ihren Geburtstag!";
 "expenditures_this_month" = "Geldausgaben in diesem Monat: ";
-"money_expenditures" = "Geldausgabe";
+"money_expenditures" = "Ausgaben";
 "entertainment" = "Unterhaltung";
 "food" = "Futter";
 "vet" = "Tierarzt";
@@ -68,3 +68,7 @@
 "price" = "Preis";
 "add" = "Hinzufügen";
 "all" = "Alle";
+"purchase_description" = "Durch den Kauf der Vollversion von PetMaster haben Sie Zugriff darauf, die Krankengeschichte Ihres Haustieres zu erstellen, alle vergangenen Ereignisse aufzuzeichnen und Erinnerungen zu erstellen, über die Sie benachrichtigt werden. Es wird auch ein neuer Abschnitt eröffnet - Ausgaben. Darin können Sie Ihre eigene Geschichte der Barausgaben erstellen und detaillierte Informationen zu den für Ihre Haustiere ausgegebenen Geldern anzeigen.";
+"full_version" = "Vollversion";
+"events" = "Veranstaltungen";
+"diseases" = "Krankheiten";

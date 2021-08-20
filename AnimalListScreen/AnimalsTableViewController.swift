@@ -25,7 +25,16 @@ class AnimalsTableViewController: UITableViewController {
         data = Saved.shared.currentSaves.animals
         self.tableView.reloadData()
     }
-// MARK: - Segues
+    
+    @IBAction func AddNewAnimal(_ sender: Any) {
+        if AppVersion.isFullVersion || (!AppVersion.isFullVersion && Saved.shared.currentSaves.animals.count < 5) {
+            performSegue(withIdentifier: "addNewAnimal", sender: nil)
+        } else {
+            Alert.showBasicAlert(on: self, with: "Warning", message: "For adding 5 and more animals you should have a full version!")
+        }
+    }
+    
+    // MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier{
         case "goToAnimalInfo":

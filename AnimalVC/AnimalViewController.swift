@@ -40,6 +40,15 @@ class AnimalViewController: UIViewController {
         self.title = self.currentAnimal!.name
         setupButtons()
         updateStatus()
+        
+        if !AppVersion.isFullVersion {
+            Design.setupDeactivatedButton(button: DiseasesButton)
+            Design.setupDeactivatedButton(button: EventsButton)
+            self.DiseasesButton.isEnabled = false
+            self.EventsButton.isEnabled = false
+            self.DiseasesButton.setTitle("\(NSLocalizedString("diseases", comment: "")) (full version)", for: .normal)
+            self.EventsButton.setTitle("\(NSLocalizedString("events", comment: "")) (full version)", for: .normal)
+        }
     }
     
     private func setupButtons(){
@@ -227,6 +236,7 @@ class AnimalViewController: UIViewController {
             for animal in Saved.shared.currentSaves.animals{
                 if animal.showInfo() == self!.currentAnimal!.showInfo(){
                     Saved.shared.currentSaves.animals.remove(at: num)
+                    CloudHelper.ModifyAll(animals: Saved.shared.currentSaves.animals, exps: Saved.shared.currentExpenditures.allExpenditures, settings: Saved.shared.currentSettings)
                 }
                 num += 1
             }

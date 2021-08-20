@@ -16,6 +16,7 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
     var gData: [Animal]?
     var currentAnimal: String?
     var currentFor: String?
+    var currentForNum: Int?
     
     weak var addDelegate: addExpDelegate?
     
@@ -44,6 +45,7 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
             self.currentAnimal = getAnimalArray()[row]
         } else {
             self.currentFor = getForArray()[row]
+            self.currentForNum = row
         }
     }
     
@@ -109,12 +111,18 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         output.append(NSLocalizedString(moneyFor.vet.rawValue, comment: ""))
         output.append(NSLocalizedString(moneyFor.other.rawValue, comment: ""))
         self.currentFor = output[0]
+        self.currentForNum = 0
         return output
     }
     
     @IBAction func AddExpenditure(_ sender: Any) {
+        
+        let tempArr = [moneyFor.entertainment.rawValue, moneyFor.food.rawValue, moneyFor.vet.rawValue, moneyFor.other.rawValue]
+        
         if nameTextField.text != "" && priceTextField.text != "" {
-            let newExp = Expenditure(name: nameTextField.text!, animal: currentAnimal!, summ: Double(priceTextField.text!)!, forM: moneyFor(rawValue: currentFor!)!)
+            print(currentFor!)
+            
+            let newExp = Expenditure(name: nameTextField.text!, animal: currentAnimal!, summ: Double(priceTextField.text!)!, forM: moneyFor(rawValue: tempArr[self.currentForNum!])!)
             self.addDelegate?.AddExp(exp: newExp)
         } else {
             ShowAlertNoData()

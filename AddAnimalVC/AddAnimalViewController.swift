@@ -116,6 +116,7 @@ class AddAnimalViewController: UIViewController {
                 ShowAlertNoData()
             }
         }
+        print("Number of animals after adding: \(Saved.shared.currentSaves.animals.count)")
     }
     
     private func ShowAlertSameAnimal(){

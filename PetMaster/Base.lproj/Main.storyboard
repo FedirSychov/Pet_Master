@@ -8,6 +8,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Purchase-->
+        <scene sceneID="ml2-2P-hDJ">
+            <objects>
+                <viewController id="n1L-Q4-CEE" customClass="PurchaseViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qHR-Wk-ok7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkx-zp-ufh">
+                                <rect key="frame" x="20" y="766" width="374" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="P2v-xR-tRa"/>
+                                </constraints>
+                                <state key="normal" title="Buy full version - 4.99$"/>
+                                <connections>
+                                    <action selector="BuyAction:" destination="n1L-Q4-CEE" eventType="touchUpInside" id="EWL-Os-zl8"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Cu-Oc-R9Z">
+                                <rect key="frame" x="20" y="138" width="374" height="578"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vde-Ke-TNS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Cu-Oc-R9Z" firstAttribute="top" secondItem="vde-Ke-TNS" secondAttribute="top" constant="50" id="Dav-Vi-MUu"/>
+                            <constraint firstItem="vde-Ke-TNS" firstAttribute="bottom" secondItem="pkx-zp-ufh" secondAttribute="bottom" constant="50" id="Oaf-kZ-WMP"/>
+                            <constraint firstItem="pkx-zp-ufh" firstAttribute="leading" secondItem="vde-Ke-TNS" secondAttribute="leading" constant="20" id="dci-hX-esR"/>
+                            <constraint firstItem="vde-Ke-TNS" firstAttribute="trailing" secondItem="pkx-zp-ufh" secondAttribute="trailing" constant="20" id="ire-B7-af1"/>
+                            <constraint firstItem="pkx-zp-ufh" firstAttribute="top" secondItem="0Cu-Oc-R9Z" secondAttribute="bottom" constant="50" id="ksj-6v-t9R"/>
+                            <constraint firstItem="0Cu-Oc-R9Z" firstAttribute="leading" secondItem="vde-Ke-TNS" secondAttribute="leading" constant="20" id="mxT-mA-goa"/>
+                            <constraint firstItem="vde-Ke-TNS" firstAttribute="trailing" secondItem="0Cu-Oc-R9Z" secondAttribute="trailing" constant="20" id="t4G-go-9RU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Purchase" id="BBf-e7-kqW"/>
+                    <connections>
+                        <outlet property="BuyButton" destination="pkx-zp-ufh" id="bds-bf-eyi"/>
+                        <outlet property="DescriptionTextField" destination="0Cu-Oc-R9Z" id="XvZ-Gx-aoJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxa-MH-16H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1632" y="-642"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="ath-HV-qGE">
             <objects>
@@ -144,6 +193,33 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gm0-pB-k0l">
+                                        <rect key="frame" x="0.0" y="155.33333778381348" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gm0-pB-k0l" id="Y5l-MM-kML">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRf-Zn-4DO">
+                                                    <rect key="frame" x="5" y="6" width="404" height="32"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                                    <state key="normal" title="Full version"/>
+                                                    <connections>
+                                                        <action selector="BuyFullVersion:" destination="lSI-FX-vrY" eventType="touchUpInside" id="eyR-r7-pSw"/>
+                                                        <action selector="ResetSettingsButton:" destination="lSI-FX-vrY" eventType="touchUpInside" id="3g3-6W-tfG"/>
+                                                        <segue destination="n1L-Q4-CEE" kind="show" identifier="goToPurchase" id="4ex-F3-N37"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YRf-Zn-4DO" firstAttribute="leading" secondItem="Y5l-MM-kML" secondAttribute="leading" constant="5" id="2D4-Ww-SkV"/>
+                                                <constraint firstItem="YRf-Zn-4DO" firstAttribute="centerY" secondItem="Y5l-MM-kML" secondAttribute="centerY" id="NYn-2i-he4"/>
+                                                <constraint firstItem="YRf-Zn-4DO" firstAttribute="top" secondItem="Y5l-MM-kML" secondAttribute="topMargin" constant="-5" id="c3m-ku-zGy"/>
+                                                <constraint firstAttribute="trailing" secondItem="YRf-Zn-4DO" secondAttribute="trailing" constant="5" id="jec-rx-saB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -157,6 +233,7 @@
                         <outlet property="SortingLabel" destination="FPG-gG-qs4" id="hIk-6w-VAG"/>
                         <outlet property="dateFormatLabel" destination="dmf-oK-TBa" id="6gy-lz-kWK"/>
                         <outlet property="formatTypeLabel" destination="8ug-xK-fLf" id="3i4-LF-rZL"/>
+                        <outlet property="fullVersionButton" destination="YRf-Zn-4DO" id="nrf-6K-cnD"/>
                         <outlet property="resetSettingsButton" destination="rgh-lb-qiS" id="MmC-YF-0gs"/>
                         <outlet property="sortTypeLabel" destination="Mo5-hV-Peg" id="fbS-gA-Vol"/>
                     </connections>
@@ -276,13 +353,14 @@
                     <navigationItem key="navigationItem" title="My animals" id="Xjs-RE-KCw">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Y8h-w3-tJT">
                             <connections>
-                                <segue destination="sfu-eb-Afd" kind="presentation" identifier="addNewAnimal" id="qxN-oe-Nwy"/>
+                                <action selector="AddNewAnimal:" destination="BYZ-38-t0r" id="U6I-ER-8Cr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kM7-bg-DAW" id="eIk-mC-s2s"/>
                         <segue destination="8p4-ro-gad" kind="show" identifier="goToAnimalInfo" id="yiU-NH-mwc"/>
+                        <segue destination="sfu-eb-Afd" kind="presentation" identifier="addNewAnimal" id="6iF-tW-OyH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -750,7 +828,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="Settings"/>
                                         <connections>
-                                            <segue destination="lSI-FX-vrY" kind="show" id="dJV-5H-Lwt"/>
+                                            <segue destination="lSI-FX-vrY" kind="show" identifier="goToSettings" id="dJV-5H-Lwt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2183,11 +2261,14 @@
         <segue reference="BuR-Qc-9ba"/>
         <segue reference="UPL-G6-Dek"/>
         <segue reference="dNY-3M-5RJ"/>
-        <segue reference="qxN-oe-Nwy"/>
+        <segue reference="6iF-tW-OyH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

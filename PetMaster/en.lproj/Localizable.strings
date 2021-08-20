@@ -60,7 +60,7 @@
 "has_a_birthday" = " has a birthday!";
 "have_a_birthday" = " have a birthday!";
 "expenditures_this_month" = "Expenditures this month: ";
-"money_expenditures" = "Money expenditures";
+"money_expenditures" = "Expenses";
 "entertainment" = "Entertainment";
 "food" = "Food";
 "vet" = "Vet";
@@ -68,3 +68,7 @@
 "price" = "Price";
 "add" = "Add";
 "all" = "All";
+"purchase_description" = "By purchasing the full version of PetMaster, you will have access to creating your pet's medical history, recording all past events and creating reminders about which you will be notified. A new section will also be opened - expenses. In it you can create your own history of cash expenditures, as well as view detailed information about the money spent on your pets.";
+"full_version" = "Full version";
+"events" = "Events";
+"diseases" = "Diseases";

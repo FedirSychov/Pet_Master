@@ -17,11 +17,24 @@ class Design{
         button.layer.cornerRadius = button.frame.size.height/2
     }
     
+    static func setupDeactivatedButton(button: UIButton) {
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(red: 180/255, green: 91/255, blue: 19/255, alpha: 1)
+        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 26)
+        button.layer.cornerRadius = button.frame.size.height/2
+    }
+    
     static func SetupGreenButton(button: UIButton) {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor(red: 0/255, green: 153/255, blue: 0/255, alpha: 1)
         button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 26)
         button.layer.cornerRadius = button.frame.size.height/2
+    }
+    
+    static func SetupTextView(textView: UITextView) {
+        textView.backgroundColor = UIColor.clear
+        textView.font = UIFont(name: "Avenir Next Medium", size: 26)
+        textView.textAlignment = .justified
     }
 //MARK: - setting up background
     static func setupBackground(controller: UIViewController){

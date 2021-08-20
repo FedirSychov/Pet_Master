@@ -7,13 +7,20 @@
 
 import UIKit
 
+protocol updateDelegate: NSObject {
+    func updateVersion()
+}
+
 class SettingsTableViewController: UITableViewController {
+    
+    weak var updatedelegate: updateDelegate?
 
     @IBOutlet weak var sortTypeLabel: UILabel!
     @IBOutlet weak var resetSettingsButton: UIButton!
     @IBOutlet weak var SortingLabel: UILabel!
     @IBOutlet weak var dateFormatLabel: UILabel!
     @IBOutlet weak var formatTypeLabel: UILabel!
+    @IBOutlet weak var fullVersionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +28,7 @@ class SettingsTableViewController: UITableViewController {
         Design.setupBackground(controller: self)
         resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
         SortingLabel.text = NSLocalizedString("sorting", comment: "")
+        fullVersionButton.setTitle(NSLocalizedString("full_version", comment: ""), for: .normal)
         sortTypeLabel.text = Saved.shared.currentSettings.sort.rawValue
         dateFormatLabel.text = NSLocalizedString("date_format", comment: "")
         formatTypeLabel.text = Saved.shared.currentSettings.dateFormat
@@ -51,6 +59,36 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        isFullVersion()
+    }
+    
+    func isFullVersion() -> Int{
+        if AppVersion.isFullVersion == true {
+            return 3
+        } else {
+            return 4
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToPurchase":
+            if let purchaseVC = segue.destination as? PurchaseViewController {
+                purchaseVC.madePurchaseDelegate = self
+            }
+        default:
+            break
+        }
+    }
+    
+    @IBAction func BuyFullVersion(_ sender: Any) {
+        
+    }
+}
+
+extension MainMenuViewController: updateDelegate {
+    func updateVersion() {
+        self.viewDidLoad()
+        self.moneyButton.isEnabled = true
     }
 }

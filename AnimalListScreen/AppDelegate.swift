@@ -15,7 +15,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         checkAllBirthdays()
+
+        AppVersion.CheckFullVersion()
+        
+        sleep(1)
+        // cheking for full version of an app
+        let isFullVersion: Bool = Saved.shared.currentVersion.isFullVersion
+        
+        if isFullVersion {
+            AppVersion.isFullVersion = true
+            CloudHelper.SaveFullVersionToCloud(fullVersion: true)
+        } else {
+            if AppVersion.isFullVersion {
+                Saved.shared.currentVersion.isFullVersion = true
+            }
+        }
+        
+        if AppVersion.isFullVersion {
+            //recovering data from icloud or saving
+            if Saved.shared.currentSaves.animals.count == 0 {
+                CloudHelper.QueryAnimalsDataBase()
+                CloudHelper.QuerySettingsDataBase()
+                CloudHelper.QueryExpendituresDataBase()
+            } else {
+                CloudHelper.ModifyAll(animals: Saved.shared.currentSaves.animals, exps: Saved.shared.currentExpenditures.allExpenditures, settings: Saved.shared.currentSettings)
+            }
+        }
+
+
+        print(Saved.shared.currentVersion.isFullVersion)
+        print("Version: \(AppVersion.isFullVersion)")
+        
         if findAllPlans() != ""{
             AllowNotifications()
             SendNotification(identifier: "plans", title: "You have plans!", body: findAllPlans(), timeW8: 3)

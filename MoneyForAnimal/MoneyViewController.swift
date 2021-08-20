@@ -332,14 +332,15 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Saved.shared.currentSaves.animals.count
+        return Saved.shared.currentSaves.animals.count + 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        print(row)
         if row == 0 {
             return NSLocalizedString("all", comment: "")
         } else {
-            return Saved.shared.currentSaves.animals[row].name
+            return Saved.shared.currentSaves.animals[row - 1].name
         }
     }
     
@@ -347,7 +348,7 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if row == 0 {
             self.chosenAnimal = nil
         } else {
-            self.chosenAnimal = Saved.shared.currentSaves.animals[row]
+            self.chosenAnimal = Saved.shared.currentSaves.animals[row - 1]
         }
         countMoney()
     }

@@ -38,6 +38,11 @@
 		7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70C26BB331400365A8B /* AddFoodViewController.swift */; };
 		7EACC12B26C851B00036739C /* MoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACC12A26C851B00036739C /* MoneyViewController.swift */; };
 		7EACC12D26C8573D0036739C /* AddExpenditureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EACC12C26C8573D0036739C /* AddExpenditureViewController.swift */; };
+		7EB4140E26CDAFBA00204785 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB4140D26CDAFBA00204785 /* CloudKit.framework */; };
+		7EB4141126CDB01800204785 /* CloudHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4141026CDB01800204785 /* CloudHelper.swift */; };
+		7EB4141826CECFDF00204785 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB4141726CECFDF00204785 /* StoreKit.framework */; };
+		7EB4141B26CEF96400204785 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4141A26CEF96400204785 /* PurchaseViewController.swift */; };
+		7EB4141D26CF087B00204785 /* FullVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4141C26CF087B00204785 /* FullVersion.swift */; };
 		7EC5555226B3F8C50054F314 /* AnimalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */; };
 		7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */; };
 		7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC5555B26B434CC0054F314 /* SavedAnimals.swift */; };
@@ -123,6 +128,13 @@
 		7E80C70C26BB331400365A8B /* AddFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = "<group>"; };
 		7EACC12A26C851B00036739C /* MoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyViewController.swift; sourceTree = "<group>"; };
 		7EACC12C26C8573D0036739C /* AddExpenditureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenditureViewController.swift; sourceTree = "<group>"; };
+		7EB4140C26CDAFB500204785 /* PetMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetMaster.entitlements; sourceTree = "<group>"; };
+		7EB4140D26CDAFBA00204785 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7EB4141026CDB01800204785 /* CloudHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudHelper.swift; sourceTree = "<group>"; };
+		7EB4141726CECFDF00204785 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7EB4141926CED28100204785 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		7EB4141A26CEF96400204785 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		7EB4141C26CF087B00204785 /* FullVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullVersion.swift; sourceTree = "<group>"; };
 		7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsTableViewController.swift; sourceTree = "<group>"; };
 		7EC5555926B3FFA10054F314 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		7EC5555B26B434CC0054F314 /* SavedAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAnimals.swift; sourceTree = "<group>"; };
@@ -141,7 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB4141826CECFDF00204785 /* StoreKit.framework in Frameworks */,
 				691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */,
+				7EB4140E26CDAFBA00204785 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +181,8 @@
 		063F14437ACAB0D5E969E81B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EB4141726CECFDF00204785 /* StoreKit.framework */,
+				7EB4140D26CDAFBA00204785 /* CloudKit.framework */,
 				6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */,
 				7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */,
 				4F192A09D7D60E81B4C97A4B /* Pods_PetMasterTests.framework */,
@@ -188,6 +204,7 @@
 		7E6E030E2605EDB40015571B = {
 			isa = PBXGroup;
 			children = (
+				7EB4140F26CDB00B00204785 /* ICloud and purchase */,
 				7EACC12926C84A3F0036739C /* MoneyForAnimal */,
 				7E724DE426B95F410002AD4A /* OtherAnimalInfoVCs */,
 				7EC5555D26B4745F0054F314 /* AnimalVC */,
@@ -216,19 +233,21 @@
 		7E6E03192605EDB40015571B /* PetMaster */ = {
 			isa = PBXGroup;
 			children = (
+				7EB4140C26CDAFB500204785 /* PetMaster.entitlements */,
 				7E6E03202605EDB40015571B /* Main.storyboard */,
 				7E1295A026C25E03003DCC62 /* What to do.rtf */,
 				7E6E034D2605EDD60015571B /* Animals.swift */,
 				7E6F90B026C304B8001CB577 /* Alert.swift */,
 				7E6F90B426C30E9A001CB577 /* Design.swift */,
 				7EC5555B26B434CC0054F314 /* SavedAnimals.swift */,
+				7E6F90B226C308DE001CB577 /* MainMenuViewController.swift */,
 				7E6E031C2605EDB40015571B /* SceneDelegate.swift */,
 				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
 				7E6E03282605EDB50015571B /* Info.plist */,
 				7E6E03232605EDB50015571B /* Assets.xcassets */,
-				7E6F90B226C308DE001CB577 /* MainMenuViewController.swift */,
 				7E5A2A2B26C509F90052053E /* Localizable.strings */,
 				7E5A2A3126C50E570052053E /* InfoPlist.strings */,
+				7EB4141926CED28100204785 /* Configuration.storekit */,
 			);
 			path = PetMaster;
 			sourceTree = "<group>";
@@ -278,6 +297,16 @@
 				7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */,
 			);
 			path = MoneyForAnimal;
+			sourceTree = "<group>";
+		};
+		7EB4140F26CDB00B00204785 /* ICloud and purchase */ = {
+			isa = PBXGroup;
+			children = (
+				7EB4141026CDB01800204785 /* CloudHelper.swift */,
+				7EB4141A26CEF96400204785 /* PurchaseViewController.swift */,
+				7EB4141C26CF087B00204785 /* FullVersion.swift */,
+			);
+			path = "ICloud and purchase";
 			sourceTree = "<group>";
 		};
 		7EC5555326B3FBC20054F314 /* SettingsVC */ = {
@@ -569,13 +598,16 @@
 				7EC5555F26B4746B0054F314 /* AnimalViewController.swift in Sources */,
 				7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */,
 				7EACC12B26C851B00036739C /* MoneyViewController.swift in Sources */,
+				7EB4141126CDB01800204785 /* CloudHelper.swift in Sources */,
 				7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */,
 				7E6F90B126C304B8001CB577 /* Alert.swift in Sources */,
 				7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */,
+				7EB4141D26CF087B00204785 /* FullVersion.swift in Sources */,
 				7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */,
 				7EC7997D26C57C1D00EF1399 /* DateFormatTableViewController.swift in Sources */,
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
+				7EB4141B26CEF96400204785 /* PurchaseViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
 				7E6F90B526C30E9A001CB577 /* Design.swift in Sources */,
 				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,
@@ -800,6 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetMaster/PetMaster.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;
@@ -822,6 +855,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetMaster/PetMaster.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;

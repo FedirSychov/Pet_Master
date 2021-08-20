@@ -109,7 +109,33 @@ class MoneyHistoryTableViewController: UITableViewController {
             return returnedView
         }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            let chosenExp = data_array![indexPath.section][indexPath.row]
+            var tempArray = Saved.shared.currentExpenditures.allExpenditures
+            var num: Int = 0
+            for exp in tempArray {
+                if exp.date == chosenExp.date && exp.name == chosenExp.name && exp.summ == chosenExp.summ {
+                    tempArray.remove(at: num)
+                    Saved.shared.currentExpenditures.allExpenditures = tempArray
+                    self.viewDidLoad()
+                    tableView.reloadData()
+                }
+                num += 1
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
