@@ -22,7 +22,7 @@ class BackgroundTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.tableFooterView = UIView(frame: .zero)
         setupView()
     }
     

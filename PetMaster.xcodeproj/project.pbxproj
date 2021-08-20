@@ -10,7 +10,6 @@
 		691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */; };
 		7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1295A026C25E03003DCC62 /* What to do.rtf */; };
 		7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1295A226C26F0A003DCC62 /* DeathViewController.swift */; };
-		7E1CA67026CFD0350010B0E3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */; };
 		7E29214226C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
@@ -87,7 +86,6 @@
 		7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster_PetMasterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1295A026C25E03003DCC62 /* What to do.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "What to do.rtf"; sourceTree = "<group>"; };
 		7E1295A226C26F0A003DCC62 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
-		7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryTableViewController.swift; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 				7E5A2A3126C50E570052053E /* InfoPlist.strings */,
 				7EB4141926CED28100204785 /* Configuration.storekit */,
 				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
-				7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */,
 			);
 			path = PetMaster;
 			sourceTree = "<group>";
@@ -615,7 +612,6 @@
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7EB4141B26CEF96400204785 /* PurchaseViewController.swift in Sources */,
-				7E1CA67026CFD0350010B0E3 /* LaunchScreenViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
 				7E6F90B526C30E9A001CB577 /* Design.swift in Sources */,
 				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,
