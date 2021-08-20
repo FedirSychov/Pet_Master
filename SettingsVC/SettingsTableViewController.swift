@@ -14,6 +14,8 @@ protocol updateDelegate: NSObject {
 class SettingsTableViewController: UITableViewController {
     
     weak var updatedelegate: updateDelegate?
+    
+    var mainVC: UIViewController?
 
     @IBOutlet weak var sortTypeLabel: UILabel!
     @IBOutlet weak var resetSettingsButton: UIButton!
@@ -64,9 +66,9 @@ class SettingsTableViewController: UITableViewController {
     
     func isFullVersion() -> Int{
         if AppVersion.isFullVersion == true {
-            return 3
-        } else {
             return 4
+        } else {
+            return 5
         }
     }
     
@@ -75,6 +77,11 @@ class SettingsTableViewController: UITableViewController {
         case "goToPurchase":
             if let purchaseVC = segue.destination as? PurchaseViewController {
                 purchaseVC.madePurchaseDelegate = self
+            }
+        case "goToBackgrounds":
+            if let backsVC = segue.destination as? BackgroundTableVC {
+                backsVC.updateDelegate = self.mainVC! as? updateBackgroundDelegate
+                backsVC.mainMenuVC = self.mainVC!
             }
         default:
             break

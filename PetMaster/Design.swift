@@ -36,16 +36,33 @@ class Design{
         textView.font = UIFont(name: "Avenir Next Medium", size: 26)
         textView.textAlignment = .justified
     }
+    
 //MARK: - setting up background
     static func setupBackground(controller: UIViewController){
         controller.view.insetsLayoutMarginsFromSafeArea = false
         controller.view.contentMode = .scaleAspectFill
-        controller.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background1"))
+
+        controller.view.backgroundColor = UIColor(patternImage: UIImage(named: Saved.shared.currentSettings.backgroundImage)!)
+    }
+    
+    static func setupBarColor() {
+        
     }
     
     static func setupBackgroundForTableView(tableView: UITableView) {
-        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "Background1").crop(to: CGSize(width: 0, height: 0)))
+        tableView.backgroundView = UIImageView(image: UIImage(named: Saved.shared.currentSettings.backgroundImage)!.crop(to: CGSize(width: 2000, height: 2000)))
     }
+    
+    static func setupBorderStyle(imageView: UIImageView) {
+        imageView.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.headerColor_red)/255, green: CGFloat(Saved.shared.currentSettings.headerColor_green)/255, blue: CGFloat(Saved.shared.currentSettings.headerColor_blut)/255, alpha: 1)
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 8
+    }
+    
+    static func setupTintColor(nav: UINavigationController) {
+        nav.navigationBar.barTintColor = UIColor(red: CGFloat(Saved.shared.currentSettings.headerColor_red)/255, green: CGFloat(Saved.shared.currentSettings.headerColor_green)/255, blue: CGFloat(Saved.shared.currentSettings.headerColor_blut)/255, alpha: 1)
+    }
+    
 //MARK: - setting up textFields
     static func setupTextField(field: UITextField) {
         let width = CGFloat(2.0)
@@ -88,13 +105,14 @@ class Design{
         var frame = tableView.bounds
         frame.origin.y = -frame.size.height
         let backView = UIView(frame: frame)
-        backView.backgroundColor = UIColor(red: 255/255, green: 159/255, blue: 74/255, alpha: 1)
+        backView.backgroundColor = UIColor(red: CGFloat(Saved.shared.currentSettings.headerColor_red)/255, green: CGFloat(Saved.shared.currentSettings.headerColor_green)/255, blue: CGFloat(Saved.shared.currentSettings.headerColor_blut)/255, alpha: 1)
         tableView.addSubview(backView)
     }
+
     
     static func setupBackgroundForCells(cell: UITableViewCell) {
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor(red: 233/255, green: 91/255, blue: 19/255, alpha: 1)
+        backgroundView.backgroundColor = UIColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
         cell.selectedBackgroundView = backgroundView
     }
 }

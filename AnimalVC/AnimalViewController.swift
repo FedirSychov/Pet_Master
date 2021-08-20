@@ -34,9 +34,7 @@ class AnimalViewController: UIViewController {
         } else {
             AnimalImage.image = #imageLiteral(resourceName: "NoImage")
         }
-        AnimalImage.layer.borderColor = CGColor(red: 255/255, green: 171/255, blue: 74/255, alpha: 1)
-        AnimalImage.layer.masksToBounds = true
-        AnimalImage.layer.borderWidth = 8
+        Design.setupBorderStyle(imageView: AnimalImage)
         self.title = self.currentAnimal!.name
         setupButtons()
         updateStatus()

@@ -10,6 +10,7 @@
 		691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */; };
 		7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1295A026C25E03003DCC62 /* What to do.rtf */; };
 		7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1295A226C26F0A003DCC62 /* DeathViewController.swift */; };
+		7E1CA67026CFD0350010B0E3 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */; };
 		7E29214226C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */; };
 		7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */; };
 		7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */; };
@@ -51,6 +52,7 @@
 		7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */; };
 		7ECB489E26C0125C003B99CF /* SortTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECB489D26C0125C003B99CF /* SortTableViewController.swift */; };
 		7EE8569D26B53C1A00D71283 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */; };
+		7EF0FE2126CFF9DD00BEBA86 /* BackgroundTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF0FE2026CFF9DD00BEBA86 /* BackgroundTableVC.swift */; };
 		7EF9F10626C3CAF900B70335 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */; };
 		7EF9F10726C3CAF900B70335 /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */; };
 		C15AAD8C630F228F2A87032D /* Pods_PetMaster_PetMasterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */; };
@@ -85,6 +87,7 @@
 		7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster_PetMasterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1295A026C25E03003DCC62 /* What to do.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "What to do.rtf"; sourceTree = "<group>"; };
 		7E1295A226C26F0A003DCC62 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
+		7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryTableViewController.swift; sourceTree = "<group>"; };
 		7E30FE3A2605F60B000EDA0D /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		7E37BD8426BC759500CF3063 /* VaccInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccInfoViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7ECB489D26C0125C003B99CF /* SortTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTableViewController.swift; sourceTree = "<group>"; };
 		7EE8569C26B53C1A00D71283 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
+		7EF0FE2026CFF9DD00BEBA86 /* BackgroundTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTableVC.swift; sourceTree = "<group>"; };
 		7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
 		E264FF99315B56E69B3F90CB /* Pods-PetMaster-PetMasterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster-PetMasterUITests.release.xcconfig"; path = "Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,12 +246,13 @@
 				7EC5555B26B434CC0054F314 /* SavedAnimals.swift */,
 				7E6F90B226C308DE001CB577 /* MainMenuViewController.swift */,
 				7E6E031C2605EDB40015571B /* SceneDelegate.swift */,
-				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
 				7E6E03282605EDB50015571B /* Info.plist */,
 				7E6E03232605EDB50015571B /* Assets.xcassets */,
 				7E5A2A2B26C509F90052053E /* Localizable.strings */,
 				7E5A2A3126C50E570052053E /* InfoPlist.strings */,
 				7EB4141926CED28100204785 /* Configuration.storekit */,
+				7E6E03252605EDB50015571B /* LaunchScreen.storyboard */,
+				7E1CA66F26CFD0350010B0E3 /* LaunchScreenViewController.swift */,
 			);
 			path = PetMaster;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				7ECB489B26C011DD003B99CF /* SettingsTableViewController.swift */,
 				7ECB489D26C0125C003B99CF /* SortTableViewController.swift */,
 				7EC7997C26C57C1D00EF1399 /* DateFormatTableViewController.swift */,
+				7EF0FE2026CFF9DD00BEBA86 /* BackgroundTableVC.swift */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -602,12 +608,14 @@
 				7E46214626BEA607005D7E68 /* DiseaseInfoViewController.swift in Sources */,
 				7E6F90B126C304B8001CB577 /* Alert.swift in Sources */,
 				7E80C70D26BB331400365A8B /* AddFoodViewController.swift in Sources */,
+				7EF0FE2126CFF9DD00BEBA86 /* BackgroundTableVC.swift in Sources */,
 				7EB4141D26CF087B00204785 /* FullVersion.swift in Sources */,
 				7E37BD8526BC759500CF3063 /* VaccInfoViewController.swift in Sources */,
 				7EC7997D26C57C1D00EF1399 /* DateFormatTableViewController.swift in Sources */,
 				7EC5555C26B434CC0054F314 /* SavedAnimals.swift in Sources */,
 				7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */,
 				7EB4141B26CEF96400204785 /* PurchaseViewController.swift in Sources */,
+				7E1CA67026CFD0350010B0E3 /* LaunchScreenViewController.swift in Sources */,
 				7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */,
 				7E6F90B526C30E9A001CB577 /* Design.swift in Sources */,
 				7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */,

@@ -18,6 +18,7 @@ class MoneyHistoryTableViewController: UITableViewController {
         setupView()
         self.data = Saved.shared.currentExpenditures.allExpenditures
         getArrayOfExpenditures()
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func setupView() {

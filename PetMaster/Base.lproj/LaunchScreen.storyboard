@@ -16,13 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1FG-Vq-Sbf">
+                            <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="1FG-Vq-Sbf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PetMaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-3a-PvF">
-                                        <rect key="frame" x="126" y="415" width="162" height="67"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PetMaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-3a-PvF">
+                                        <rect key="frame" x="128.66666666666666" y="426.66666666666669" width="156.99999999999997" height="43"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -30,11 +28,21 @@
                                         <size key="shadowOffset" width="1" height="-1"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.73788446563367782" blue="0.15399320077627698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="0.70627813625450175" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="fuK-3a-PvF" firstAttribute="centerX" secondItem="1FG-Vq-Sbf" secondAttribute="centerX" id="iCm-YL-Spz"/>
+                                    <constraint firstItem="fuK-3a-PvF" firstAttribute="centerY" secondItem="1FG-Vq-Sbf" secondAttribute="centerY" id="uwa-NF-Udr"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Ju-0R-Xmg"/>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-44" id="C0o-qf-GNF"/>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OaX-Ff-Bu6"/>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cyd-Xz-u2g"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

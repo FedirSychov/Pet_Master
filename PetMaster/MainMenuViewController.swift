@@ -24,6 +24,7 @@ class MainMenuViewController: UIViewController {
         Design.SetupBaseButton(button: myAnimalsButton)
         Design.SetupBaseButton(button: settingsButton)
         Design.SetupBaseButton(button: moneyButton)
+        Design.setupTintColor(nav: self.navigationController!)
         moneyButton.setTitle(NSLocalizedString("money_expenditures", comment: ""), for: .normal)
         if !AppVersion.isFullVersion {
             Design.setupDeactivatedButton(button: moneyButton)
@@ -36,6 +37,7 @@ class MainMenuViewController: UIViewController {
         if segue.identifier == "goToSettings" {
             if let settingsVC = segue.destination as? SettingsTableViewController {
                 settingsVC.updatedelegate = self
+                settingsVC.mainVC = self
             }
         }
     }
