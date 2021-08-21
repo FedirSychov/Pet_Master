@@ -11,7 +11,7 @@
 "animal_type" = "Breed: ";
 "animal_status" = "Status: ";
 "healthy" = "healthy";
-"sick" = "sick";
+"sick" = "ill";
 "vaccinations_button" = "Vaccinations";
 "sorting" = "sorting";
 "sorting_up" = "up";

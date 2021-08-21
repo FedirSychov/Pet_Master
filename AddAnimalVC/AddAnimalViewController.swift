@@ -72,7 +72,7 @@ class AddAnimalViewController: UIViewController {
     
     private func noSameAnimalsLike(thisAnimal: Animal) -> Bool {
         for animal in Saved.shared.currentSaves.animals{
-            if thisAnimal == animal{
+            if thisAnimal == animal && thisAnimal != Saved.shared.currentSaves.animals[num] {
                 return false
             }
         }

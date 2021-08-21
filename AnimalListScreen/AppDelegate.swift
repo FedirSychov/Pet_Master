@@ -44,10 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 CloudHelper.ModifyAll(animals: Saved.shared.currentSaves.animals, exps: Saved.shared.currentExpenditures.allExpenditures, settings: Saved.shared.currentSettings)
             }
         }
-
-
-        print(Saved.shared.currentVersion.isFullVersion)
-        print("Version: \(AppVersion.isFullVersion)")
         
         if findAllPlans() != ""{
             AllowNotifications()
@@ -105,10 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if plan.date > Date(){
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd/MM/YYYY"
-                    text += "\(plan.name) - \(dateFormatter.string(from: plan.date))"
-                    if text != ""{
+                    if text != "" && plan.name != ""{
                         text += ", "
                     }
+                    text += "\(plan.name) - \(dateFormatter.string(from: plan.date))"
                 }
             }
         }

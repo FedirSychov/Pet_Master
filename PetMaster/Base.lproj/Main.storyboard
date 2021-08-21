@@ -486,15 +486,15 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-k1-eLG">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6C-2f-oR3">
                                                         <rect key="frame" x="50" y="377" width="314" height="46"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="46" id="nIr-3a-QXJ"/>
+                                                            <constraint firstAttribute="height" constant="46" id="hzh-Yq-24t"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
-                                                        <state key="normal" title="Vaccinations"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <state key="normal" title="Events"/>
                                                         <connections>
-                                                            <segue destination="JRp-XK-RZq" kind="show" identifier="goToVaccinations" id="BEq-Ax-DDm"/>
+                                                            <segue destination="uxZ-4R-dSN" kind="show" identifier="goToEventsVC" id="2X1-OQ-7IL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxu-eQ-NN5">
@@ -508,15 +508,15 @@
                                                             <segue destination="oY7-uS-X9S" kind="show" identifier="goToDiseasesVC" id="oJu-Vr-3mq"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6C-2f-oR3">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-k1-eLG">
                                                         <rect key="frame" x="50" y="523" width="314" height="46"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="46" id="hzh-Yq-24t"/>
+                                                            <constraint firstAttribute="height" constant="46" id="nIr-3a-QXJ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="Events"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
+                                                        <state key="normal" title="Vaccinations"/>
                                                         <connections>
-                                                            <segue destination="uxZ-4R-dSN" kind="show" identifier="goToEventsVC" id="2X1-OQ-7IL"/>
+                                                            <segue destination="JRp-XK-RZq" kind="show" identifier="goToVaccinations" id="BEq-Ax-DDm"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Go-Kz-cfg">
@@ -2378,7 +2378,7 @@
         <segue reference="BuR-Qc-9ba"/>
         <segue reference="UPL-G6-Dek"/>
         <segue reference="dNY-3M-5RJ"/>
-        <segue reference="6iF-tW-OyH"/>
+        <segue reference="YeG-af-J6N"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Background-4" width="1242" height="2208"/>
