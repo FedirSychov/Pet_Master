@@ -26,6 +26,8 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Saved.shared.currentSettings.isShared = false
+        print("GAY--------", Saved.shared.currentSettings.isShared)
         Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
@@ -72,6 +74,17 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 2 {
+            if Saved.shared.currentSettings.isShared {
+                performSegue(withIdentifier: "goToBackgrounds", sender: nil)
+            } else {
+                Alert.showShareAlert(on: self)
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goToPurchase":
@@ -85,6 +98,32 @@ class SettingsTableViewController: UITableViewController {
             }
         default:
             break
+        }
+    }
+    
+    func Share() {
+        let activityVC = UIActivityViewController(activityItems: ["Check out a new app! "], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityVC, animated: true, completion: nil)
+        
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+            if completed == true {
+                Saved.shared.currentSettings.isShared = true
+            }
+        }
+    }
+    
+    @IBAction func Share(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: ["Check out a new app! "], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityVC, animated: true, completion: nil)
+        
+        activityVC.completionWithItemsHandler = { activity, completed, items, error in
+            if completed == true {
+                Saved.shared.currentSettings.isShared = true
+            }
         }
     }
     

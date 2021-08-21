@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		691CE3A28275248AFE113554 /* Pods_PetMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA5FA2B5E781AE74D3DF5AB /* Pods_PetMaster.framework */; };
+		7E079A2F26D0E63D00A46181 /* Pet's Friend Logo 87.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2726D0E63D00A46181 /* Pet's Friend Logo 87.png */; };
+		7E079A3026D0E63D00A46181 /* Pet's Friend Logo 40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2826D0E63D00A46181 /* Pet's Friend Logo 40.png */; };
+		7E079A3126D0E63D00A46181 /* Pet's Friend Logo 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2926D0E63D00A46181 /* Pet's Friend Logo 1024.png */; };
+		7E079A3226D0E63D00A46181 /* blueLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2A26D0E63D00A46181 /* blueLogo@3x.png */; };
+		7E079A3326D0E63D00A46181 /* Pet's Friend Logo 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2B26D0E63D00A46181 /* Pet's Friend Logo 80.png */; };
+		7E079A3426D0E63D00A46181 /* Pet's Friend Logo 60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2C26D0E63D00A46181 /* Pet's Friend Logo 60.png */; };
+		7E079A3526D0E63D00A46181 /* Pet's Friend Logo 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2D26D0E63D00A46181 /* Pet's Friend Logo 58.png */; };
+		7E079A3626D0E63D00A46181 /* blueLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E079A2E26D0E63D00A46181 /* blueLogo@2x.png */; };
 		7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7E1295A026C25E03003DCC62 /* What to do.rtf */; };
 		7E1295A326C26F0A003DCC62 /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1295A226C26F0A003DCC62 /* DeathViewController.swift */; };
 		7E29214226C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */; };
@@ -32,6 +40,15 @@
 		7E724DE826B964960002AD4A /* AddVaccinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DE726B964960002AD4A /* AddVaccinationViewController.swift */; };
 		7E724DEA26B9DE710002AD4A /* DiseasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DE926B9DE710002AD4A /* DiseasesTableViewController.swift */; };
 		7E724DEC26B9DE900002AD4A /* AddDiseaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E724DEB26B9DE900002AD4A /* AddDiseaseViewController.swift */; };
+		7E7521B526D0EA830099C828 /* GreenLogo_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521AD26D0EA830099C828 /* GreenLogo_80.png */; };
+		7E7521B626D0EA830099C828 /* GreenLogo_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521AE26D0EA830099C828 /* GreenLogo_87.png */; };
+		7E7521B726D0EA830099C828 /* GreenLogo_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521AF26D0EA830099C828 /* GreenLogo_58.png */; };
+		7E7521B826D0EA830099C828 /* GreenLogo_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521B026D0EA830099C828 /* GreenLogo_60.png */; };
+		7E7521B926D0EA830099C828 /* greenLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521B126D0EA830099C828 /* greenLogo@2x.png */; };
+		7E7521BA26D0EA830099C828 /* GreenLogo_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521B226D0EA830099C828 /* GreenLogo_40.png */; };
+		7E7521BB26D0EA830099C828 /* greenLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521B326D0EA830099C828 /* greenLogo@3x.png */; };
+		7E7521BC26D0EA830099C828 /* GreenLogo_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7521B426D0EA830099C828 /* GreenLogo_1024.png */; };
+		7E7521BE26D0F1F20099C828 /* ChangeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7521BD26D0F1F20099C828 /* ChangeIcon.swift */; };
 		7E80C70726BB2AB000365A8B /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70626BB2AB000365A8B /* EventsTableViewController.swift */; };
 		7E80C70926BB2AC100365A8B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70826BB2AC100365A8B /* AddEventViewController.swift */; };
 		7E80C70B26BB330500365A8B /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80C70A26BB330500365A8B /* FoodTableViewController.swift */; };
@@ -84,6 +101,14 @@
 		6D1DCFAA74D4FE7A4F62EA53 /* Pods-PetMaster-PetMasterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster-PetMasterUITests.debug.xcconfig"; path = "Target Support Files/Pods-PetMaster-PetMasterUITests/Pods-PetMaster-PetMasterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		79EE05674E3809F0DABD78BD /* Pods-PetMasterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMasterTests.release.xcconfig"; path = "Target Support Files/Pods-PetMasterTests/Pods-PetMasterTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EA1B70E67F34AE42A5591 /* Pods_PetMaster_PetMasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster_PetMasterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E079A2726D0E63D00A46181 /* Pet's Friend Logo 87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 87.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 87.png"; sourceTree = "<group>"; };
+		7E079A2826D0E63D00A46181 /* Pet's Friend Logo 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 40.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 40.png"; sourceTree = "<group>"; };
+		7E079A2926D0E63D00A46181 /* Pet's Friend Logo 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 1024.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 1024.png"; sourceTree = "<group>"; };
+		7E079A2A26D0E63D00A46181 /* blueLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueLogo@3x.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/blueLogo@3x.png"; sourceTree = "<group>"; };
+		7E079A2B26D0E63D00A46181 /* Pet's Friend Logo 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 80.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 80.png"; sourceTree = "<group>"; };
+		7E079A2C26D0E63D00A46181 /* Pet's Friend Logo 60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 60.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 60.png"; sourceTree = "<group>"; };
+		7E079A2D26D0E63D00A46181 /* Pet's Friend Logo 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pet's Friend Logo 58.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/Pet's Friend Logo 58.png"; sourceTree = "<group>"; };
+		7E079A2E26D0E63D00A46181 /* blueLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueLogo@2x.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo - Blue/blueLogo@2x.png"; sourceTree = "<group>"; };
 		7E1295A026C25E03003DCC62 /* What to do.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "What to do.rtf"; sourceTree = "<group>"; };
 		7E1295A226C26F0A003DCC62 /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		7E29214126C9A1D3005CFDAA /* MoneyHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +148,15 @@
 		7E724DE726B964960002AD4A /* AddVaccinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationViewController.swift; sourceTree = "<group>"; };
 		7E724DE926B9DE710002AD4A /* DiseasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesTableViewController.swift; sourceTree = "<group>"; };
 		7E724DEB26B9DE900002AD4A /* AddDiseaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDiseaseViewController.swift; sourceTree = "<group>"; };
+		7E7521AD26D0EA830099C828 /* GreenLogo_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_80.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_80.png"; sourceTree = "<group>"; };
+		7E7521AE26D0EA830099C828 /* GreenLogo_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_87.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_87.png"; sourceTree = "<group>"; };
+		7E7521AF26D0EA830099C828 /* GreenLogo_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_58.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_58.png"; sourceTree = "<group>"; };
+		7E7521B026D0EA830099C828 /* GreenLogo_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_60.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_60.png"; sourceTree = "<group>"; };
+		7E7521B126D0EA830099C828 /* greenLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "greenLogo@2x.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/greenLogo@2x.png"; sourceTree = "<group>"; };
+		7E7521B226D0EA830099C828 /* GreenLogo_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_40.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_40.png"; sourceTree = "<group>"; };
+		7E7521B326D0EA830099C828 /* greenLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "greenLogo@3x.png"; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/greenLogo@3x.png"; sourceTree = "<group>"; };
+		7E7521B426D0EA830099C828 /* GreenLogo_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenLogo_1024.png; path = "../../../../../Other/PSD-files/Pet's Friend Logo Green/GreenLogo_1024.png"; sourceTree = "<group>"; };
+		7E7521BD26D0F1F20099C828 /* ChangeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIcon.swift; sourceTree = "<group>"; };
 		7E80C70626BB2AB000365A8B /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		7E80C70826BB2AC100365A8B /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		7E80C70A26BB330500365A8B /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +226,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7E079A2426D0E5F000A46181 /* Alternate Icons */ = {
+			isa = PBXGroup;
+			children = (
+				7E079A2626D0E60B00A46181 /* greenAppIcon */,
+				7E079A2526D0E5FF00A46181 /* blueAppIcon */,
+				7E7521BD26D0F1F20099C828 /* ChangeIcon.swift */,
+			);
+			path = "Alternate Icons";
+			sourceTree = "<group>";
+		};
+		7E079A2526D0E5FF00A46181 /* blueAppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				7E079A2D26D0E63D00A46181 /* Pet's Friend Logo 58.png */,
+				7E079A2826D0E63D00A46181 /* Pet's Friend Logo 40.png */,
+				7E079A2C26D0E63D00A46181 /* Pet's Friend Logo 60.png */,
+				7E079A2B26D0E63D00A46181 /* Pet's Friend Logo 80.png */,
+				7E079A2726D0E63D00A46181 /* Pet's Friend Logo 87.png */,
+				7E079A2E26D0E63D00A46181 /* blueLogo@2x.png */,
+				7E079A2A26D0E63D00A46181 /* blueLogo@3x.png */,
+				7E079A2926D0E63D00A46181 /* Pet's Friend Logo 1024.png */,
+			);
+			path = blueAppIcon;
+			sourceTree = "<group>";
+		};
+		7E079A2626D0E60B00A46181 /* greenAppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				7E7521B226D0EA830099C828 /* GreenLogo_40.png */,
+				7E7521AF26D0EA830099C828 /* GreenLogo_58.png */,
+				7E7521B026D0EA830099C828 /* GreenLogo_60.png */,
+				7E7521AD26D0EA830099C828 /* GreenLogo_80.png */,
+				7E7521AE26D0EA830099C828 /* GreenLogo_87.png */,
+				7E7521B126D0EA830099C828 /* greenLogo@2x.png */,
+				7E7521B326D0EA830099C828 /* greenLogo@3x.png */,
+				7E7521B426D0EA830099C828 /* GreenLogo_1024.png */,
+			);
+			path = greenAppIcon;
+			sourceTree = "<group>";
+		};
 		7E10536E269E339100C5AA7A /* AnimalListScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +280,7 @@
 		7E6E030E2605EDB40015571B = {
 			isa = PBXGroup;
 			children = (
+				7E079A2426D0E5F000A46181 /* Alternate Icons */,
 				7EB4140F26CDB00B00204785 /* ICloud and purchase */,
 				7EACC12926C84A3F0036739C /* MoneyForAnimal */,
 				7E724DE426B95F410002AD4A /* OtherAnimalInfoVCs */,
@@ -468,9 +543,25 @@
 				7E5A2A2F26C50E570052053E /* InfoPlist.strings in Resources */,
 				7E5A2A2926C509F90052053E /* Localizable.strings in Resources */,
 				7E6E03242605EDB50015571B /* Assets.xcassets in Resources */,
+				7E079A3126D0E63D00A46181 /* Pet's Friend Logo 1024.png in Resources */,
+				7E7521BC26D0EA830099C828 /* GreenLogo_1024.png in Resources */,
+				7E7521BA26D0EA830099C828 /* GreenLogo_40.png in Resources */,
+				7E079A3626D0E63D00A46181 /* blueLogo@2x.png in Resources */,
+				7E7521B826D0EA830099C828 /* GreenLogo_60.png in Resources */,
 				7E1295A126C25E03003DCC62 /* What to do.rtf in Resources */,
+				7E7521BB26D0EA830099C828 /* greenLogo@3x.png in Resources */,
+				7E079A3026D0E63D00A46181 /* Pet's Friend Logo 40.png in Resources */,
+				7E7521B626D0EA830099C828 /* GreenLogo_87.png in Resources */,
+				7E079A3426D0E63D00A46181 /* Pet's Friend Logo 60.png in Resources */,
+				7E079A3526D0E63D00A46181 /* Pet's Friend Logo 58.png in Resources */,
 				7E6E03222605EDB40015571B /* Main.storyboard in Resources */,
+				7E079A2F26D0E63D00A46181 /* Pet's Friend Logo 87.png in Resources */,
+				7E079A3226D0E63D00A46181 /* blueLogo@3x.png in Resources */,
+				7E7521B926D0EA830099C828 /* greenLogo@2x.png in Resources */,
+				7E7521B726D0EA830099C828 /* GreenLogo_58.png in Resources */,
 				7EF9F10726C3CAF900B70335 /* AnimalTableViewCell.xib in Resources */,
+				7E079A3326D0E63D00A46181 /* Pet's Friend Logo 80.png in Resources */,
+				7E7521B526D0EA830099C828 /* GreenLogo_80.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +711,7 @@
 				7E30FE3B2605F60B000EDA0D /* MealTableViewController.swift in Sources */,
 				7E80C70726BB2AB000365A8B /* EventsTableViewController.swift in Sources */,
 				7EF9F10626C3CAF900B70335 /* AnimalTableViewCell.swift in Sources */,
+				7E7521BE26D0F1F20099C828 /* ChangeIcon.swift in Sources */,
 				7EC5555A26B3FFA10054F314 /* AddAnimalViewController.swift in Sources */,
 				7ECB489C26C011DD003B99CF /* SettingsTableViewController.swift in Sources */,
 				7E724DE626B95F640002AD4A /* VaccinationsTableViewController.swift in Sources */,

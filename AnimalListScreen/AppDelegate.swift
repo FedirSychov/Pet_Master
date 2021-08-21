@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        //Saved.shared.reserSettings()
+        print(Saved.shared.currentSettings.isShared)
         checkAllBirthdays()
 
         AppVersion.CheckFullVersion()

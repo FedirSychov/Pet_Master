@@ -34,6 +34,7 @@ struct Settings: Codable {
     var cellBackground_red: Float
     var cellBackground_green: Float
     var cellBackground_blue: Float
+    var isShared: Bool
 }
 
 struct Money: Codable {
@@ -49,7 +50,7 @@ class Saved {
     
     private var baseSave = SavedAnimals(animals: [])
     
-    private var baseSettings = Settings(sort: .down, dateFormat: "dd/MM/YYYY", backgroundImage: "Background1", headerColor_red: 255, headerColor_green: 171, headerColor_blut: 74, cellBackground_red: 233, cellBackground_green: 92, cellBackground_blue: 19)
+    private var baseSettings = Settings(sort: .down, dateFormat: "dd/MM/YYYY", backgroundImage: "Background1", headerColor_red: 255, headerColor_green: 171, headerColor_blut: 74, cellBackground_red: 233, cellBackground_green: 92, cellBackground_blue: 19, isShared: false)
     
     private var baseExpenditures = Money(allExpenditures: [])
     

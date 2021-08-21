@@ -13,6 +13,8 @@ protocol updateBackgroundDelegate: NSObject {
 
 class BackgroundTableVC: UITableViewController {
     
+    let appIconService = AppIconService()
+    
     weak var updateDelegate: updateBackgroundDelegate?
     var mainMenuVC: UIViewController?
 
@@ -56,6 +58,7 @@ class BackgroundTableVC: UITableViewController {
             Saved.shared.currentSettings.cellBackground_red = 233
             Saved.shared.currentSettings.cellBackground_green = 91
             Saved.shared.currentSettings.cellBackground_blue = 19
+            appIconService.changeAppIcon(to: .primaryAppIcon)
         case 1:
             Saved.shared.currentSettings.backgroundImage = "Background-4"
             Saved.shared.currentSettings.headerColor_red = 102
@@ -64,6 +67,7 @@ class BackgroundTableVC: UITableViewController {
             Saved.shared.currentSettings.cellBackground_red = 42
             Saved.shared.currentSettings.cellBackground_green = 137
             Saved.shared.currentSettings.cellBackground_blue = 57
+            appIconService.changeAppIcon(to: .greenAppIcon)
         case 2:
             Saved.shared.currentSettings.backgroundImage = "Background-5"
             Saved.shared.currentSettings.headerColor_red = 88
@@ -72,6 +76,7 @@ class BackgroundTableVC: UITableViewController {
             Saved.shared.currentSettings.cellBackground_red = 33
             Saved.shared.currentSettings.cellBackground_green = 111
             Saved.shared.currentSettings.cellBackground_blue = 145
+            appIconService.changeAppIcon(to: .blueAppIcon)
         default:
             Saved.shared.currentSettings.backgroundImage = "Background1"
             Saved.shared.currentSettings.headerColor_red = 255
@@ -80,6 +85,7 @@ class BackgroundTableVC: UITableViewController {
             Saved.shared.currentSettings.cellBackground_red = 233
             Saved.shared.currentSettings.cellBackground_green = 92
             Saved.shared.currentSettings.cellBackground_blue = 19
+            appIconService.changeAppIcon(to: .primaryAppIcon)
         }
         self.updateDelegate?.updatebackground()
         self.navigationController?.popToViewController(self.mainMenuVC!, animated: true)

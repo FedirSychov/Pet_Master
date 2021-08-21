@@ -196,9 +196,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="OIV-DA-6ln" kind="show" identifier="goToBackgrounds" id="DSn-Ik-lAg"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iCf-yY-jw1">
                                         <rect key="frame" x="0.0" y="155.33333778381348" width="414" height="43.666667938232422"/>
@@ -260,7 +257,13 @@
                             <outlet property="delegate" destination="lSI-FX-vrY" id="ieo-GB-vda"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="KVL-fU-WPP"/>
+                    <navigationItem key="navigationItem" title="Settings" id="KVL-fU-WPP">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="uSA-fy-OOo">
+                            <connections>
+                                <action selector="Share:" destination="lSI-FX-vrY" id="fFr-5E-qUo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="SortingLabel" destination="FPG-gG-qs4" id="hIk-6w-VAG"/>
                         <outlet property="dateFormatLabel" destination="dmf-oK-TBa" id="6gy-lz-kWK"/>
@@ -268,6 +271,7 @@
                         <outlet property="fullVersionButton" destination="YRf-Zn-4DO" id="nrf-6K-cnD"/>
                         <outlet property="resetSettingsButton" destination="rgh-lb-qiS" id="MmC-YF-0gs"/>
                         <outlet property="sortTypeLabel" destination="Mo5-hV-Peg" id="fbS-gA-Vol"/>
+                        <segue destination="OIV-DA-6ln" kind="show" identifier="goToBackgrounds" id="VCR-rQ-KTH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciQ-Op-iMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2383,6 +2387,7 @@
         <image name="Logo-MainMenu" width="1200" height="1200"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
