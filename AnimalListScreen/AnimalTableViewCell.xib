@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-eI-CCC">
-                        <rect key="frame" x="84" y="49.5" width="226" height="24"/>
+                        <rect key="frame" x="84" y="46" width="226" height="24"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehv-j3-Yi3">
-                        <rect key="frame" x="84" y="4" width="226" height="30.5"/>
+                        <rect key="frame" x="84" y="18" width="226" height="30.5"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
@@ -42,12 +42,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gW6-eI-CCC" firstAttribute="top" secondItem="ehv-j3-Yi3" secondAttribute="bottom" constant="15" id="7Z9-Ki-ZGG"/>
+                    <constraint firstItem="gW6-eI-CCC" firstAttribute="top" secondItem="ehv-j3-Yi3" secondAttribute="bottom" priority="1" constant="7" id="7Z9-Ki-ZGG"/>
                     <constraint firstAttribute="bottom" secondItem="YTN-EH-S1k" secondAttribute="bottom" constant="4" id="UMH-dp-4ez"/>
                     <constraint firstItem="YTN-EH-S1k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="aYh-Kz-DGe"/>
                     <constraint firstItem="YTN-EH-S1k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="dLw-ja-f0g"/>
+                    <constraint firstAttribute="bottom" secondItem="gW6-eI-CCC" secondAttribute="bottom" constant="8" id="dzh-uC-YYM"/>
                     <constraint firstAttribute="trailing" secondItem="gW6-eI-CCC" secondAttribute="trailing" constant="10" id="fc5-zy-f13"/>
-                    <constraint firstItem="ehv-j3-Yi3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="pVh-F1-fon"/>
+                    <constraint firstItem="ehv-j3-Yi3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="pVh-F1-fon"/>
                     <constraint firstItem="ehv-j3-Yi3" firstAttribute="leading" secondItem="YTN-EH-S1k" secondAttribute="trailing" constant="10" id="yLp-ui-RBJ"/>
                     <constraint firstItem="gW6-eI-CCC" firstAttribute="leading" secondItem="YTN-EH-S1k" secondAttribute="trailing" constant="10" id="ybD-kN-ycI"/>
                     <constraint firstAttribute="trailing" secondItem="ehv-j3-Yi3" secondAttribute="trailing" constant="10" id="zMb-re-TSv"/>

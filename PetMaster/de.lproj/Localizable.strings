@@ -68,7 +68,15 @@
 "price" = "Preis";
 "add" = "Hinzufügen";
 "all" = "Alle";
-"purchase_description" = "Durch den Kauf der Vollversion von PetMaster haben Sie Zugriff darauf, die Krankengeschichte Ihres Haustieres zu erstellen, alle vergangenen Ereignisse aufzuzeichnen und Erinnerungen zu erstellen, über die Sie benachrichtigt werden. Es wird auch ein neuer Abschnitt eröffnet - Ausgaben. Darin können Sie Ihre eigene Geschichte der Barausgaben erstellen und detaillierte Informationen zu den für Ihre Haustiere ausgegebenen Geldern anzeigen.";
+"purchase_description" = "Durch den Kauf der Vollversion von PetMaster haben Sie Zugriff darauf, die Krankengeschichte Ihres Haustieres zu erstellen, alle vergangenen Ereignisse aufzuzeichnen und Erinnerungen zu erstellen, über die Sie benachrichtigt werden. Es wird auch ein neuer Abschnitt eröffnet - Ausgaben. Darin können Sie Ihre eigene Geschichte der Barausgaben erstellen und detaillierte Informationen zu den für Ihre Haustiere ausgegebenen Geldern anzeigen. Darüber hinaus werden alle Ihre Daten in icloud gespeichert, wodurch sie vor dem Löschen bewahrt werden.";
 "full_version" = "Vollversion";
 "events" = "Veranstaltungen";
 "diseases" = "Krankheiten";
+"no_data" = "Füllen Sie mindestens das Namensfeld aus";
+"have_to_share" = "Um neue Hintergründe freizuschalten, teilen Sie die App mit deinen Freunden";
+"share" = "Teilen";
+"no_data_header" = "Nicht genug Daten";
+"warning" = "Achtung";
+"plans" = "Sie haben Veranstaltungen geplant!";
+"are_you_sure" = "Sind Sie sicher?";
+"is_alive" = "Ist am Leben!";

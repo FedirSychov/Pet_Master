@@ -167,9 +167,9 @@ class AnimalViewController: UIViewController {
     }
 
     private func ShowAlertActionSheet(){
-        let alert = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: NSLocalizedString("options", comment: ""), message: nil, preferredStyle: .actionSheet)
         
-        let imageAction = UIAlertAction(title: "Set photo as avatar", style: .default) { [weak self](_) in
+        let imageAction = UIAlertAction(title: NSLocalizedString("set_photo", comment: ""), style: .default) { [weak self](_) in
             let vc = UIImagePickerController()
             vc.sourceType = .photoLibrary
             vc.delegate = self
@@ -178,19 +178,19 @@ class AnimalViewController: UIViewController {
             
         }
         
-        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self](_) in
+        let editAction = UIAlertAction(title: NSLocalizedString("edit", comment: ""), style: .default) { [weak self](_) in
             self?.performSegue(withIdentifier: "EditAnimal", sender: nil)
         }
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self](_) in
+        let deleteAction = UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive) { [weak self](_) in
             self?.showAlert()
         }
         
-        let deathAction = UIAlertAction(title: "Mark as dead", style: .destructive) { [weak self](_) in
+        let deathAction = UIAlertAction(title: NSLocalizedString("dead", comment: ""), style: .destructive) { [weak self](_) in
             self?.performSegue(withIdentifier: "goToDeadVC", sender: nil)
         }
         
-        let isStillAliveAction = UIAlertAction(title: "Is alive!", style: .default) { [weak self](_) in
+        let isStillAliveAction = UIAlertAction(title: NSLocalizedString("is_alive", comment: ""), style: .default) { [weak self](_) in
             self!.currentAnimal!.date_of_death = nil
             self!.currentAnimal!.deathComment = nil
             _ = self!.currentAnimal!.UpdateAge()
@@ -206,7 +206,7 @@ class AnimalViewController: UIViewController {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         
         if currentAnimal!.date_of_death == nil{
             alert.addAction(imageAction)
@@ -225,11 +225,11 @@ class AnimalViewController: UIViewController {
     }
     
     private func showAlert(){
-        let alert = UIAlertController(title: "Are you sure?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("are_you_sure", comment: ""), message: nil, preferredStyle: .alert)
         
-        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        let noAction = UIAlertAction(title: NSLocalizedString("no", comment: ""), style: .default, handler: nil)
         
-        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { [weak self](_) in
+        let yesAction = UIAlertAction(title: NSLocalizedString("yes", comment: ""), style: .destructive) { [weak self](_) in
             var num = 0
             for animal in Saved.shared.currentSaves.animals{
                 if animal.showInfo() == self!.currentAnimal!.showInfo(){

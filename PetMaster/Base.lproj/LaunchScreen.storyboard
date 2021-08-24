@@ -19,29 +19,54 @@
                             <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="1FG-Vq-Sbf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet's Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-3a-PvF">
-                                        <rect key="frame" x="115.66666666666669" y="426.66666666666669" width="183" height="43"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="35"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" systemColor="linkColor"/>
-                                        <size key="shadowOffset" width="1" height="-1"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hxP-Wf-MEl">
+                                        <rect key="frame" x="107" y="319.66666666666669" width="200" height="257.00000000000006"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pet's Friend Logo-clear" translatesAutoresizingMaskIntoConstraints="NO" id="Eob-ry-pfg">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="6ks-4D-8FX"/>
+                                                    <constraint firstAttribute="height" constant="200" id="utF-4v-3v0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuK-3a-PvF">
+                                                <rect key="frame" x="0.0" y="207.99999999999994" width="200" height="49"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="RO0-q9-NFQ"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Pet's Friend">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="35" name="AvenirNext-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" systemColor="linkColor"/>
+                                                <size key="shadowOffset" width="1" height="-1"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Eob-ry-pfg" firstAttribute="leading" secondItem="hxP-Wf-MEl" secondAttribute="leadingMargin" id="GwJ-vb-4NL"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.70627813625450175" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="fuK-3a-PvF" firstAttribute="centerX" secondItem="1FG-Vq-Sbf" secondAttribute="centerX" id="iCm-YL-Spz"/>
-                                    <constraint firstItem="fuK-3a-PvF" firstAttribute="centerY" secondItem="1FG-Vq-Sbf" secondAttribute="centerY" id="uwa-NF-Udr"/>
+                                    <constraint firstItem="hxP-Wf-MEl" firstAttribute="centerX" secondItem="1FG-Vq-Sbf" secondAttribute="centerX" id="dgd-7i-BQa"/>
+                                    <constraint firstItem="hxP-Wf-MEl" firstAttribute="centerY" secondItem="1FG-Vq-Sbf" secondAttribute="centerY" id="q1E-S6-pVi"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Ju-0R-Xmg"/>
-                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-44" id="C0o-qf-GNF"/>
-                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OaX-Ff-Bu6"/>
-                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cyd-Xz-u2g"/>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="JCs-0a-DqM"/>
+                            <constraint firstItem="1FG-Vq-Sbf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="SLD-d8-9DL"/>
+                            <constraint firstAttribute="bottom" secondItem="1FG-Vq-Sbf" secondAttribute="bottom" id="W8N-KM-IYd"/>
+                            <constraint firstAttribute="trailing" secondItem="1FG-Vq-Sbf" secondAttribute="trailing" id="cQJ-I3-q75"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,6 +76,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Pet's Friend Logo-clear" width="1024" height="1024"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

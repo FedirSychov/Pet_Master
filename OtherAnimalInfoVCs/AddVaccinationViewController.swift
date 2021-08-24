@@ -40,6 +40,12 @@ class AddVaccinationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        VaccDate.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        VaccDate.layer.borderWidth = 7
+        
         scrollView.contentSize.height = 1.0
         scrollView.contentInsetAdjustmentBehavior = .never
         Design.setupBackground(controller: self)
@@ -53,6 +59,12 @@ class AddVaccinationViewController: UIViewController {
             self.DateSwitcher.isOn = false
             self.VaccDate.date = self.currentVaccination!.date
         }
+    }
+    
+    private func setupConstraints() {
+        self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
+        self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -1000).isActive = true
+        self.nameLabel.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: 40).isActive = true
     }
     
     private func setupLabels() {

@@ -167,7 +167,12 @@ class Saved {
     }
     
     func reserSettings() {
-        Saved.shared.currentSettings = baseSettings
+        if Saved.shared.currentSettings.isShared {
+            Saved.shared.currentSettings = baseSettings
+            Saved.shared.currentSettings.isShared = true
+        } else {
+            Saved.shared.currentSettings = baseSettings
+        }
     }
     
     func resetExpenditures() {

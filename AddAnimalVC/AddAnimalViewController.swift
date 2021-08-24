@@ -17,6 +17,7 @@ protocol UpdateDelegate: NSObject{
 
 class AddAnimalViewController: UIViewController {
     
+    @IBOutlet weak var ScrollView: UIScrollView!
     var currentAnimal: Animal?
     var num: Int = -1
     
@@ -35,6 +36,11 @@ class AddAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupConstraints()
+        self.hideKeyboardWhenTappedAround()
+        self.DateOfBirth.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        self.DateOfBirth.layer.borderWidth = 7
         Design.setupBackground(controller: self)
         DateOfBirth.maximumDate = Date()
         Design.SetupBaseButton(button: SaveButton)
@@ -55,14 +61,22 @@ class AddAnimalViewController: UIViewController {
         }
     }
     
+    private func setupConstraints() {
+        self.ScrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
+        self.ScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        self.nameLabel.topAnchor.constraint(equalTo: self.ScrollView.topAnchor, constant: 40).isActive = true
+    }
+    
     private func setupButtons(){
         Design.setupTextField_Type2(field: NameTextField)
         Design.setupTextField_Type2(field: TypeTextField)
         Design.setupTextField_Type2(field: breedTextField)
-        nameLabel.text = NSLocalizedString("name", comment: "")
+        NameTextField.autocapitalizationType = UITextAutocapitalizationType.words
+        nameLabel.text = NSLocalizedString("name_for_animal", comment: "")
         typeLabel.text = NSLocalizedString("type", comment: "")
         birthdayLabel.text = NSLocalizedString("birthday", comment: "")
         breedLabel.text = NSLocalizedString("breed", comment: "")
+        //DateOfBirth.frame(forAlignmentRect: CGRect(x: 10, y: 10, width: self.view.frame.size.width, height: 30))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -144,5 +158,17 @@ extension AnimalViewController: UpdateDelegate{
             self?.currentAnimal = animal
             self?.reloadData()
         }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 }

@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //Saved.shared.reserSettings()
+        //TODO: - delete next row
+        Saved.shared.currentVersion.isFullVersion = true
         print(Saved.shared.currentSettings.isShared)
         checkAllBirthdays()
 
@@ -44,10 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 CloudHelper.ModifyAll(animals: Saved.shared.currentSaves.animals, exps: Saved.shared.currentExpenditures.allExpenditures, settings: Saved.shared.currentSettings)
             }
         }
-        
+        //TODO: - delete next row
+        Saved.shared.currentVersion.isFullVersion = true
         if findAllPlans() != ""{
             AllowNotifications()
-            SendNotification(identifier: "plans", title: "You have plans!", body: findAllPlans(), timeW8: 3)
+            SendNotification(identifier: "plans", title: NSLocalizedString("plans", comment: ""), body: findAllPlans(), timeW8: 3)
         }
         return true
     }

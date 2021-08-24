@@ -86,7 +86,7 @@ class MoneyHistoryTableViewController: UITableViewController {
         cell.textLabel!.text = "\(dateFormatter.string(from: self.data_array![first][second].date)) | \(self.data_array![first][second].summ) | \(self.data_array![first][second].name)"
         cell.textLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
         cell.backgroundColor = UIColor.clear
-        
+        cell.textLabel?.numberOfLines = 0
         Design.setupBackgroundForCells(cell: cell)
         return cell
     }

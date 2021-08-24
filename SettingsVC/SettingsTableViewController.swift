@@ -15,7 +15,11 @@ class SettingsTableViewController: UITableViewController {
     
     weak var updatedelegate: updateDelegate?
     
+    let appIconService = AppIconService()
+    
     var mainVC: UIViewController?
+    
+    weak var updateBackgroundDelegate: updateBackgroundDelegate?
 
     @IBOutlet weak var sortTypeLabel: UILabel!
     @IBOutlet weak var resetSettingsButton: UIButton!
@@ -26,7 +30,6 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Saved.shared.currentSettings.isShared = false
         print("GAY--------", Saved.shared.currentSettings.isShared)
         Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
@@ -42,6 +45,10 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func ResetSettingsButton(_ sender: Any) {
         Saved.shared.reserSettings()
         loadSettings()
+        appIconService.changeAppIcon(to: .primaryAppIcon)
+        self.updateBackgroundDelegate = self.mainVC! as? updateBackgroundDelegate
+        self.updateBackgroundDelegate?.updatebackground()
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

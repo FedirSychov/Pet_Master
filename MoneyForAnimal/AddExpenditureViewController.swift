@@ -63,6 +63,8 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         priceTextField.delegate = self
         setupPickers()
         setupView()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func setupView() {
@@ -79,7 +81,7 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
             animalPicker.rightAnchor.constraint(equalTo: self.view.centerXAnchor),
             forPicker.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             animalPicker.leftAnchor.constraint(equalTo: self.view.centerXAnchor),
-            addButton.topAnchor.constraint(equalTo: animalPicker.bottomAnchor, constant: 0)
+            addButton.topAnchor.constraint(equalTo: animalPicker.bottomAnchor, constant: 45)
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -89,8 +91,14 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         animalPicker.delegate = self
         animalPicker.dataSource = self
         
+        animalPicker.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        animalPicker.layer.borderWidth = 7
+        
         forPicker.delegate = self
         forPicker.dataSource = self
+        
+        forPicker.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        forPicker.layer.borderWidth = 7
     }
     
     func getAnimalArray() -> [String] {

@@ -34,6 +34,7 @@ class AddDiseaseViewController: UIViewController {
     @IBOutlet weak var DiseaseDescription: UITextField!
     @IBOutlet weak var DiseaseMedicines: UITextField!
     @IBOutlet weak var LastsSwitch: UISwitch!
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     @IBOutlet weak var EndNowlabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -49,7 +50,12 @@ class AddDiseaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
         setupLabels()
+        setupConstraints()
+        
         Design.setupBackground(controller: self)
         StartDatePicker.maximumDate = Date()
         EndDatePicker.maximumDate = Date()
@@ -87,6 +93,12 @@ class AddDiseaseViewController: UIViewController {
         }
     }
     
+    private func setupConstraints() {
+        self.ScrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
+        self.ScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 500).isActive = true
+        self.nameLabel.topAnchor.constraint(equalTo: self.ScrollView.topAnchor, constant: 40).isActive = true
+    }
+    
     private func setupLabels() {
         
         let constraints = [
@@ -96,7 +108,10 @@ class AddDiseaseViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(constraints)
-        
+        StartDatePicker.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        StartDatePicker.layer.borderWidth = 7
+        EndDatePicker.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        EndDatePicker.layer.borderWidth = 7
         Design.setupTextField_Type2(field: DiseaseName)
         Design.setupTextField_Type2(field: DiseaseDescription)
         Design.setupTextField_Type2(field: DiseaseMedicines)

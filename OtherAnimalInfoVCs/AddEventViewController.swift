@@ -31,6 +31,7 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var DateSwitch: UISwitch!
     @IBOutlet weak var EventDescription: UITextField!
     
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var todayLabel: UILabel!
@@ -46,6 +47,8 @@ class AddEventViewController: UIViewController {
     
     private func setupLabels(){
         Design.setupTextField_Type2(field: EventName)
+        DatePicker.layer.borderColor = CGColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
+        DatePicker.layer.borderWidth = 7
         Design.setupTextField_Type2(field: EventDescription)
         nameLabel.text = NSLocalizedString("name", comment: "")
         dateLabel.text = NSLocalizedString("date", comment: "")
@@ -53,8 +56,17 @@ class AddEventViewController: UIViewController {
         descriptionLabel.text = NSLocalizedString("description", comment: "")
     }
     
+    private func setupConstraints() {
+        self.ScrollView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 40).isActive = true
+        self.ScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+        self.nameLabel.topAnchor.constraint(equalTo: self.ScrollView.topAnchor, constant: 40).isActive = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupConstraints()
+        self.hideKeyboardWhenTappedAround()
+        
         setupLabels()
         Design.setupBackground(controller: self)
         if DateSwitch.isOn {

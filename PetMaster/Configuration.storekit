@@ -10,9 +10,24 @@
       "internalID" : "225A8471",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Unlocks a full version of Pet's Friend",
+          "displayName" : "Full version",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Schaltet eine Vollversion von App frei",
+          "displayName" : "Vollversion",
+          "locale" : "de"
+        },
+        {
+          "description" : "Разблокирует полную версию Pet's Friend",
+          "displayName" : "Полная версия",
+          "locale" : "ru"
+        },
+        {
+          "description" : "Розблоковує повну версію Pet's Friend",
+          "displayName" : "Повна версія",
+          "locale" : "uk"
         }
       ],
       "productID" : "petmasterstorage.fullversion",

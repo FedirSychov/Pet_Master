@@ -42,6 +42,7 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         DispatchQueue.main.async {
+            Alert.showBasicAlert(on: self, with: "Count", message: "\(response.products.count)")
             print("Count: \(response.products.count)")
             self.models = response.products
         }

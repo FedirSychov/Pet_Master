@@ -19,13 +19,13 @@ struct Alert{
     }
     
     static func showIncompleteFormAlert(on vc: UIViewController) {
-        showBasicAlert(on: vc, with: "No data", message: "Please fill out at least name field!")
+        showBasicAlert(on: vc, with: NSLocalizedString("no_data_header", comment: ""), message: NSLocalizedString("no_data", comment: ""))
     }
     
     static func showShareAlert(on vc: SettingsTableViewController) {
-        let alert = UIAlertController(title: "Warning!", message: "To unlock backgrounds pls share an app with your friends.", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("warning", comment: ""), message: NSLocalizedString("have_to_share", comment: ""), preferredStyle: .alert)
         
-        let shareAction = UIAlertAction(title: "Share", style: .default) { (_) in
+        let shareAction = UIAlertAction(title: NSLocalizedString("share", comment: ""), style: .default) { (_) in
             vc.Share()
         }
         

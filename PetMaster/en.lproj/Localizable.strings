@@ -68,7 +68,15 @@
 "price" = "Price";
 "add" = "Add";
 "all" = "All";
-"purchase_description" = "By purchasing the full version of PetMaster, you will have access to creating your pet's medical history, recording all past events and creating reminders about which you will be notified. A new section will also be opened - expenses. In it you can create your own history of cash expenditures, as well as view detailed information about the money spent on your pets.";
+"purchase_description" = "By purchasing the full version of PetMaster, you will get access to creating your pet's medical history, recording all past events and creating reminders about which you will be notified. A new section will also be opened - expenses. There you can create your own history of cash expenditures and analize the statistic! Also all your data will be saved in Icloud, that will protect all information from deletion.";
 "full_version" = "Full version";
 "events" = "Events";
 "diseases" = "Diseases";
+"no_data" = "Please fill out at least name field!";
+"have_to_share" = "To unlock backgrounds, please share the app with your friends";
+"share" = "Share";
+"no_data_header" = "No data";
+"warning" = "Warning";
+"plans" = "You have plans!";
+"are_you_sure" = "Are you sure?";
+"is_alive" = "Is alive!";

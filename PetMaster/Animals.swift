@@ -205,20 +205,10 @@ class Animal: Codable, Equatable {
         } else {
             ageComponents = Calendar.current.dateComponents([.year, .month, .day], from: date_of_birth, to: self.date_of_death!)
         }
-        let dateFormat = Saved.shared.currentSettings.dateFormat
         var new_full_age: String
-        switch dateFormat {
-        case "dd/MM/YYYY":
-            new_full_age = "\(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
-        case "MM/dd/YYYY":
-            new_full_age = "\(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
-        case "YYYY/dd/MM":
-            new_full_age = "\(ageComponents.year!)\(NSLocalizedString("years", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: ""))"
-        case "YYYY/MM/dd":
-            new_full_age = "\(ageComponents.year!)\(NSLocalizedString("years", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: ""))"
-        default:
-            new_full_age = "\(ageComponents.day!)\(NSLocalizedString("days", comment: "")), \(ageComponents.month!) \(NSLocalizedString("monthes", comment: "")), \(ageComponents.year!)\(NSLocalizedString("years", comment: ""))"
-        }
+
+        new_full_age = "\(ageComponents.year!)\(NSLocalizedString("years", comment: "")), \(ageComponents.month!)\(NSLocalizedString("monthes", comment: "")), \(ageComponents.day!)\(NSLocalizedString("days", comment: ""))"
+        
         if ageComponents.year! <= 4 && ageComponents.year! > 0 {
             if new_full_age.contains("лет") {
                 if ageComponents.year! == 1{
