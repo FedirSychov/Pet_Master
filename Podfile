@@ -1,13 +1,14 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '14.4'
 
-target "Pet's Friend" do
+target "PetMaster" do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for PetMaster
   pod 'Charts'
   pod 'TinyConstraints'
+  pod 'Purchases'
 
   target 'PetMasterTests' do
     inherit! :search_paths

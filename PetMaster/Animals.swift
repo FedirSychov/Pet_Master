@@ -192,9 +192,9 @@ class Animal: Codable, Equatable {
         all_info = "\(self.name), \(self.animal_breed!), \(self.animal_type)"
         }
 //        Перевод на человеческие годы, если это собака
-        if self.animal_type == "dog" {
-            all_info.append(", возраст на человеческие годы: \(String(Int(log(Double(self.animal_age))*16 + 31)))")
-        }
+        //if self.animal_type == "dog" {
+        //    all_info.append(", возраст на человеческие годы: \(String(Int(log(Double(self.animal_age))*16 + 31)))")
+        //}
         return all_info
     }
 //    метод обновления полного возраста

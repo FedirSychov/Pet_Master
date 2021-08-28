@@ -94,7 +94,6 @@ class AddAnimalViewController: UIViewController {
     }
     
     @IBAction func AddAnimalButton(_ sender: Any) {
-        //TODO: - Add checking for alredy existed animals
         if currentAnimal != nil{
             if currentAnimal!.name == NameTextField.text! && currentAnimal!.animal_type == TypeTextField.text! && currentAnimal!.date_of_birth == DateOfBirth.date && currentAnimal!.animal_breed == breedTextField.text!{
                 editdelegate?.UpdateAnimal(currentAnimal!)

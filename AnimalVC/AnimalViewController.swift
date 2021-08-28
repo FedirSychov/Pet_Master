@@ -50,6 +50,7 @@ class AnimalViewController: UIViewController {
     }
     
     private func setupButtons(){
+        //print(ExportAnimals.ExportInfo(currentAnimal: self.currentAnimal!))
         Design.SetupGreenButton(button: MakeHealthy)
         Design.SetupBaseButton(button: VaccinationsButton)
         VaccinationsButton.setTitle(NSLocalizedString("vaccinations_button", comment: ""), for: .normal)
@@ -169,6 +170,19 @@ class AnimalViewController: UIViewController {
     private func ShowAlertActionSheet(){
         let alert = UIAlertController(title: NSLocalizedString("options", comment: ""), message: nil, preferredStyle: .actionSheet)
         
+        let exportAction = UIAlertAction(title: "Export", style: .default) { [weak self](_) in
+            let activityVC = UIActivityViewController(activityItems: [ExportAnimals.ExportInfo(currentAnimal: (self?.currentAnimal!)!)], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = self!.view
+            
+            self!.present(activityVC, animated: true, completion: nil)
+            
+            activityVC.completionWithItemsHandler = { activity, completed, items, error in
+                if completed == true {
+                    //Saved.shared.currentSettings.isShared = true
+                }
+            }
+        }
+        
         let imageAction = UIAlertAction(title: NSLocalizedString("set_photo", comment: ""), style: .default) { [weak self](_) in
             let vc = UIImagePickerController()
             vc.sourceType = .photoLibrary
@@ -209,12 +223,14 @@ class AnimalViewController: UIViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         
         if currentAnimal!.date_of_death == nil{
+            //alert.addAction(exportAction)
             alert.addAction(imageAction)
             alert.addAction(editAction)
             alert.addAction(deleteAction)
             alert.addAction(deathAction)
             alert.addAction(cancelAction)
         } else {
+            //alert.addAction(exportAction)
             alert.addAction(imageAction)
             alert.addAction(isStillAliveAction)
             alert.addAction(deleteAction)

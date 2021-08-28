@@ -2,21 +2,29 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - Purchases (3.12.3):
+    - PurchasesCoreSwift (= 3.12.3)
+  - PurchasesCoreSwift (3.12.3)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Charts
+  - Purchases
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Charts
+    - Purchases
+    - PurchasesCoreSwift
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Purchases: e9839517aea4335136f3946ae228eecf5131cc25
+  PurchasesCoreSwift: dd3fd55a9895abd7906a3842bd36c7f7539a99d1
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 75782b46d1e211bf57bf215ab50948399453376f
+PODFILE CHECKSUM: d78a2e3c20d5e0e4618239b3b9a2139c5ce39062
 
 COCOAPODS: 1.10.2

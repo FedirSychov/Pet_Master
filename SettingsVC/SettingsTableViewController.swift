@@ -122,7 +122,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func Share(_ sender: Any) {
-        let activityVC = UIActivityViewController(activityItems: ["Check out a new app! "], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: ["Check out a new app on App Store! Pet's Friend"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         
         self.present(activityVC, animated: true, completion: nil)

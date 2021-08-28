@@ -17,6 +17,7 @@ class DateFormatTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Design.setupBackground(controller: self)
+        Design.setupBackgroundForTableView(tableView: self.tableView)
         self.tableView.tableFooterView = UIView(frame: .zero)
         setupLabels()
     }

@@ -21,7 +21,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="P2v-xR-tRa"/>
                                 </constraints>
-                                <state key="normal" title="Buy full version - 4.99$"/>
+                                <state key="normal" title="Buy full version - 7.99$"/>
                                 <connections>
                                     <action selector="BuyAction:" destination="n1L-Q4-CEE" eventType="touchUpInside" id="EWL-Os-zl8"/>
                                 </connections>
@@ -445,6 +445,7 @@
                                                             <fragment content="Name:">
                                                                 <attributes>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -490,6 +491,7 @@
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -1610,7 +1612,7 @@
             </objects>
             <point key="canvasLocation" x="2560.8695652173915" y="-1368.0803571428571"/>
         </scene>
-        <!--Date Format Table View Controller-->
+        <!--Date Format-->
         <scene sceneID="ETd-gL-kHk">
             <objects>
                 <tableViewController id="GUz-wb-yii" customClass="DateFormatTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
@@ -1725,7 +1727,7 @@
                             <outlet property="delegate" destination="GUz-wb-yii" id="bVs-4X-v9i"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oOB-LF-z61"/>
+                    <navigationItem key="navigationItem" title="Date Format" id="oOB-LF-z61"/>
                     <connections>
                         <outlet property="DMYLabel" destination="wVK-ZJ-vz1" id="hlt-Jc-wqn"/>
                         <outlet property="MDYLabel" destination="8Go-51-DCu" id="r9d-fa-H16"/>
@@ -2311,7 +2313,7 @@
                                     <constraint firstItem="NIt-ce-c8P" firstAttribute="top" secondItem="eWn-07-7dw" secondAttribute="bottom" constant="47" id="jLc-20-w3X"/>
                                     <constraint firstItem="gEo-LZ-wyi" firstAttribute="leading" secondItem="bdt-v4-EV9" secondAttribute="leading" constant="25" id="jta-gy-YK4"/>
                                     <constraint firstItem="1dT-m3-3Qz" firstAttribute="leading" secondItem="WRi-tn-2TX" secondAttribute="leading" id="kdF-Sv-wUP"/>
-                                    <constraint firstAttribute="bottom" secondItem="X0T-ps-vLQ" secondAttribute="bottom" constant="1500" id="mFI-gH-K81"/>
+                                    <constraint firstAttribute="bottom" secondItem="X0T-ps-vLQ" secondAttribute="bottom" constant="1000" id="mFI-gH-K81"/>
                                     <constraint firstItem="Cnf-aa-e3y" firstAttribute="top" secondItem="gEo-LZ-wyi" secondAttribute="bottom" constant="4" id="mKL-Rj-LTi"/>
                                     <constraint firstItem="X0T-ps-vLQ" firstAttribute="leading" secondItem="bdt-v4-EV9" secondAttribute="leading" id="nqV-Xn-d61"/>
                                     <constraint firstItem="Cnf-aa-e3y" firstAttribute="trailing" secondItem="eOm-7i-qCm" secondAttribute="trailing" id="oKh-W4-58Q"/>

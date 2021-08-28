@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Purchases
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,11 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     // set orientations that will be allowed in this property by default
     var orientationLock = UIInterfaceOrientationMask.portrait
+    
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //TODO: - delete next row
-        Saved.shared.currentVersion.isFullVersion = true
-        print(Saved.shared.currentSettings.isShared)
+        
+        Purchases.debugLogsEnabled = true
+        Purchases.configure(withAPIKey: "ELJFGleZgDvHjXExNzeXqpdivEQKZeaC")
+
         checkAllBirthdays()
 
         AppVersion.CheckFullVersion()
@@ -45,8 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 CloudHelper.ModifyAll(animals: Saved.shared.currentSaves.animals, exps: Saved.shared.currentExpenditures.allExpenditures, settings: Saved.shared.currentSettings)
             }
         }
-        //TODO: - delete next row
-        Saved.shared.currentVersion.isFullVersion = true
+        
         if findAllPlans() != ""{
             AllowNotifications()
             SendNotification(identifier: "plans", title: NSLocalizedString("plans", comment: ""), body: findAllPlans(), timeW8: 3)

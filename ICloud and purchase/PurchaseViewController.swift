@@ -42,8 +42,8 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         DispatchQueue.main.async {
-            Alert.showBasicAlert(on: self, with: "Count", message: "\(response.products.count)")
-            print("Count: \(response.products.count)")
+            //Alert.showBasicAlert(on: self, with: "Count", message: "\(response.products.count)")
+            //print("Count: \(response.products.count)")
             self.models = response.products
         }
     }
@@ -81,9 +81,17 @@ class PurchaseViewController: UIViewController, SKProductsRequestDelegate, SKPay
         })
     }
     
+    func makePurchase() {
+        PurchaseService.purchase(productId: "petmasterstorage.fullversion") {
+            Saved.shared.currentVersion.isFullVersion = true
+            CloudHelper.SaveFullVersionToCloud(fullVersion: true)
+        }
+    }
+    
     @IBAction func BuyAction(_ sender: Any) {
         let payment = SKPayment(product: models[0])
         SKPaymentQueue.default().add(payment)
+
     }
 }
 
