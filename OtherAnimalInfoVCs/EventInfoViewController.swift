@@ -42,6 +42,10 @@ class EventInfoViewController: UIViewController {
             self.optionButton.isEnabled = false
         }
         reloadInfo()
+        
+        Design.animateLabelAppear(label: self.NameLabel, delay: 0.0)
+        Design.animateLabelAppear(label: self.DateLabel, delay: 0.3)
+        Design.animateLabelAppear(label: self.Descriptionlabel, delay: 0.6)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

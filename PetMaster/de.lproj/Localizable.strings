@@ -80,3 +80,6 @@
 "plans" = "Sie haben Veranstaltungen geplant!";
 "are_you_sure" = "Sind Sie sicher?";
 "is_alive" = "Ist am Leben!";
+"no_vaccinations" = "keine Impfungen";
+"no_diseases" = "keine Erkrankungen";
+"export" = "Export";

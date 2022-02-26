@@ -18,19 +18,28 @@ class ExportAnimals {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Saved.shared.currentSettings.dateFormat
-        
-        for vacc in currentAnimal.vaccinations_list {
-            result += "- \(vacc.name):\n"
-            result += "    \(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: vacc.date))\n"
+        if currentAnimal.vaccinations_list.count == 0 {
+            result += "\(NSLocalizedString("no_vaccinations", comment: ""))\n"
+        } else {
+            for vacc in currentAnimal.vaccinations_list {
+                result += "- \(vacc.name):\n"
+                result += "    \(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: vacc.date))\n"
+            }
         }
+        
         result += "\n"
         
         result += "\(NSLocalizedString("diseases", comment: "")):\n"
-        for disease in currentAnimal.disease_list {
-            result += "- \(disease.name):\n"
-            result += "    \(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: disease.data_of_disease))\n"
-            result += "    \(NSLocalizedString("days_last", comment: ""))\(disease.days_of_disease)\n"
-            result += "    \(NSLocalizedString("medicines", comment: ""))\(disease.medicines)\n"
+        
+        if currentAnimal.disease_list.count == 0 {
+            result += "\(NSLocalizedString("no_diseases", comment: ""))\n"
+        } else {
+            for disease in currentAnimal.disease_list {
+                result += "- \(disease.name):\n"
+                result += "    \(NSLocalizedString("date", comment: "")): \(dateFormatter.string(from: disease.data_of_disease))\n"
+                result += "    \(NSLocalizedString("days_last", comment: ""))\(disease.days_of_disease)\n"
+                result += "    \(NSLocalizedString("medicines", comment: ""))\(disease.medicines)\n"
+            }
         }
         return result
     }

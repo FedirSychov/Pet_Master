@@ -44,6 +44,10 @@ class MoneyViewController: UIViewController {
             if let addExpVC = segue.destination as? AddExpenditureViewController {
                 addExpVC.addDelegate = self
             }
+        case "goToHistory":
+            if let historyVC = segue.destination as? MoneyHistoryTableViewController {
+                historyVC.updateDelegate = self
+            }
         default:
             print("error")
         }
@@ -100,7 +104,7 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
         } else {
             num = months(from: Saved.shared.currentExpenditures.allExpenditures[0].date)
         }
-        
+        myControllers.removeAll()
         for n in 1...num {
             let vc = UIViewController()
             Design.setupBackground(controller: vc)
@@ -112,8 +116,11 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
             let header: String = "\(NSLocalizedString("month", comment: "")): \(temp.month!)/\(temp.year!)"
             
             setupPresentedVC(vc: vc, header: header, month: 1 - n)
-            
-            myControllers.append(vc)
+            if myControllers.count < num {
+                myControllers.append(vc)
+            } else {
+                break
+            }
             
             let allpies1 : [PieChartView] = getSubviewsOf(view: myControllers[n - 1].view)
             allpies1[0].data = ChartData
@@ -249,7 +256,9 @@ extension MoneyViewController: UIPageViewControllerDelegate, UIPageViewControlle
         newView.addSubview(chart)
         
         scrollView.addSubview(newView)
-        
+        if scrollView.superview == vc.view {
+            
+        }
         vc.view.addSubview(scrollView)
         
         //NSLayoutConstraint.activate(constraintsView)
@@ -336,7 +345,6 @@ extension MoneyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        print(row)
         if row == 0 {
             return NSLocalizedString("all", comment: "")
         } else {

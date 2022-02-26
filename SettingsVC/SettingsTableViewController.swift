@@ -30,7 +30,6 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("GAY--------", Saved.shared.currentSettings.isShared)
         Design.setupViewBehindTable(tableView: self.tableView)
         Design.setupBackground(controller: self)
         resetSettingsButton.setTitle(NSLocalizedString("reset_settings", comment: ""), for: .normal)
@@ -109,27 +108,35 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func Share() {
-        let activityVC = UIActivityViewController(activityItems: ["Check out a new app! "], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
         
-        self.present(activityVC, animated: true, completion: nil)
-        
-        activityVC.completionWithItemsHandler = { activity, completed, items, error in
-            if completed == true {
-                Saved.shared.currentSettings.isShared = true
+        if let name = URL(string: "https://apps.apple.com/ru/app/pets-friend/id1582236816"), !name.absoluteString.isEmpty {
+            
+            let activityVC = UIActivityViewController(activityItems: ["Check out a new app on App Store!", name], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = self.view
+            
+            self.present(activityVC, animated: true, completion: nil)
+            
+            activityVC.completionWithItemsHandler = { activity, completed, items, error in
+                if completed == true {
+                    Saved.shared.currentSettings.isShared = true
+                }
             }
         }
     }
     
     @IBAction func Share(_ sender: Any) {
-        let activityVC = UIActivityViewController(activityItems: ["Check out a new app on App Store! Pet's Friend"], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = self.view
         
-        self.present(activityVC, animated: true, completion: nil)
-        
-        activityVC.completionWithItemsHandler = { activity, completed, items, error in
-            if completed == true {
-                Saved.shared.currentSettings.isShared = true
+        if let name = URL(string: "https://apps.apple.com/ru/app/pets-friend/id1582236816"), !name.absoluteString.isEmpty {
+            
+            let activityVC = UIActivityViewController(activityItems: ["Check out a new app on App Store!", name], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = self.view
+            
+            self.present(activityVC, animated: true, completion: nil)
+            
+            activityVC.completionWithItemsHandler = { activity, completed, items, error in
+                if completed == true {
+                    Saved.shared.currentSettings.isShared = true
+                }
             }
         }
     }

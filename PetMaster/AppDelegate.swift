@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // set orientations that will be allowed in this property by default
     var orientationLock = UIInterfaceOrientationMask.portrait
     
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         Purchases.debugLogsEnabled = true
@@ -24,20 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         checkAllBirthdays()
 
-        AppVersion.CheckFullVersion()
-        
+        //AppVersion.CheckFullVersion()
+        //AppVersion.isFullVersion = true
+        //Saved.shared.currentVersion.isFullVersion = true
         sleep(1)
         // cheking for full version of an app
-        let isFullVersion: Bool = Saved.shared.currentVersion.isFullVersion
-        
-        if isFullVersion {
-            AppVersion.isFullVersion = true
-            CloudHelper.SaveFullVersionToCloud(fullVersion: true)
-        } else {
-            if AppVersion.isFullVersion {
-                Saved.shared.currentVersion.isFullVersion = true
-            }
-        }
+        AppVersion.isFullVersion = true
+        CloudHelper.SaveFullVersionToCloud(fullVersion: true)
         
         if AppVersion.isFullVersion {
             //recovering data from icloud or saving

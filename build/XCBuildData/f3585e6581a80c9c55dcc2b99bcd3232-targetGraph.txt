@@ -1,0 +1,18 @@
+Target dependency graph (7 targets)
+Charts in Pods, no dependencies
+PurchasesCoreSwift in Pods, no dependencies
+Purchases in Pods, depends on:
+PurchasesCoreSwift in Pods (explicit)
+TinyConstraints in Pods, no dependencies
+Pods-PetMaster in Pods, depends on:
+Charts in Pods (explicit)
+Purchases in Pods (explicit)
+PurchasesCoreSwift in Pods (explicit)
+TinyConstraints in Pods (explicit)
+Pods-PetMaster-PetMasterUITests in Pods, depends on:
+Charts in Pods (explicit)
+Purchases in Pods (explicit)
+PurchasesCoreSwift in Pods (explicit)
+TinyConstraints in Pods (explicit)
+Pods-PetMasterTests in Pods, depends on:
+Pods-PetMaster in Pods (explicit)

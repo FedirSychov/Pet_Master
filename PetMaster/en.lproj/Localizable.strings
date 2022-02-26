@@ -80,3 +80,6 @@
 "plans" = "You have plans!";
 "are_you_sure" = "Are you sure?";
 "is_alive" = "Is alive!";
+"no_vaccinations" = "no vaccinations";
+"no_diseases" = "no diseases";
+"export" = "Export";

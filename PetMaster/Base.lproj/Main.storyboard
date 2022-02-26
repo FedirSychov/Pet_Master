@@ -445,7 +445,7 @@
                                                             <fragment content="Name:">
                                                                 <attributes>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tailIndent="10" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -459,8 +459,9 @@
                                                         <attributedString key="attributedText">
                                                             <fragment content="Age: ">
                                                                 <attributes>
-                                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tailIndent="10" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -474,8 +475,9 @@
                                                         <attributedString key="attributedText">
                                                             <fragment content="Type:">
                                                                 <attributes>
-                                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tailIndent="10" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -489,9 +491,9 @@
                                                         <attributedString key="attributedText">
                                                             <fragment content="Status:">
                                                                 <attributes>
-                                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                     <font key="NSFont" size="24" name="AvenirNext-Medium"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" headIndent="10" tailIndent="10" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -586,7 +588,6 @@
                                             <constraint firstItem="qwT-b6-gRq" firstAttribute="leading" secondItem="14V-Lu-clW" secondAttribute="leading" id="W9w-Fd-Dhw"/>
                                             <constraint firstItem="qwT-b6-gRq" firstAttribute="top" secondItem="14V-Lu-clW" secondAttribute="top" id="lAD-yZ-Uam"/>
                                             <constraint firstAttribute="bottom" secondItem="Myc-9X-nRg" secondAttribute="bottom" id="nPm-W1-cZ3"/>
-                                            <constraint firstItem="Myc-9X-nRg" firstAttribute="top" secondItem="qwT-b6-gRq" secondAttribute="bottom" id="vst-Hp-Qo7"/>
                                             <constraint firstAttribute="trailing" secondItem="qwT-b6-gRq" secondAttribute="trailing" id="xyF-ML-eai"/>
                                         </constraints>
                                     </stackView>
@@ -1022,7 +1023,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="History"/>
                                         <connections>
-                                            <segue destination="r81-7w-KcD" kind="show" id="5B4-OR-m1h"/>
+                                            <segue destination="r81-7w-KcD" kind="show" identifier="goToHistory" id="5B4-OR-m1h"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1494,9 +1495,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DiseaseCell" textLabel="Wlt-8B-Sui" style="IBUITableViewCellStyleDefault" id="hci-W7-Xq8">
                                 <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="43.666667938232422"/>
@@ -2483,10 +2481,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zQG-nV-3Ph"/>
-        <segue reference="UPL-G6-Dek"/>
+        <segue reference="BuR-Qc-9ba"/>
+        <segue reference="Tpd-ms-F2s"/>
         <segue reference="szD-nL-Qvq"/>
-        <segue reference="YeG-af-J6N"/>
+        <segue reference="6iF-tW-OyH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Background-4" width="1242" height="2208"/>

@@ -108,7 +108,12 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         for animal in data {
             output.append(animal.name)
         }
-        self.currentAnimal = output[0]
+        if output.count == 0 {
+            Alert.showBasicAlert(on: self, with: "Warning!", message: "No pets to add expenses")
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.currentAnimal = output[0]
+        }
         return output
     }
     
@@ -128,7 +133,6 @@ class AddExpenditureViewController: UIViewController, UIPickerViewDelegate, UIPi
         let tempArr = [moneyFor.entertainment.rawValue, moneyFor.food.rawValue, moneyFor.vet.rawValue, moneyFor.other.rawValue]
         
         if nameTextField.text != "" && priceTextField.text != "" {
-            print(currentFor!)
             
             let newExp = Expenditure(name: nameTextField.text!, animal: currentAnimal!, summ: Double(priceTextField.text!)!, forM: moneyFor(rawValue: tempArr[self.currentForNum!])!)
             self.addDelegate?.AddExp(exp: newExp)

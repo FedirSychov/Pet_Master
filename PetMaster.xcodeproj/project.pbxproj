@@ -274,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				7EC5555126B3F8C50054F314 /* AnimalsTableViewController.swift */,
-				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
 				7EF9F10426C3CAF900B70335 /* AnimalTableViewCell.swift */,
 				7EF9F10526C3CAF900B70335 /* AnimalTableViewCell.xib */,
 			);
@@ -284,6 +283,7 @@
 		7E6E030E2605EDB40015571B = {
 			isa = PBXGroup;
 			children = (
+				7E6E03192605EDB40015571B /* PetMaster */,
 				7E079A2426D0E5F000A46181 /* Alternate Icons */,
 				7EB4140F26CDB00B00204785 /* ICloud and purchase */,
 				7EACC12926C84A3F0036739C /* MoneyForAnimal */,
@@ -292,7 +292,6 @@
 				7EC5555826B3FF910054F314 /* AddAnimalVC */,
 				7EC5555326B3FBC20054F314 /* SettingsVC */,
 				7E10536E269E339100C5AA7A /* AnimalListScreen */,
-				7E6E03192605EDB40015571B /* PetMaster */,
 				7E6E03302605EDB50015571B /* PetMasterTests */,
 				7E6E033B2605EDB50015571B /* PetMasterUITests */,
 				7E6E03182605EDB40015571B /* Products */,
@@ -314,6 +313,7 @@
 		7E6E03192605EDB40015571B /* PetMaster */ = {
 			isa = PBXGroup;
 			children = (
+				7E6E031A2605EDB40015571B /* AppDelegate.swift */,
 				7EB4140C26CDAFB500204785 /* PetMaster.entitlements */,
 				7E6E03202605EDB40015571B /* Main.storyboard */,
 				7E1295A026C25E03003DCC62 /* What to do.rtf */,
@@ -939,14 +939,14 @@
 				CODE_SIGN_ENTITLEMENTS = PetMaster/PetMaster.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;
 				INFOPLIST_FILE = PetMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SWP.PetMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -964,14 +964,14 @@
 				CODE_SIGN_ENTITLEMENTS = PetMaster/PetMaster.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = SGFQ55R4UD;
 				INFOPLIST_FILE = PetMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.5;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SWP.PetMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

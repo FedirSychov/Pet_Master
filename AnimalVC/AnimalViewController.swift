@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AnimalViewController: UIViewController {
     var currentAnimal: Animal?
@@ -50,12 +51,21 @@ class AnimalViewController: UIViewController {
     }
     
     private func setupButtons(){
-        //print(ExportAnimals.ExportInfo(currentAnimal: self.currentAnimal!))
         Design.SetupGreenButton(button: MakeHealthy)
         Design.SetupBaseButton(button: VaccinationsButton)
         VaccinationsButton.setTitle(NSLocalizedString("vaccinations_button", comment: ""), for: .normal)
         Design.SetupBaseButton(button: DiseasesButton)
         Design.SetupBaseButton(button: EventsButton)
+        
+        self.NameLabel.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        self.AgeLabel.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        self.TypeLabel.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        self.StatusLabel.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        
+        Design.animateLabelAppear(label: self.NameLabel, delay: 0.0)
+        Design.animateLabelAppear(label: self.AgeLabel, delay: 0.3)
+        Design.animateLabelAppear(label: self.TypeLabel, delay: 0.6)
+        Design.animateLabelAppear(label: self.StatusLabel, delay: 0.9)
     }
     
     func updateStatus(){
@@ -170,7 +180,7 @@ class AnimalViewController: UIViewController {
     private func ShowAlertActionSheet(){
         let alert = UIAlertController(title: NSLocalizedString("options", comment: ""), message: nil, preferredStyle: .actionSheet)
         
-        let exportAction = UIAlertAction(title: "Export", style: .default) { [weak self](_) in
+        let exportAction = UIAlertAction(title: NSLocalizedString("export", comment: ""), style: .default) { [weak self](_) in
             let activityVC = UIActivityViewController(activityItems: [ExportAnimals.ExportInfo(currentAnimal: (self?.currentAnimal!)!)], applicationActivities: nil)
             activityVC.popoverPresentationController?.sourceView = self!.view
             
@@ -213,7 +223,6 @@ class AnimalViewController: UIViewController {
                 if animal.showInfo() == self!.currentAnimal!.showInfo(){
                     Saved.shared.currentSaves.animals.remove(at: num)
                     Saved.shared.currentSaves.animals.insert(self!.currentAnimal!, at: num)
-                    print(Saved.shared.currentSaves.animals[num].date_of_death ?? "no date (setted nil)")
                     self!.viewDidLoad()
                 }
                 num += 1
@@ -223,14 +232,14 @@ class AnimalViewController: UIViewController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
         
         if currentAnimal!.date_of_death == nil{
-            //alert.addAction(exportAction)
+            alert.addAction(exportAction)
             alert.addAction(imageAction)
             alert.addAction(editAction)
             alert.addAction(deleteAction)
             alert.addAction(deathAction)
             alert.addAction(cancelAction)
         } else {
-            //alert.addAction(exportAction)
+            alert.addAction(exportAction)
             alert.addAction(imageAction)
             alert.addAction(isStillAliveAction)
             alert.addAction(deleteAction)

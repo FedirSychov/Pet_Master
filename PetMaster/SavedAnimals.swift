@@ -125,7 +125,6 @@ class Saved {
                 do{
                     
                     let result = try PropertyListDecoder().decode(FullVersion.self, from: data)
-                    print("TEST: \(result.isFullVersion)")
                     if result.isFullVersion == true {
                         return result
                     } else {

@@ -115,6 +115,34 @@ class Design{
         backgroundView.backgroundColor = UIColor(red: CGFloat(Saved.shared.currentSettings.cellBackground_red/255), green: CGFloat(Saved.shared.currentSettings.cellBackground_green/255), blue: CGFloat(Saved.shared.currentSettings.cellBackground_blue/255), alpha: 1)
         cell.selectedBackgroundView = backgroundView
     }
+    
+    static func animateLabelDisappear(label: UILabel) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            label.transform = CGAffineTransform(translationX: -25, y: 0)
+        }) { (_) in
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                label.alpha = 0
+                label.transform = label.transform.translatedBy(x: 0, y: -200)
+            }, completion: nil)
+        }
+    }
+    
+    static func animateLabelAppear(label: UILabel, delay: Float) {
+        label.alpha = 0
+        UIView.animate(withDuration: 0.0, delay: TimeInterval(delay), usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) {
+            label.transform = label.transform.translatedBy(x: 0, y: -200)
+            label.alpha = 0
+        } completion: { (_) in
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut) {
+                label.transform = label.transform.translatedBy(x: 0, y: 200)
+                label.alpha = 1
+            } completion: { (_) in
+                
+            }
+
+        }
+
+    }
 }
 
 extension String{

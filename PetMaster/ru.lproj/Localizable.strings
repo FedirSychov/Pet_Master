@@ -80,3 +80,6 @@
 "plans" = "У Вас есть планы!";
 "are_you_sure" = "Вы уверены?";
 "is_alive" = "Жив!";
+"no_vaccinations" = "нет прививок";
+"no_diseases" = "нет болезней";
+"export" = "Экспорт";

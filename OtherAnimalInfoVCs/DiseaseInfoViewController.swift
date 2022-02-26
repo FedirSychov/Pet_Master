@@ -42,6 +42,12 @@ class DiseaseInfoViewController: UIViewController {
             self.optionButton.isEnabled = false
         }
         reloadInfo()
+        
+        Design.animateLabelAppear(label: self.NameLabel, delay: 0.0)
+        Design.animateLabelAppear(label: self.DateLabel, delay: 0.3)
+        Design.animateLabelAppear(label: self.DaysLabel, delay: 0.6)
+        Design.animateLabelAppear(label: self.MedicinesLabel, delay: 0.9)
+        Design.animateLabelAppear(label: self.DescriptionLabel, delay: 1.2)
     }
     
     @IBAction func OptionsButton(_ sender: Any) {

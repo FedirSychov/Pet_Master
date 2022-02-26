@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol updateExpends: NSObject {
+    func updateExpend()
+}
+
 class MoneyHistoryTableViewController: UITableViewController {
     
     var data: [Expenditure]?
     var data_array: [[Expenditure]]?
     var monthes_array: [String]?
+    
+    weak var updateDelegate: updateExpends?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +44,6 @@ class MoneyHistoryTableViewController: UITableViewController {
         } else {
             array_data.append([])
         }
-
         if self.data!.count > 0 {
             for n in 1...self.data!.count {
                 let exp = self.data![self.data!.count - n]
@@ -63,7 +68,17 @@ class MoneyHistoryTableViewController: UITableViewController {
     }
     
     private func months(from date: Date) -> Int {
-            return Calendar.current.dateComponents([.month], from: date, to: Date()).month! + 1
+        let temp1 = Calendar.current.dateComponents([.day], from: date)
+        let temp2 = Calendar.current.dateComponents([.day], from: Date())
+        
+        
+        
+        let temp =  Calendar.current.dateComponents([.day, .month], from: date, to: Date())
+        var monthes = temp.month! + 1
+        if temp1.day! > temp2.day! {
+            monthes += 1
+        }
+        return monthes
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,10 +113,12 @@ class MoneyHistoryTableViewController: UITableViewController {
 
         let label = UILabel(frame: CGRect(x: 18, y: 20, width: 300, height: 34))
 
-            label.font = UIFont(name: "Avenir Next Medium", size: 32)
+        label.font = UIFont(name: "Avenir Next Medium", size: 32)
 
         if monthes_array!.count > 0 {
-            label.text = monthes_array![section]
+            if data_array![section].count != 0 {
+                label.text = monthes_array![section]
+            }
         } else {
             label.text = ""
         }
@@ -126,6 +143,7 @@ class MoneyHistoryTableViewController: UITableViewController {
                     Saved.shared.currentExpenditures.allExpenditures = tempArray
                     self.viewDidLoad()
                     tableView.reloadData()
+                    self.updateDelegate?.updateExpend()
                 }
                 num += 1
             }
@@ -138,5 +156,11 @@ class MoneyHistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension MoneyViewController: updateExpends {
+    func updateExpend() {
+        self.countMoney()
     }
 }
